@@ -6,4 +6,3 @@ pod "AFIncrementalStore", :git => "https://github.com/AFNetworking/AFIncremental
 
 # UI
 pod "ECSlidingViewController"
-pod "SSPullToRefresh"
