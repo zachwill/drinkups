@@ -11,5 +11,6 @@
 @interface GHJSONFormatter : NSObject
 
 - (NSNumber *)formatCoordinate:(NSString *)coordinate;
+- (NSDate *)formatDate:(NSString *)date;
 
 @end

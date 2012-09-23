@@ -2,7 +2,7 @@
 //  Drinkup.h
 //  Github
 //
-//  Created by Zach Williams on 9/22/12.
+//  Created by Zach Williams on 9/23/12.
 //  Copyright (c) 2012 Zach Williams. All rights reserved.
 //
 
@@ -14,7 +14,7 @@
 @interface Drinkup : NSManagedObject
 
 @property (nonatomic, retain) NSString * blog;
-@property (nonatomic, retain) NSString * date;
+@property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSString * drinkup_id;
 @property (nonatomic, retain) Bar *bar;
 

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface GHListViewController : UITableViewController
-
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 @end

@@ -22,12 +22,15 @@
 {
     [super viewDidLoad];
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Drinkup"];
-    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"drinkup_id" ascending:NO]];
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                                     managedObjectContext:[[GHDataModel sharedModel] mainContext]
                                                                       sectionNameKeyPath:nil
                                                                                cacheName:@"DrinkupCache"];
     _fetchedResultsController.delegate = self;
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refetchData) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
     [self refetchData];
 }
 
@@ -72,6 +75,9 @@
 #pragma mark - NSFetchedResultsControllerDelegate
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    if ([self.refreshControl isRefreshing]) {
+        [self.refreshControl endRefreshing];
+    }
     [self.tableView reloadData];
 }
 

@@ -66,8 +66,9 @@ static NSString * const kAPIBaseURL = @"http://drinkups.herokuapp.com/api/v1/";
                                                                         ofEntity:entity
                                                                     fromResponse:response] mutableCopy];
     if ([entity.name isEqualToString:@"Drinkup"]) {
-        [mutableProperties setValue:[representation valueForKey:@"id"] forKey:@"drinkup_id"];
-        [mutableProperties setValue:[representation valueForKey:@"date"] forKey:@"date"];
+        NSDate *date = [self.jsonFormatter formatDate:representation[@"date"]];
+        mutableProperties[@"date"] = date;
+        mutableProperties[@"drinkup_id"] = representation[@"id"];
     } else if ([entity.name isEqualToString:@"Bar"]) {
         NSNumber *latitude  = [self.jsonFormatter formatCoordinate:representation[@"latitude"]];
         NSNumber *longitude = [self.jsonFormatter formatCoordinate:representation[@"longitude"]];

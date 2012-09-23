@@ -26,11 +26,11 @@
 		796C2CD21607D3A700F238F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796C2CD11607D3A700F238F2 /* MapKit.framework */; };
 		796C2CD41607D3B200F238F2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796C2CD31607D3B200F238F2 /* CoreLocation.framework */; };
 		796C2CD71607D68100F238F2 /* GHIncrementalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 796C2CD61607D68100F238F2 /* GHIncrementalStore.m */; };
-		7980C975160ED18B006BCB34 /* Drinkup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C974160ED18B006BCB34 /* Drinkup.m */; };
-		7980C978160ED18C006BCB34 /* Bar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C977160ED18C006BCB34 /* Bar.m */; };
 		7980C97C160ED5B4006BCB34 /* GHAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C97B160ED5B4006BCB34 /* GHAPIClient.m */; };
 		7980C97F160ED5E4006BCB34 /* GHJSONFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C97E160ED5E4006BCB34 /* GHJSONFormatter.m */; };
 		7980C99B160EFAAB006BCB34 /* GHDrinkupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C99A160EFAAB006BCB34 /* GHDrinkupTableViewCell.m */; };
+		7980C9AF160F04B6006BCB34 /* Bar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C9AE160F04B6006BCB34 /* Bar.m */; };
+		7980C9B2160F04B6006BCB34 /* Drinkup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C9B1160F04B6006BCB34 /* Drinkup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,10 +63,6 @@
 		796C2CD31607D3B200F238F2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		796C2CD51607D68100F238F2 /* GHIncrementalStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHIncrementalStore.h; sourceTree = "<group>"; };
 		796C2CD61607D68100F238F2 /* GHIncrementalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHIncrementalStore.m; sourceTree = "<group>"; };
-		7980C973160ED18B006BCB34 /* Drinkup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drinkup.h; sourceTree = "<group>"; };
-		7980C974160ED18B006BCB34 /* Drinkup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drinkup.m; sourceTree = "<group>"; };
-		7980C976160ED18C006BCB34 /* Bar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar.h; sourceTree = "<group>"; };
-		7980C977160ED18C006BCB34 /* Bar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar.m; sourceTree = "<group>"; };
 		7980C97A160ED5B4006BCB34 /* GHAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHAPIClient.h; sourceTree = "<group>"; };
 		7980C97B160ED5B4006BCB34 /* GHAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHAPIClient.m; sourceTree = "<group>"; };
 		7980C97D160ED5E4006BCB34 /* GHJSONFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHJSONFormatter.h; sourceTree = "<group>"; };
@@ -74,6 +70,11 @@
 		7980C980160EDAF6006BCB34 /* Drinkups 1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Drinkups 1.xcdatamodel"; sourceTree = "<group>"; };
 		7980C999160EFAAB006BCB34 /* GHDrinkupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHDrinkupTableViewCell.h; sourceTree = "<group>"; };
 		7980C99A160EFAAB006BCB34 /* GHDrinkupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHDrinkupTableViewCell.m; sourceTree = "<group>"; };
+		7980C9AB160F049A006BCB34 /* Drinkups 1a.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Drinkups 1a.xcdatamodel"; sourceTree = "<group>"; };
+		7980C9AD160F04B6006BCB34 /* Bar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar.h; sourceTree = "<group>"; };
+		7980C9AE160F04B6006BCB34 /* Bar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar.m; sourceTree = "<group>"; };
+		7980C9B0160F04B6006BCB34 /* Drinkup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drinkup.h; sourceTree = "<group>"; };
+		7980C9B1160F04B6006BCB34 /* Drinkup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drinkup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,10 +171,10 @@
 			isa = PBXGroup;
 			children = (
 				79422DE7160E814100BA702F /* Drinkups.xcdatamodeld */,
-				7980C976160ED18C006BCB34 /* Bar.h */,
-				7980C977160ED18C006BCB34 /* Bar.m */,
-				7980C973160ED18B006BCB34 /* Drinkup.h */,
-				7980C974160ED18B006BCB34 /* Drinkup.m */,
+				7980C9AD160F04B6006BCB34 /* Bar.h */,
+				7980C9AE160F04B6006BCB34 /* Bar.m */,
+				7980C9B0160F04B6006BCB34 /* Drinkup.h */,
+				7980C9B1160F04B6006BCB34 /* Drinkup.m */,
 				796C2CC11607D0EA00F238F2 /* GHDataModel.h */,
 				796C2CC21607D0EA00F238F2 /* GHDataModel.m */,
 				796C2CD51607D68100F238F2 /* GHIncrementalStore.h */,
@@ -309,11 +310,11 @@
 				796C2CD71607D68100F238F2 /* GHIncrementalStore.m in Sources */,
 				79422DE9160E814100BA702F /* Drinkups.xcdatamodeld in Sources */,
 				79422DF0160EB88500BA702F /* GHListViewController.m in Sources */,
-				7980C975160ED18B006BCB34 /* Drinkup.m in Sources */,
-				7980C978160ED18C006BCB34 /* Bar.m in Sources */,
 				7980C97C160ED5B4006BCB34 /* GHAPIClient.m in Sources */,
 				7980C97F160ED5E4006BCB34 /* GHJSONFormatter.m in Sources */,
 				7980C99B160EFAAB006BCB34 /* GHDrinkupTableViewCell.m in Sources */,
+				7980C9AF160F04B6006BCB34 /* Bar.m in Sources */,
+				7980C9B2160F04B6006BCB34 /* Drinkup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +432,7 @@
 		79422DE7160E814100BA702F /* Drinkups.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				7980C9AB160F049A006BCB34 /* Drinkups 1a.xcdatamodel */,
 				7980C980160EDAF6006BCB34 /* Drinkups 1.xcdatamodel */,
 				79422DE8160E814100BA702F /* Drinkups.xcdatamodel */,
 			);

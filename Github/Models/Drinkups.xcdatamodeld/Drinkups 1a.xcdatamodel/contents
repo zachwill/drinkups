@@ -11,7 +11,7 @@
     </entity>
     <entity name="Drinkup" representedClassName="Drinkup" syncable="YES">
         <attribute name="blog" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="drinkup_id" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="bar" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Bar" inverseName="drinkups" inverseEntity="Bar" syncable="YES"/>
     </entity>

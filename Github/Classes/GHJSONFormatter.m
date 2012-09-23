@@ -8,22 +8,26 @@
 
 #import "GHJSONFormatter.h"
 
-@interface GHJSONFormatter ()
-@property (strong, nonatomic) NSNumberFormatter *coordinateFormatter;
-@end
-
 @implementation GHJSONFormatter
 
-- (NSNumberFormatter *)coordinateFormatter {
-    if (_coordinateFormatter == nil) {
-        _coordinateFormatter = [[NSNumberFormatter alloc] init];
-        [_coordinateFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    }
-    return _coordinateFormatter;
+- (NSNumber *)formatCoordinate:(NSString *)coordinate {
+    static NSNumberFormatter *coordinateFormatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        coordinateFormatter = [[NSNumberFormatter alloc] init];
+        [coordinateFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    });
+    return [coordinateFormatter numberFromString:coordinate];
 }
 
-- (NSNumber *)formatCoordinate:(NSString *)coordinate {
-    return [self.coordinateFormatter numberFromString:coordinate];
+- (NSDate *)formatDate:(NSString *)date {
+    static NSDateFormatter *dateFormatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZZZZ";
+    });
+    return [dateFormatter dateFromString:date];
 }
 
 @end
