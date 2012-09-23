@@ -7,36 +7,73 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B211A0AA1504312BDF6A92F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D674350D744F419269310E /* libPods.a */; };
 		792A029D1607A90C00129016 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792A029C1607A90C00129016 /* UIKit.framework */; };
 		792A029F1607A90C00129016 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792A029E1607A90C00129016 /* Foundation.framework */; };
 		792A02A11607A90C00129016 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792A02A01607A90C00129016 /* CoreGraphics.framework */; };
 		792A02A71607A90C00129016 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 792A02A51607A90C00129016 /* InfoPlist.strings */; };
 		792A02A91607A90C00129016 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 792A02A81607A90C00129016 /* main.m */; };
-		792A02AD1607A90C00129016 /* GHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 792A02AC1607A90C00129016 /* GHAppDelegate.m */; };
-		792A02AF1607A90C00129016 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 792A02AE1607A90C00129016 /* Default.png */; };
-		792A02B11607A90D00129016 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792A02B01607A90C00129016 /* Default@2x.png */; };
-		792A02B31607A90D00129016 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792A02B21607A90D00129016 /* Default-568h@2x.png */; };
-		792A02B61607A90D00129016 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 792A02B41607A90D00129016 /* MainStoryboard.storyboard */; };
-		792A02B91607A90D00129016 /* GHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 792A02B81607A90D00129016 /* GHViewController.m */; };
+		792A02AD1607A90C00129016 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 792A02AC1607A90C00129016 /* AppDelegate.m */; };
+		792A02D61607AA7100129016 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792A02D31607AA7100129016 /* Default-568h@2x.png */; };
+		792A02D71607AA7100129016 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 792A02D41607AA7100129016 /* Default.png */; };
+		792A02D81607AA7100129016 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792A02D51607AA7100129016 /* Default@2x.png */; };
+		792A02DD1607AABA00129016 /* ECSlidingViewController+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 792A02DA1607AABA00129016 /* ECSlidingViewController+Create.m */; };
+		792A02DE1607AABA00129016 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 792A02DC1607AABA00129016 /* UIColor+Hex.m */; };
+		79422DE9160E814100BA702F /* Drinkups.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79422DE7160E814100BA702F /* Drinkups.xcdatamodeld */; };
+		79422DF0160EB88500BA702F /* GHListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79422DEF160EB88500BA702F /* GHListViewController.m */; };
+		796C2CC31607D0EA00F238F2 /* GHDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 796C2CC21607D0EA00F238F2 /* GHDataModel.m */; };
+		796C2CD01607D39800F238F2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796C2CCF1607D39800F238F2 /* CoreData.framework */; };
+		796C2CD21607D3A700F238F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796C2CD11607D3A700F238F2 /* MapKit.framework */; };
+		796C2CD41607D3B200F238F2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796C2CD31607D3B200F238F2 /* CoreLocation.framework */; };
+		796C2CD71607D68100F238F2 /* GHIncrementalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 796C2CD61607D68100F238F2 /* GHIncrementalStore.m */; };
+		7980C975160ED18B006BCB34 /* Drinkup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C974160ED18B006BCB34 /* Drinkup.m */; };
+		7980C978160ED18C006BCB34 /* Bar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C977160ED18C006BCB34 /* Bar.m */; };
+		7980C97C160ED5B4006BCB34 /* GHAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C97B160ED5B4006BCB34 /* GHAPIClient.m */; };
+		7980C97F160ED5E4006BCB34 /* GHJSONFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C97E160ED5E4006BCB34 /* GHJSONFormatter.m */; };
+		7980C99B160EFAAB006BCB34 /* GHDrinkupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C99A160EFAAB006BCB34 /* GHDrinkupTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		54D674350D744F419269310E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		57FADD98C0954534B5E40D51 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		792A02981607A90C00129016 /* Github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Github.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		792A029C1607A90C00129016 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		792A029E1607A90C00129016 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		792A02A01607A90C00129016 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		792A029C1607A90C00129016 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		792A029E1607A90C00129016 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		792A02A01607A90C00129016 /* CoreGraphics.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		792A02A41607A90C00129016 /* Github-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Github-Info.plist"; sourceTree = "<group>"; };
 		792A02A61607A90C00129016 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		792A02A81607A90C00129016 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		792A02AA1607A90C00129016 /* Github-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Github-Prefix.pch"; sourceTree = "<group>"; };
-		792A02AB1607A90C00129016 /* GHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHAppDelegate.h; sourceTree = "<group>"; };
-		792A02AC1607A90C00129016 /* GHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHAppDelegate.m; sourceTree = "<group>"; };
-		792A02AE1607A90C00129016 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		792A02B01607A90C00129016 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		792A02B21607A90D00129016 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		792A02B51607A90D00129016 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		792A02B71607A90D00129016 /* GHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHViewController.h; sourceTree = "<group>"; };
-		792A02B81607A90D00129016 /* GHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHViewController.m; sourceTree = "<group>"; };
+		792A02AB1607A90C00129016 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Github/AppDelegate.h; sourceTree = "<group>"; };
+		792A02AC1607A90C00129016 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Github/AppDelegate.m; sourceTree = "<group>"; };
+		792A02D31607AA7100129016 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		792A02D41607AA7100129016 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		792A02D51607AA7100129016 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		792A02D91607AABA00129016 /* ECSlidingViewController+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ECSlidingViewController+Create.h"; sourceTree = "<group>"; };
+		792A02DA1607AABA00129016 /* ECSlidingViewController+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ECSlidingViewController+Create.m"; sourceTree = "<group>"; };
+		792A02DB1607AABA00129016 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		792A02DC1607AABA00129016 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		79422DE8160E814100BA702F /* Drinkups.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Drinkups.xcdatamodel; sourceTree = "<group>"; };
+		79422DEE160EB88500BA702F /* GHListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHListViewController.h; sourceTree = "<group>"; };
+		79422DEF160EB88500BA702F /* GHListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHListViewController.m; sourceTree = "<group>"; };
+		796C2CC11607D0EA00F238F2 /* GHDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHDataModel.h; sourceTree = "<group>"; };
+		796C2CC21607D0EA00F238F2 /* GHDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHDataModel.m; sourceTree = "<group>"; };
+		796C2CCF1607D39800F238F2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		796C2CD11607D3A700F238F2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		796C2CD31607D3B200F238F2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		796C2CD51607D68100F238F2 /* GHIncrementalStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHIncrementalStore.h; sourceTree = "<group>"; };
+		796C2CD61607D68100F238F2 /* GHIncrementalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHIncrementalStore.m; sourceTree = "<group>"; };
+		7980C973160ED18B006BCB34 /* Drinkup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drinkup.h; sourceTree = "<group>"; };
+		7980C974160ED18B006BCB34 /* Drinkup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drinkup.m; sourceTree = "<group>"; };
+		7980C976160ED18C006BCB34 /* Bar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar.h; sourceTree = "<group>"; };
+		7980C977160ED18C006BCB34 /* Bar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar.m; sourceTree = "<group>"; };
+		7980C97A160ED5B4006BCB34 /* GHAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHAPIClient.h; sourceTree = "<group>"; };
+		7980C97B160ED5B4006BCB34 /* GHAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHAPIClient.m; sourceTree = "<group>"; };
+		7980C97D160ED5E4006BCB34 /* GHJSONFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHJSONFormatter.h; sourceTree = "<group>"; };
+		7980C97E160ED5E4006BCB34 /* GHJSONFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHJSONFormatter.m; sourceTree = "<group>"; };
+		7980C980160EDAF6006BCB34 /* Drinkups 1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Drinkups 1.xcdatamodel"; sourceTree = "<group>"; };
+		7980C999160EFAAB006BCB34 /* GHDrinkupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHDrinkupTableViewCell.h; sourceTree = "<group>"; };
+		7980C99A160EFAAB006BCB34 /* GHDrinkupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHDrinkupTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,9 +81,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				796C2CD01607D39800F238F2 /* CoreData.framework in Frameworks */,
+				796C2CD41607D3B200F238F2 /* CoreLocation.framework in Frameworks */,
+				796C2CD21607D3A700F238F2 /* MapKit.framework in Frameworks */,
+				792A02A11607A90C00129016 /* CoreGraphics.framework in Frameworks */,
 				792A029D1607A90C00129016 /* UIKit.framework in Frameworks */,
 				792A029F1607A90C00129016 /* Foundation.framework in Frameworks */,
-				792A02A11607A90C00129016 /* CoreGraphics.framework in Frameworks */,
+				4B211A0AA1504312BDF6A92F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,9 +97,16 @@
 		792A028D1607A90C00129016 = {
 			isa = PBXGroup;
 			children = (
-				792A02A21607A90C00129016 /* Github */,
+				792A02AB1607A90C00129016 /* AppDelegate.h */,
+				792A02AC1607A90C00129016 /* AppDelegate.m */,
+				7980C979160ED5B4006BCB34 /* Classes */,
+				792A02CC1607AA3300129016 /* Controllers */,
+				792A02CF1607AA3300129016 /* Models */,
+				792A02D01607AA3300129016 /* Views */,
+				792A02A31607A90C00129016 /* Supporting Files */,
 				792A029B1607A90C00129016 /* Frameworks */,
 				792A02991607A90C00129016 /* Products */,
+				57FADD98C0954534B5E40D51 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,38 +121,100 @@
 		792A029B1607A90C00129016 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				796C2CD31607D3B200F238F2 /* CoreLocation.framework */,
+				796C2CD11607D3A700F238F2 /* MapKit.framework */,
+				796C2CCF1607D39800F238F2 /* CoreData.framework */,
 				792A029C1607A90C00129016 /* UIKit.framework */,
 				792A029E1607A90C00129016 /* Foundation.framework */,
 				792A02A01607A90C00129016 /* CoreGraphics.framework */,
+				54D674350D744F419269310E /* libPods.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		792A02A21607A90C00129016 /* Github */ = {
-			isa = PBXGroup;
-			children = (
-				792A02AB1607A90C00129016 /* GHAppDelegate.h */,
-				792A02AC1607A90C00129016 /* GHAppDelegate.m */,
-				792A02B41607A90D00129016 /* MainStoryboard.storyboard */,
-				792A02B71607A90D00129016 /* GHViewController.h */,
-				792A02B81607A90D00129016 /* GHViewController.m */,
-				792A02A31607A90C00129016 /* Supporting Files */,
-			);
-			path = Github;
 			sourceTree = "<group>";
 		};
 		792A02A31607A90C00129016 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				792A02CB1607AA3300129016 /* Categories */,
 				792A02A41607A90C00129016 /* Github-Info.plist */,
 				792A02A51607A90C00129016 /* InfoPlist.strings */,
 				792A02A81607A90C00129016 /* main.m */,
 				792A02AA1607A90C00129016 /* Github-Prefix.pch */,
-				792A02AE1607A90C00129016 /* Default.png */,
-				792A02B01607A90C00129016 /* Default@2x.png */,
-				792A02B21607A90D00129016 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			path = Github;
+			sourceTree = "<group>";
+		};
+		792A02CB1607AA3300129016 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				792A02D91607AABA00129016 /* ECSlidingViewController+Create.h */,
+				792A02DA1607AABA00129016 /* ECSlidingViewController+Create.m */,
+				792A02DB1607AABA00129016 /* UIColor+Hex.h */,
+				792A02DC1607AABA00129016 /* UIColor+Hex.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		792A02CC1607AA3300129016 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				79422DEE160EB88500BA702F /* GHListViewController.h */,
+				79422DEF160EB88500BA702F /* GHListViewController.m */,
+			);
+			name = Controllers;
+			path = Github/Controllers;
+			sourceTree = "<group>";
+		};
+		792A02CF1607AA3300129016 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				79422DE7160E814100BA702F /* Drinkups.xcdatamodeld */,
+				7980C976160ED18C006BCB34 /* Bar.h */,
+				7980C977160ED18C006BCB34 /* Bar.m */,
+				7980C973160ED18B006BCB34 /* Drinkup.h */,
+				7980C974160ED18B006BCB34 /* Drinkup.m */,
+				796C2CC11607D0EA00F238F2 /* GHDataModel.h */,
+				796C2CC21607D0EA00F238F2 /* GHDataModel.m */,
+				796C2CD51607D68100F238F2 /* GHIncrementalStore.h */,
+				796C2CD61607D68100F238F2 /* GHIncrementalStore.m */,
+			);
+			name = Models;
+			path = Github/Models;
+			sourceTree = "<group>";
+		};
+		792A02D01607AA3300129016 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				792A02D21607AA7100129016 /* Images */,
+				7980C999160EFAAB006BCB34 /* GHDrinkupTableViewCell.h */,
+				7980C99A160EFAAB006BCB34 /* GHDrinkupTableViewCell.m */,
+			);
+			name = Views;
+			path = Github/Views;
+			sourceTree = "<group>";
+		};
+		792A02D21607AA7100129016 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				792A02D31607AA7100129016 /* Default-568h@2x.png */,
+				792A02D41607AA7100129016 /* Default.png */,
+				792A02D51607AA7100129016 /* Default@2x.png */,
+			);
+			name = Images;
+			path = Github/Images;
+			sourceTree = SOURCE_ROOT;
+		};
+		7980C979160ED5B4006BCB34 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7980C97A160ED5B4006BCB34 /* GHAPIClient.h */,
+				7980C97B160ED5B4006BCB34 /* GHAPIClient.m */,
+				7980C97D160ED5E4006BCB34 /* GHJSONFormatter.h */,
+				7980C97E160ED5E4006BCB34 /* GHJSONFormatter.m */,
+			);
+			name = Classes;
+			path = Github/Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,6 +227,7 @@
 				792A02941607A90C00129016 /* Sources */,
 				792A02951607A90C00129016 /* Frameworks */,
 				792A02961607A90C00129016 /* Resources */,
+				C56E0518B87948EBBF2207D7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -160,14 +271,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				792A02A71607A90C00129016 /* InfoPlist.strings in Resources */,
-				792A02AF1607A90C00129016 /* Default.png in Resources */,
-				792A02B11607A90D00129016 /* Default@2x.png in Resources */,
-				792A02B31607A90D00129016 /* Default-568h@2x.png in Resources */,
-				792A02B61607A90D00129016 /* MainStoryboard.storyboard in Resources */,
+				792A02D61607AA7100129016 /* Default-568h@2x.png in Resources */,
+				792A02D71607AA7100129016 /* Default.png in Resources */,
+				792A02D81607AA7100129016 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C56E0518B87948EBBF2207D7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		792A02941607A90C00129016 /* Sources */ = {
@@ -175,8 +302,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				792A02A91607A90C00129016 /* main.m in Sources */,
-				792A02AD1607A90C00129016 /* GHAppDelegate.m in Sources */,
-				792A02B91607A90D00129016 /* GHViewController.m in Sources */,
+				792A02AD1607A90C00129016 /* AppDelegate.m in Sources */,
+				792A02DD1607AABA00129016 /* ECSlidingViewController+Create.m in Sources */,
+				792A02DE1607AABA00129016 /* UIColor+Hex.m in Sources */,
+				796C2CC31607D0EA00F238F2 /* GHDataModel.m in Sources */,
+				796C2CD71607D68100F238F2 /* GHIncrementalStore.m in Sources */,
+				79422DE9160E814100BA702F /* Drinkups.xcdatamodeld in Sources */,
+				79422DF0160EB88500BA702F /* GHListViewController.m in Sources */,
+				7980C975160ED18B006BCB34 /* Drinkup.m in Sources */,
+				7980C978160ED18C006BCB34 /* Bar.m in Sources */,
+				7980C97C160ED5B4006BCB34 /* GHAPIClient.m in Sources */,
+				7980C97F160ED5E4006BCB34 /* GHJSONFormatter.m in Sources */,
+				7980C99B160EFAAB006BCB34 /* GHDrinkupTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,14 +326,6 @@
 				792A02A61607A90C00129016 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		792A02B41607A90D00129016 /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				792A02B51607A90D00129016 /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -253,6 +382,7 @@
 		};
 		792A02BD1607A90D00129016 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57FADD98C0954534B5E40D51 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Github/Github-Prefix.pch";
@@ -264,6 +394,7 @@
 		};
 		792A02BE1607A90D00129016 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57FADD98C0954534B5E40D51 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Github/Github-Prefix.pch";
@@ -292,8 +423,23 @@
 				792A02BE1607A90D00129016 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		79422DE7160E814100BA702F /* Drinkups.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7980C980160EDAF6006BCB34 /* Drinkups 1.xcdatamodel */,
+				79422DE8160E814100BA702F /* Drinkups.xcdatamodel */,
+			);
+			currentVersion = 79422DE8160E814100BA702F /* Drinkups.xcdatamodel */;
+			path = Drinkups.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 792A028F1607A90C00129016 /* Project object */;
 }

@@ -6,13 +6,26 @@
 //  Copyright (c) 2012 Zach Williams. All rights reserved.
 //
 
-#import "GHAppDelegate.h"
+#import "AppDelegate.h"
+#import "GHDataModel.h"
+#import "GHListViewController.h"
 
-@implementation GHAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [[GHDataModel sharedModel] createSharedURLCache];
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    
+    GHListViewController *viewController = [[GHListViewController alloc] initWithStyle:UITableViewStylePlain];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
+
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = self.navigationController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 							
