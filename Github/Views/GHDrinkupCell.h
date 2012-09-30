@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Bar.h"
+#import "Drinkup.h"
 
 @interface GHDrinkupCell : UICollectionViewCell
 
-@property (strong, nonatomic) Bar *bar;
+@property (strong, nonatomic) Drinkup *drinkup;
 @property (strong, nonatomic) IBOutlet UILabel *name;
 @property (strong, nonatomic) IBOutlet UILabel *city;
 

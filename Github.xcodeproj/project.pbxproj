@@ -20,7 +20,6 @@
 		792A02DD1607AABA00129016 /* ECSlidingViewController+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 792A02DA1607AABA00129016 /* ECSlidingViewController+Create.m */; };
 		792A02DE1607AABA00129016 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 792A02DC1607AABA00129016 /* UIColor+Hex.m */; };
 		79422DE9160E814100BA702F /* Drinkups.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79422DE7160E814100BA702F /* Drinkups.xcdatamodeld */; };
-		79422DF0160EB88500BA702F /* GHListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79422DEF160EB88500BA702F /* GHListViewController.m */; };
 		796C2CC31607D0EA00F238F2 /* GHDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 796C2CC21607D0EA00F238F2 /* GHDataModel.m */; };
 		796C2CD01607D39800F238F2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796C2CCF1607D39800F238F2 /* CoreData.framework */; };
 		796C2CD21607D3A700F238F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796C2CD11607D3A700F238F2 /* MapKit.framework */; };
@@ -59,8 +58,6 @@
 		792A02DB1607AABA00129016 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		792A02DC1607AABA00129016 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		79422DE8160E814100BA702F /* Drinkups.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Drinkups.xcdatamodel; sourceTree = "<group>"; };
-		79422DEE160EB88500BA702F /* GHListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHListViewController.h; sourceTree = "<group>"; };
-		79422DEF160EB88500BA702F /* GHListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHListViewController.m; sourceTree = "<group>"; };
 		796C2CC11607D0EA00F238F2 /* GHDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHDataModel.h; sourceTree = "<group>"; };
 		796C2CC21607D0EA00F238F2 /* GHDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHDataModel.m; sourceTree = "<group>"; };
 		796C2CCF1607D39800F238F2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -175,8 +172,6 @@
 		792A02CC1607AA3300129016 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				79422DEE160EB88500BA702F /* GHListViewController.h */,
-				79422DEF160EB88500BA702F /* GHListViewController.m */,
 				7996E34F1618AA5F00701DCE /* GHDrinkupsViewController.h */,
 				7996E3501618AA5F00701DCE /* GHDrinkupsViewController.m */,
 			);
@@ -340,7 +335,6 @@
 				796C2CC31607D0EA00F238F2 /* GHDataModel.m in Sources */,
 				796C2CD71607D68100F238F2 /* GHIncrementalStore.m in Sources */,
 				79422DE9160E814100BA702F /* Drinkups.xcdatamodeld in Sources */,
-				79422DF0160EB88500BA702F /* GHListViewController.m in Sources */,
 				7980C97C160ED5B4006BCB34 /* GHAPIClient.m in Sources */,
 				7980C97F160ED5E4006BCB34 /* GHJSONFormatter.m in Sources */,
 				7980C99B160EFAAB006BCB34 /* GHDrinkupTableViewCell.m in Sources */,

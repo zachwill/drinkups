@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "GHDataModel.h"
-#import "GHListViewController.h"
 #import "GHDrinkupsViewController.h"
 #import "GHLayout.h"
 

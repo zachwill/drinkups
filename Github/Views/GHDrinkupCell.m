@@ -7,6 +7,7 @@
 //
 
 #import "GHDrinkupCell.h"
+#import "Bar.h"
 
 @implementation GHDrinkupCell
 
@@ -19,9 +20,9 @@
     return self;
 }
 
-- (void)setBar:(Bar *)bar {
-    self.name.text = bar.name;
-    self.city.text = bar.city;
+- (void)setDrinkup:(Drinkup *)drinkup {
+    self.name.text = drinkup.bar.name;
+    self.city.text = drinkup.bar.city;
 }
 
 - (void)setSelected:(BOOL)selected {
