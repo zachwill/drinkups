@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GHDrinkupsViewController : UICollectionViewController
+@interface GHDrinkupsViewController : UICollectionViewController <UICollectionViewDelegate>
 
 @end

@@ -14,9 +14,11 @@
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (nonatomic) float lastScrollPosition;
 
 @end
 
+static const float kScrollViewThrottleOffset = 25.0f;
 
 @implementation GHDrinkupsViewController
 
@@ -25,6 +27,7 @@
     [super viewDidLoad];
     [self.collectionView registerClass:[GHDrinkupCell class] forCellWithReuseIdentifier:@"Drinkup"];
     self.collectionView.backgroundColor = [UIColor lightGrayColor];
+    self.collectionView.showsVerticalScrollIndicator = NO;
 }
 
 - (void)createPullToRefresh {
@@ -46,6 +49,28 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     [[collectionView cellForItemAtIndexPath:indexPath] setSelected:YES];
+}
+
+#pragma mark - Scrolling
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    self.lastScrollPosition = scrollView.contentOffset.y;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    float scrollPosition = scrollView.contentOffset.y;
+    // Throttle the scroll calls.
+    if (abs(self.lastScrollPosition - scrollPosition) > kScrollViewThrottleOffset) {
+        if (self.lastScrollPosition < scrollView.contentOffset.y) {
+            if (self.navigationController.navigationBarHidden == NO) {
+                [self.navigationController setNavigationBarHidden:YES animated:YES];
+            }
+        } else {
+            if (self.navigationController.navigationBarHidden == YES) {
+                [self.navigationController setNavigationBarHidden:NO animated:YES];
+            }
+        }
+    }
 }
 
 @end
