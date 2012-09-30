@@ -8,16 +8,17 @@
 
 #import "GHLayout.h"
 
-static const float kItemSize = 150.0f;
+static const float kItemSizeWidth  = 150.0f;
+static const float kItemSizeHeight = 155.0f;
 
 @implementation GHLayout
 
 - (id)init {
     self = [super init];
     if (self) {
-        self.itemSize = CGSizeMake(kItemSize, kItemSize);
+        self.itemSize = CGSizeMake(kItemSizeWidth, kItemSizeHeight);
         self.minimumInteritemSpacing = 0;
-        self.sectionInset = UIEdgeInsetsMake(10, 6, 10, 6);
+        self.sectionInset = UIEdgeInsetsMake(10, 6, 0, 6);
     }
     return self;
 }

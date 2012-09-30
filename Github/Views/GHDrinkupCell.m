@@ -26,9 +26,6 @@
 }
 
 - (void)setSelected:(BOOL)selected {
-    UIView *view = [[UIView alloc] initWithFrame:self.frame];
-    view.backgroundColor = [UIColor blueColor];
-    self.selectedBackgroundView = view;
     [super setSelected:selected];
 }
 

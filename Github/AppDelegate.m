@@ -32,6 +32,7 @@
     return YES;
 }
 
+// A global appearance stylesheet.
 - (void)styleSheet {
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav.png"]
                                        forBarMetrics:UIBarMetricsDefault];

@@ -29,7 +29,6 @@ static const float kScrollViewThrottleOffset = 15.0f;
     [self.collectionView registerNib:[UINib nibWithNibName:@"GHDrinkupCell" bundle:nil]
           forCellWithReuseIdentifier:@"Drinkup"];
     self.collectionView.backgroundColor = [UIColor lightGrayColor];
-    self.collectionView.showsVerticalScrollIndicator = NO;
     [self refetchData];
     [self createPullToRefresh];
 }
