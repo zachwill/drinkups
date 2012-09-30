@@ -37,6 +37,10 @@
 		79A50A411618D1530083641D /* GHDrinkupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79A50A401618D1530083641D /* GHDrinkupCell.xib */; };
 		79D064791618E51700C1AC97 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 79D064771618E51700C1AC97 /* Icon.png */; };
 		79D0647A1618E51700C1AC97 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79D064781618E51700C1AC97 /* Icon@2x.png */; };
+		79D064801618E6EB00C1AC97 /* nav_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 79D0647C1618E6EB00C1AC97 /* nav_shadow.png */; };
+		79D064811618E6EB00C1AC97 /* nav_shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79D0647D1618E6EB00C1AC97 /* nav_shadow@2x.png */; };
+		79D064821618E6EB00C1AC97 /* nav.png in Resources */ = {isa = PBXBuildFile; fileRef = 79D0647E1618E6EB00C1AC97 /* nav.png */; };
+		79D064831618E6EB00C1AC97 /* nav@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79D0647F1618E6EB00C1AC97 /* nav@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +93,10 @@
 		79A50A401618D1530083641D /* GHDrinkupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GHDrinkupCell.xib; sourceTree = "<group>"; };
 		79D064771618E51700C1AC97 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = SOURCE_ROOT; };
 		79D064781618E51700C1AC97 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
+		79D0647C1618E6EB00C1AC97 /* nav_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_shadow.png; sourceTree = "<group>"; };
+		79D0647D1618E6EB00C1AC97 /* nav_shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_shadow@2x.png"; sourceTree = "<group>"; };
+		79D0647E1618E6EB00C1AC97 /* nav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav.png; sourceTree = "<group>"; };
+		79D0647F1618E6EB00C1AC97 /* nav@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +229,10 @@
 				792A02D51607AA7100129016 /* Default@2x.png */,
 				79D064771618E51700C1AC97 /* Icon.png */,
 				79D064781618E51700C1AC97 /* Icon@2x.png */,
+				79D0647C1618E6EB00C1AC97 /* nav_shadow.png */,
+				79D0647D1618E6EB00C1AC97 /* nav_shadow@2x.png */,
+				79D0647E1618E6EB00C1AC97 /* nav.png */,
+				79D0647F1618E6EB00C1AC97 /* nav@2x.png */,
 			);
 			name = Images;
 			path = Github/Images;
@@ -309,6 +321,10 @@
 				79A50A411618D1530083641D /* GHDrinkupCell.xib in Resources */,
 				79D064791618E51700C1AC97 /* Icon.png in Resources */,
 				79D0647A1618E51700C1AC97 /* Icon@2x.png in Resources */,
+				79D064801618E6EB00C1AC97 /* nav_shadow.png in Resources */,
+				79D064811618E6EB00C1AC97 /* nav_shadow@2x.png in Resources */,
+				79D064821618E6EB00C1AC97 /* nav.png in Resources */,
+				79D064831618E6EB00C1AC97 /* nav@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

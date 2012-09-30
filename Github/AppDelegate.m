@@ -22,13 +22,20 @@
     GHLayout *layout = [[GHLayout alloc] init];
     GHDrinkupsViewController *drinkupsVC = [[GHDrinkupsViewController alloc] initWithCollectionViewLayout:layout];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:drinkupsVC];
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithHex:@"222"];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     
+    [self styleSheet];
+    
     return YES;
+}
+
+- (void)styleSheet {
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav.png"]
+                                       forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setShadowImage:[UIImage imageNamed:@"nav_shadow.png"]];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
