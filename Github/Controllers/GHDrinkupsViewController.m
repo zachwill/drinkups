@@ -10,6 +10,7 @@
 #import "GHDataModel.h"
 #import "GHDrinkupCell.h"
 #import "Drinkup.h"
+#import "GHMeetupViewController.h"
 
 @interface GHDrinkupsViewController () <NSFetchedResultsControllerDelegate>
 
@@ -48,7 +49,7 @@ static const float kScrollViewThrottleOffset = 15.0f;
     }
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Drinkup"];
     NSManagedObjectContext *context = [[GHDataModel sharedModel] mainContext];
-    fetchRequest.fetchBatchSize = 50;
+    fetchRequest.fetchBatchSize = 30;
     fetchRequest.returnsObjectsAsFaults = NO;
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
@@ -89,8 +90,10 @@ static const float kScrollViewThrottleOffset = 15.0f;
 
 #pragma mark - UICollectionView Delegate
 
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [[collectionView cellForItemAtIndexPath:indexPath] setSelected:YES];
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    Drinkup *drinkup = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    GHMeetupViewController *meetupVC = [[GHMeetupViewController alloc] initWithDrinkup:drinkup];
+    [self.navigationController pushViewController:meetupVC animated:YES];
 }
 
 @end

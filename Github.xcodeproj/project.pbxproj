@@ -44,6 +44,7 @@
 		79D064861618F01500C1AC97 /* frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 79D064841618F01500C1AC97 /* frame.png */; };
 		79D064871618F01500C1AC97 /* frame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79D064851618F01500C1AC97 /* frame@2x.png */; };
 		79D0648B1618F2BD00C1AC97 /* beers.png in Resources */ = {isa = PBXBuildFile; fileRef = 79D0648A1618F2BD00C1AC97 /* beers.png */; };
+		79D0648E1618FF8D00C1AC97 /* GHMeetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D0648D1618FF8D00C1AC97 /* GHMeetupViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +104,8 @@
 		79D064841618F01500C1AC97 /* frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame.png; sourceTree = "<group>"; };
 		79D064851618F01500C1AC97 /* frame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame@2x.png"; sourceTree = "<group>"; };
 		79D0648A1618F2BD00C1AC97 /* beers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beers.png; sourceTree = "<group>"; };
+		79D0648C1618FF8D00C1AC97 /* GHMeetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHMeetupViewController.h; sourceTree = "<group>"; };
+		79D0648D1618FF8D00C1AC97 /* GHMeetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHMeetupViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +195,8 @@
 			children = (
 				7996E34F1618AA5F00701DCE /* GHDrinkupsViewController.h */,
 				7996E3501618AA5F00701DCE /* GHDrinkupsViewController.m */,
+				79D0648C1618FF8D00C1AC97 /* GHMeetupViewController.h */,
+				79D0648D1618FF8D00C1AC97 /* GHMeetupViewController.m */,
 			);
 			name = Controllers;
 			path = Github/Controllers;
@@ -379,6 +384,7 @@
 				7996E34D16189EEE00701DCE /* GHDrinkupCell.m in Sources */,
 				7996E3511618AA5F00701DCE /* GHDrinkupsViewController.m in Sources */,
 				7996E3541618AB1400701DCE /* GHLayout.m in Sources */,
+				79D0648E1618FF8D00C1AC97 /* GHMeetupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
