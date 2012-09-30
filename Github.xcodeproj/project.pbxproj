@@ -31,6 +31,10 @@
 		7980C99B160EFAAB006BCB34 /* GHDrinkupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C99A160EFAAB006BCB34 /* GHDrinkupTableViewCell.m */; };
 		7980C9AF160F04B6006BCB34 /* Bar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C9AE160F04B6006BCB34 /* Bar.m */; };
 		7980C9B2160F04B6006BCB34 /* Drinkup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C9B1160F04B6006BCB34 /* Drinkup.m */; };
+		7996E34D16189EEE00701DCE /* GHDrinkupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7996E34C16189EEE00701DCE /* GHDrinkupCell.m */; };
+		7996E3511618AA5F00701DCE /* GHDrinkupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7996E3501618AA5F00701DCE /* GHDrinkupsViewController.m */; };
+		7996E3541618AB1400701DCE /* GHLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7996E3531618AB1400701DCE /* GHLayout.m */; };
+		7996E3561618B97400701DCE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7996E3551618B97400701DCE /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,11 +74,18 @@
 		7980C980160EDAF6006BCB34 /* Drinkups 1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Drinkups 1.xcdatamodel"; sourceTree = "<group>"; };
 		7980C999160EFAAB006BCB34 /* GHDrinkupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHDrinkupTableViewCell.h; sourceTree = "<group>"; };
 		7980C99A160EFAAB006BCB34 /* GHDrinkupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHDrinkupTableViewCell.m; sourceTree = "<group>"; };
-		7980C9AB160F049A006BCB34 /* Drinkups 1a.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Drinkups 1a.xcdatamodel"; sourceTree = "<group>"; };
+		7980C9AB160F049A006BCB34 /* Drinkups 1a.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Drinkups 1a.xcdatamodel"; sourceTree = "<group>"; };
 		7980C9AD160F04B6006BCB34 /* Bar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar.h; sourceTree = "<group>"; };
 		7980C9AE160F04B6006BCB34 /* Bar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar.m; sourceTree = "<group>"; };
 		7980C9B0160F04B6006BCB34 /* Drinkup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drinkup.h; sourceTree = "<group>"; };
 		7980C9B1160F04B6006BCB34 /* Drinkup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drinkup.m; sourceTree = "<group>"; };
+		7996E34B16189EEE00701DCE /* GHDrinkupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHDrinkupCell.h; sourceTree = "<group>"; };
+		7996E34C16189EEE00701DCE /* GHDrinkupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHDrinkupCell.m; sourceTree = "<group>"; };
+		7996E34F1618AA5F00701DCE /* GHDrinkupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHDrinkupsViewController.h; sourceTree = "<group>"; };
+		7996E3501618AA5F00701DCE /* GHDrinkupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHDrinkupsViewController.m; sourceTree = "<group>"; };
+		7996E3521618AB1400701DCE /* GHLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHLayout.h; sourceTree = "<group>"; };
+		7996E3531618AB1400701DCE /* GHLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHLayout.m; sourceTree = "<group>"; };
+		7996E3551618B97400701DCE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7996E3561618B97400701DCE /* QuartzCore.framework in Frameworks */,
 				796C2CD01607D39800F238F2 /* CoreData.framework in Frameworks */,
 				796C2CD41607D3B200F238F2 /* CoreLocation.framework in Frameworks */,
 				796C2CD21607D3A700F238F2 /* MapKit.framework in Frameworks */,
@@ -122,6 +134,7 @@
 		792A029B1607A90C00129016 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7996E3551618B97400701DCE /* QuartzCore.framework */,
 				796C2CD31607D3B200F238F2 /* CoreLocation.framework */,
 				796C2CD11607D3A700F238F2 /* MapKit.framework */,
 				796C2CCF1607D39800F238F2 /* CoreData.framework */,
@@ -162,6 +175,8 @@
 			children = (
 				79422DEE160EB88500BA702F /* GHListViewController.h */,
 				79422DEF160EB88500BA702F /* GHListViewController.m */,
+				7996E34F1618AA5F00701DCE /* GHDrinkupsViewController.h */,
+				7996E3501618AA5F00701DCE /* GHDrinkupsViewController.m */,
 			);
 			name = Controllers;
 			path = Github/Controllers;
@@ -170,11 +185,8 @@
 		792A02CF1607AA3300129016 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7980C9BA160F818D006BCB34 /* Entities */,
 				79422DE7160E814100BA702F /* Drinkups.xcdatamodeld */,
-				7980C9AD160F04B6006BCB34 /* Bar.h */,
-				7980C9AE160F04B6006BCB34 /* Bar.m */,
-				7980C9B0160F04B6006BCB34 /* Drinkup.h */,
-				7980C9B1160F04B6006BCB34 /* Drinkup.m */,
 				796C2CC11607D0EA00F238F2 /* GHDataModel.h */,
 				796C2CC21607D0EA00F238F2 /* GHDataModel.m */,
 				796C2CD51607D68100F238F2 /* GHIncrementalStore.h */,
@@ -188,6 +200,10 @@
 			isa = PBXGroup;
 			children = (
 				792A02D21607AA7100129016 /* Images */,
+				7996E34B16189EEE00701DCE /* GHDrinkupCell.h */,
+				7996E34C16189EEE00701DCE /* GHDrinkupCell.m */,
+				7996E3521618AB1400701DCE /* GHLayout.h */,
+				7996E3531618AB1400701DCE /* GHLayout.m */,
 				7980C999160EFAAB006BCB34 /* GHDrinkupTableViewCell.h */,
 				7980C99A160EFAAB006BCB34 /* GHDrinkupTableViewCell.m */,
 			);
@@ -216,6 +232,17 @@
 			);
 			name = Classes;
 			path = Github/Classes;
+			sourceTree = "<group>";
+		};
+		7980C9BA160F818D006BCB34 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				7980C9AD160F04B6006BCB34 /* Bar.h */,
+				7980C9AE160F04B6006BCB34 /* Bar.m */,
+				7980C9B0160F04B6006BCB34 /* Drinkup.h */,
+				7980C9B1160F04B6006BCB34 /* Drinkup.m */,
+			);
+			name = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +342,9 @@
 				7980C99B160EFAAB006BCB34 /* GHDrinkupTableViewCell.m in Sources */,
 				7980C9AF160F04B6006BCB34 /* Bar.m in Sources */,
 				7980C9B2160F04B6006BCB34 /* Drinkup.m in Sources */,
+				7996E34D16189EEE00701DCE /* GHDrinkupCell.m in Sources */,
+				7996E3511618AA5F00701DCE /* GHDrinkupsViewController.m in Sources */,
+				7996E3541618AB1400701DCE /* GHLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

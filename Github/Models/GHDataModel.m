@@ -16,6 +16,7 @@
 @property (nonatomic, readwrite) NSManagedObjectContext *mainContext;
 
 - (NSURL *)documentsDirectory;
+- (NSString *)persistentStoreType;
 
 @end
 
@@ -31,12 +32,14 @@
     return _sharedInstance;
 }
 
-- (NSString *)modelName {
-    return @"Drinkups";
-}
-
 - (NSString *)pathToModel {
-    return [[NSBundle mainBundle] pathForResource:[self modelName] ofType:@"momd"];
+    NSString *model = @"mom";
+    NSString *directory = @"momd";
+    NSString *path = [[NSBundle mainBundle] pathForResource:self.modelName ofType:model];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        path = [[NSBundle mainBundle] pathForResource:self.modelName ofType:directory];
+    }
+    return path;
 }
 
 - (NSString *)storeFileName {
@@ -50,18 +53,32 @@
 # pragma mark - Private Methods
 
 - (NSURL *)documentsDirectory {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
+                                                   inDomains:NSUserDomainMask] lastObject];
+}
+
+// Overwrite when copy/pasting.
+- (NSString *)persistentStoreType {
+    return [GHIncrementalStore type];
 }
 
 // NOTE: Should only be set once.
 - (void)createSharedURLCache {
-    NSUInteger memory = 8 * 1024 * 1024;
-    NSUInteger disk   = 20 * 1024 * 1024;
-    NSURLCache *cache = [[NSURLCache alloc] initWithMemoryCapacity:memory diskCapacity:disk diskPath:nil];
-    [NSURLCache setSharedURLCache:cache];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSUInteger memory = 8 * 1024 * 1024;
+        NSUInteger disk   = 20 * 1024 * 1024;
+        NSURLCache *cache = [[NSURLCache alloc] initWithMemoryCapacity:memory diskCapacity:disk diskPath:nil];
+        [NSURLCache setSharedURLCache:cache];
+    });
 }
 
 #pragma mark - Getters
+
+// Overwrite when copy/pasting.
+- (NSString *)modelName {
+    return @"Drinkups";
+}
 
 - (NSManagedObjectContext *)mainContext {
     if (_mainContext == nil) {
@@ -81,9 +98,11 @@
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
     if (_persistentStoreCoordinator == nil) {
-        _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-        AFIncrementalStore *store = (AFIncrementalStore *)[_persistentStoreCoordinator addPersistentStoreWithType:[GHIncrementalStore type]
-                                                                                                    configuration:nil URL:nil options:nil error:nil];
+        _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+        NSString *storeType = [self persistentStoreType];
+        AFIncrementalStore *store = (AFIncrementalStore *)[_persistentStoreCoordinator addPersistentStoreWithType:storeType
+                                                                                                    configuration:nil URL:nil
+                                                                                                          options:nil error:nil];
         NSDictionary *options = @{
             NSInferMappingModelAutomaticallyOption: @YES,
             NSMigratePersistentStoresAutomaticallyOption: @YES

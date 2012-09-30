@@ -11,11 +11,11 @@
 
 @interface GHDataModel : NSObject
 
+@property (nonatomic, readonly) NSString *modelName;
 @property (nonatomic, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, readonly) NSManagedObjectContext *mainContext;
 
 + (GHDataModel *)sharedModel;
-- (NSString *)modelName;
 - (NSString *)pathToModel;
 - (NSString *)storeFileName;
 - (NSURL *)localStoreURL;

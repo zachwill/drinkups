@@ -13,8 +13,11 @@
 #import "GHDrinkupTableViewCell.h"
 
 @interface GHListViewController () <NSFetchedResultsControllerDelegate>
+
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
 @end
+
 
 @implementation GHListViewController
 
@@ -28,9 +31,7 @@
                                                                       sectionNameKeyPath:nil
                                                                                cacheName:@"DrinkupCache"];
     _fetchedResultsController.delegate = self;
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(refetchData) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refreshControl;
+    [self createPullToRefresh];
     [self refetchData];
 }
 
@@ -38,6 +39,12 @@
     [_fetchedResultsController performSelectorOnMainThread:@selector(performFetch:)
                                                 withObject:nil waitUntilDone:YES
                                                      modes:@[NSRunLoopCommonModes]];
+}
+
+- (void)createPullToRefresh {
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refetchData) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
 }
 
 #pragma mark - Table view data source
@@ -56,11 +63,9 @@
 {
     static NSString *CellIdentifier = @"Cell";
     GHDrinkupTableViewCell *cell = (GHDrinkupTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
     if (!cell) {
         cell = [[GHDrinkupTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    
     Drinkup *drinkup = [_fetchedResultsController objectAtIndexPath:indexPath];
     cell.drinkup = drinkup;
     return cell;

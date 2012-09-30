@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "GHDataModel.h"
 #import "GHListViewController.h"
+#import "GHDrinkupsViewController.h"
+#import "GHLayout.h"
 
 @implementation AppDelegate
 
@@ -18,9 +20,10 @@
     [[GHDataModel sharedModel] createSharedURLCache];
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     
-    GHListViewController *viewController = [[GHListViewController alloc] initWithStyle:UITableViewStylePlain];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
+    GHLayout *layout = [[GHLayout alloc] init];
+    GHDrinkupsViewController *drinkupsVC = [[GHDrinkupsViewController alloc] initWithCollectionViewLayout:layout];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:drinkupsVC];
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithHex:@"222"];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = self.navigationController;

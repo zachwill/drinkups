@@ -10,5 +10,7 @@
 #import "Drinkup.h"
 
 @interface GHDrinkupTableViewCell : UITableViewCell
+
 @property (strong, nonatomic) Drinkup *drinkup;
+
 @end
