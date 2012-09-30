@@ -18,14 +18,15 @@
 
 @end
 
-static const float kScrollViewThrottleOffset = 25.0f;
+static const float kScrollViewThrottleOffset = 15.0f;
 
 @implementation GHDrinkupsViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.collectionView registerClass:[GHDrinkupCell class] forCellWithReuseIdentifier:@"Drinkup"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"GHDrinkupCell" bundle:nil]
+          forCellWithReuseIdentifier:@"Drinkup"];
     self.collectionView.backgroundColor = [UIColor lightGrayColor];
     self.collectionView.showsVerticalScrollIndicator = NO;
 }

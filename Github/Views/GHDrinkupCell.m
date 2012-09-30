@@ -19,11 +19,9 @@
     return self;
 }
 
-- (void)drawRect:(CGRect)rect {
-    self.layer.shadowColor  = [UIColor blackColor].CGColor;
-    self.layer.shadowRadius = 2;
-    self.layer.shadowOffset = CGSizeMake(0, 2);
-    self.layer.shadowOpacity = .25;
+- (void)setBar:(Bar *)bar {
+    self.name.text = bar.name;
+    self.city.text = bar.city;
 }
 
 - (void)setSelected:(BOOL)selected {

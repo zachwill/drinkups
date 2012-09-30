@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <QuartzCore/QuartzCore.h>
+#import "Bar.h"
 
 @interface GHDrinkupCell : UICollectionViewCell
 
-@property (strong, nonatomic) UILabel *bar;
+@property (strong, nonatomic) Bar *bar;
+@property (strong, nonatomic) IBOutlet UILabel *name;
+@property (strong, nonatomic) IBOutlet UILabel *city;
 
 @end

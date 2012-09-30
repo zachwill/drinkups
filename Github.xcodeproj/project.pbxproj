@@ -35,6 +35,7 @@
 		7996E3511618AA5F00701DCE /* GHDrinkupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7996E3501618AA5F00701DCE /* GHDrinkupsViewController.m */; };
 		7996E3541618AB1400701DCE /* GHLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7996E3531618AB1400701DCE /* GHLayout.m */; };
 		7996E3561618B97400701DCE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7996E3551618B97400701DCE /* QuartzCore.framework */; };
+		79A50A411618D1530083641D /* GHDrinkupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79A50A401618D1530083641D /* GHDrinkupCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		7996E3521618AB1400701DCE /* GHLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHLayout.h; sourceTree = "<group>"; };
 		7996E3531618AB1400701DCE /* GHLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHLayout.m; sourceTree = "<group>"; };
 		7996E3551618B97400701DCE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		79A50A401618D1530083641D /* GHDrinkupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GHDrinkupCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 				792A02D21607AA7100129016 /* Images */,
 				7996E34B16189EEE00701DCE /* GHDrinkupCell.h */,
 				7996E34C16189EEE00701DCE /* GHDrinkupCell.m */,
+				79A50A401618D1530083641D /* GHDrinkupCell.xib */,
 				7996E3521618AB1400701DCE /* GHLayout.h */,
 				7996E3531618AB1400701DCE /* GHLayout.m */,
 				7980C999160EFAAB006BCB34 /* GHDrinkupTableViewCell.h */,
@@ -302,6 +305,7 @@
 				792A02D61607AA7100129016 /* Default-568h@2x.png in Resources */,
 				792A02D71607AA7100129016 /* Default.png in Resources */,
 				792A02D81607AA7100129016 /* Default@2x.png in Resources */,
+				79A50A411618D1530083641D /* GHDrinkupCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
