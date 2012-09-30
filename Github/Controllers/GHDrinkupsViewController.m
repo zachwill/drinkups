@@ -60,6 +60,10 @@ static const float kScrollViewThrottleOffset = 15.0f;
     return _fetchedResultsController;
 }
 
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.collectionView reloadData];
+}
+
 - (void)refetchData {
     [self.fetchedResultsController performSelectorOnMainThread:@selector(performFetch:)
                                                 withObject:nil waitUntilDone:YES

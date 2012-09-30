@@ -35,6 +35,8 @@
 		7996E3541618AB1400701DCE /* GHLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7996E3531618AB1400701DCE /* GHLayout.m */; };
 		7996E3561618B97400701DCE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7996E3551618B97400701DCE /* QuartzCore.framework */; };
 		79A50A411618D1530083641D /* GHDrinkupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79A50A401618D1530083641D /* GHDrinkupCell.xib */; };
+		79D064791618E51700C1AC97 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 79D064771618E51700C1AC97 /* Icon.png */; };
+		79D0647A1618E51700C1AC97 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79D064781618E51700C1AC97 /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +87,8 @@
 		7996E3531618AB1400701DCE /* GHLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHLayout.m; sourceTree = "<group>"; };
 		7996E3551618B97400701DCE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		79A50A401618D1530083641D /* GHDrinkupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GHDrinkupCell.xib; sourceTree = "<group>"; };
+		79D064771618E51700C1AC97 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = SOURCE_ROOT; };
+		79D064781618E51700C1AC97 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +219,8 @@
 				792A02D31607AA7100129016 /* Default-568h@2x.png */,
 				792A02D41607AA7100129016 /* Default.png */,
 				792A02D51607AA7100129016 /* Default@2x.png */,
+				79D064771618E51700C1AC97 /* Icon.png */,
+				79D064781618E51700C1AC97 /* Icon@2x.png */,
 			);
 			name = Images;
 			path = Github/Images;
@@ -301,6 +307,8 @@
 				792A02D71607AA7100129016 /* Default.png in Resources */,
 				792A02D81607AA7100129016 /* Default@2x.png in Resources */,
 				79A50A411618D1530083641D /* GHDrinkupCell.xib in Resources */,
+				79D064791618E51700C1AC97 /* Icon.png in Resources */,
+				79D0647A1618E51700C1AC97 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
