@@ -43,7 +43,7 @@
 }
 
 - (NSString *)storeFileName {
-    return [[self modelName] stringByAppendingPathExtension:@"sqlite"];
+    return [self.modelName stringByAppendingPathExtension:@"sqlite"];
 }
 
 - (NSURL *)localStoreURL {
@@ -81,47 +81,53 @@
 }
 
 - (NSManagedObjectContext *)mainContext {
-    if (_mainContext == nil) {
-        _mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-        _mainContext.persistentStoreCoordinator = [self persistentStoreCoordinator];
+    if (_mainContext != nil) {
+        return _mainContext;
     }
+
+    _mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    _mainContext.persistentStoreCoordinator = [self persistentStoreCoordinator];
     return _mainContext;
 }
 
 - (NSManagedObjectModel *)managedObjectModel {
-    if (_managedObjectModel == nil) {
-        NSURL *storeURL = [NSURL fileURLWithPath:[self pathToModel]];
-        _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:storeURL];
+    if (_managedObjectModel != nil) {
+        return _managedObjectModel;
     }
+
+    NSURL *storeURL = [NSURL fileURLWithPath:[self pathToModel]];
+    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:storeURL];
     return _managedObjectModel;
 }
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-    if (_persistentStoreCoordinator == nil) {
-        _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
-        NSString *storeType = [self persistentStoreType];
-        AFIncrementalStore *store = (AFIncrementalStore *)[_persistentStoreCoordinator addPersistentStoreWithType:storeType
-                                                                                                    configuration:nil URL:nil
-                                                                                                          options:nil error:nil];
-        NSDictionary *options = @{
-            NSInferMappingModelAutomaticallyOption: @YES,
-            NSMigratePersistentStoresAutomaticallyOption: @YES
-        };
-        
-        NSError *error;
-        [store.backingPersistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
-                                                              configuration:nil
-                                                                        URL:[self localStoreURL]
-                                                                    options:options
-                                                                      error:&error];
-        
-        if (error) {
-            // Should probably abort, as well?
-            NSLog(@"Persistent store error %@, %@", error, [error userInfo]);
-        }
-        
-        NSLog(@"SQLITE: %@", [self localStoreURL]);
+    if (_persistentStoreCoordinator != nil) {
+        return _persistentStoreCoordinator;
     }
+
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+    NSString *storeType = [self persistentStoreType];
+    AFIncrementalStore *store = (AFIncrementalStore *)[_persistentStoreCoordinator addPersistentStoreWithType:storeType
+                                                                                                configuration:nil URL:nil
+                                                                                                      options:nil error:nil];
+    NSDictionary *options = @{
+        NSInferMappingModelAutomaticallyOption: @YES,
+        NSMigratePersistentStoresAutomaticallyOption: @YES
+    };
+
+    NSError *error;
+    [store.backingPersistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                          configuration:nil
+                                                                    URL:[self localStoreURL]
+                                                                options:options
+                                                                  error:&error];
+
+    if (error) {
+        // Should probably abort, as well?
+        NSLog(@"Persistent store error %@, %@", error, [error userInfo]);
+    }
+
+    NSLog(@"SQLITE: %@", [self localStoreURL]);
     return _persistentStoreCoordinator;
 }
 
