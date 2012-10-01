@@ -37,6 +37,7 @@ static const float kScrollViewThrottleOffset = 15.0f;
 - (void)createPullToRefresh {
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refetchData) forControlEvents:UIControlEventValueChanged];
+    refreshControl.tintColor = [UIColor colorWithHex:@"666"];
     self.refreshControl = refreshControl;
     [self.collectionView addSubview:self.refreshControl];
 }
@@ -93,7 +94,13 @@ static const float kScrollViewThrottleOffset = 15.0f;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     Drinkup *drinkup = [self.fetchedResultsController objectAtIndexPath:indexPath];
     GHMeetupViewController *meetupVC = [[GHMeetupViewController alloc] initWithDrinkup:drinkup];
+    [self customBackButton];
     [self.navigationController pushViewController:meetupVC animated:YES];
+}
+
+- (void)customBackButton {
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
 }
 
 @end

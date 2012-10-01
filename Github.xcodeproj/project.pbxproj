@@ -25,6 +25,8 @@
 		796C2CD21607D3A700F238F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796C2CD11607D3A700F238F2 /* MapKit.framework */; };
 		796C2CD41607D3B200F238F2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796C2CD31607D3B200F238F2 /* CoreLocation.framework */; };
 		796C2CD71607D68100F238F2 /* GHIncrementalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 796C2CD61607D68100F238F2 /* GHIncrementalStore.m */; };
+		797B1708161954DB00C69C4E /* backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 797B1706161954DB00C69C4E /* backbutton.png */; };
+		797B1709161954DB00C69C4E /* backbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 797B1707161954DB00C69C4E /* backbutton@2x.png */; };
 		7980C97C160ED5B4006BCB34 /* GHAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C97B160ED5B4006BCB34 /* GHAPIClient.m */; };
 		7980C97F160ED5E4006BCB34 /* GHJSONFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C97E160ED5E4006BCB34 /* GHJSONFormatter.m */; };
 		7980C99B160EFAAB006BCB34 /* GHDrinkupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C99A160EFAAB006BCB34 /* GHDrinkupTableViewCell.m */; };
@@ -75,6 +77,8 @@
 		796C2CD31607D3B200F238F2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		796C2CD51607D68100F238F2 /* GHIncrementalStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHIncrementalStore.h; sourceTree = "<group>"; };
 		796C2CD61607D68100F238F2 /* GHIncrementalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHIncrementalStore.m; sourceTree = "<group>"; };
+		797B1706161954DB00C69C4E /* backbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backbutton.png; sourceTree = "<group>"; };
+		797B1707161954DB00C69C4E /* backbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backbutton@2x.png"; sourceTree = "<group>"; };
 		7980C97A160ED5B4006BCB34 /* GHAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHAPIClient.h; sourceTree = "<group>"; };
 		7980C97B160ED5B4006BCB34 /* GHAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHAPIClient.m; sourceTree = "<group>"; };
 		7980C97D160ED5E4006BCB34 /* GHJSONFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHJSONFormatter.h; sourceTree = "<group>"; };
@@ -241,6 +245,8 @@
 				79D064771618E51700C1AC97 /* Icon.png */,
 				79D064781618E51700C1AC97 /* Icon@2x.png */,
 				79D0648A1618F2BD00C1AC97 /* beers.png */,
+				797B1706161954DB00C69C4E /* backbutton.png */,
+				797B1707161954DB00C69C4E /* backbutton@2x.png */,
 				79D064841618F01500C1AC97 /* frame.png */,
 				79D064851618F01500C1AC97 /* frame@2x.png */,
 				79D0647C1618E6EB00C1AC97 /* nav_shadow.png */,
@@ -342,6 +348,8 @@
 				79D064861618F01500C1AC97 /* frame.png in Resources */,
 				79D064871618F01500C1AC97 /* frame@2x.png in Resources */,
 				79D0648B1618F2BD00C1AC97 /* beers.png in Resources */,
+				797B1708161954DB00C69C4E /* backbutton.png in Resources */,
+				797B1709161954DB00C69C4E /* backbutton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -37,6 +37,11 @@
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav.png"]
                                        forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setShadowImage:[UIImage imageNamed:@"nav_shadow.png"]];
+    UIImage *back = [[UIImage imageNamed:@"backbutton"] stretchableImageWithLeftCapWidth:14
+                                                                            topCapHeight:0];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:back
+                                                      forState:UIControlStateNormal
+                                                    barMetrics:UIBarMetricsDefault];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
