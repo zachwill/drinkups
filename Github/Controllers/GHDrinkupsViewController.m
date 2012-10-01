@@ -99,7 +99,9 @@ static const float kScrollViewThrottleOffset = 15.0f;
 }
 
 - (void)customBackButton {
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStylePlain target:nil action:nil];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Home"
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
 }
 

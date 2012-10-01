@@ -12,6 +12,7 @@
 @interface GHMeetupViewController : UIViewController
 
 @property (strong, nonatomic) Drinkup *drinkup;
+@property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
 
 - (id)initWithDrinkup:(Drinkup *)drinkup;
 

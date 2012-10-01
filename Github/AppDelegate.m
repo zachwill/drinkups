@@ -34,14 +34,22 @@
 
 // A global appearance stylesheet.
 - (void)styleSheet {
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav.png"]
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav"]
                                        forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setShadowImage:[UIImage imageNamed:@"nav_shadow.png"]];
+    [[UINavigationBar appearance] setShadowImage:[UIImage imageNamed:@"nav_shadow"]];
     UIImage *back = [[UIImage imageNamed:@"backbutton"] stretchableImageWithLeftCapWidth:14
                                                                             topCapHeight:0];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:back
                                                       forState:UIControlStateNormal
                                                     barMetrics:UIBarMetricsDefault];
+    [[UIToolbar appearance] setBackgroundImage:[UIImage imageNamed:@"toolbar"]
+                            forToolbarPosition:UIToolbarPositionAny
+                                    barMetrics:UIBarMetricsDefault];
+    [[UIToolbar appearance] setShadowImage:[UIImage imageNamed:@"toolbar_shadow"]
+                        forToolbarPosition:UIToolbarPositionAny];
+    [[UIBarButtonItem appearance] setBackgroundImage:[UIImage imageNamed:@"toolbar_button"]
+                                            forState:UIControlStateNormal
+                                          barMetrics:UIBarMetricsDefault];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

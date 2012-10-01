@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		4B211A0AA1504312BDF6A92F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D674350D744F419269310E /* libPods.a */; };
+		7900877816198169000F24E1 /* GHMeetup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7900877716198169000F24E1 /* GHMeetup.xib */; };
+		7900878016198224000F24E1 /* toolbar_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7900877A16198224000F24E1 /* toolbar_button.png */; };
+		7900878116198224000F24E1 /* toolbar_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7900877B16198224000F24E1 /* toolbar_button@2x.png */; };
+		7900878216198224000F24E1 /* toolbar_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7900877C16198224000F24E1 /* toolbar_shadow.png */; };
+		7900878316198224000F24E1 /* toolbar_shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7900877D16198224000F24E1 /* toolbar_shadow@2x.png */; };
+		7900878416198224000F24E1 /* toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7900877E16198224000F24E1 /* toolbar.png */; };
+		7900878516198224000F24E1 /* toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7900877F16198224000F24E1 /* toolbar@2x.png */; };
 		792A029D1607A90C00129016 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792A029C1607A90C00129016 /* UIKit.framework */; };
 		792A029F1607A90C00129016 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792A029E1607A90C00129016 /* Foundation.framework */; };
 		792A02A11607A90C00129016 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792A02A01607A90C00129016 /* CoreGraphics.framework */; };
@@ -27,9 +34,11 @@
 		796C2CD71607D68100F238F2 /* GHIncrementalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 796C2CD61607D68100F238F2 /* GHIncrementalStore.m */; };
 		797B1708161954DB00C69C4E /* backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 797B1706161954DB00C69C4E /* backbutton.png */; };
 		797B1709161954DB00C69C4E /* backbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 797B1707161954DB00C69C4E /* backbutton@2x.png */; };
+		797B170C161966D800C69C4E /* beertocat.png in Resources */ = {isa = PBXBuildFile; fileRef = 797B170B161966D800C69C4E /* beertocat.png */; };
+		797B170F16197A7800C69C4E /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 797B170D16197A7800C69C4E /* arrow.png */; };
+		797B171016197A7800C69C4E /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 797B170E16197A7800C69C4E /* arrow@2x.png */; };
 		7980C97C160ED5B4006BCB34 /* GHAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C97B160ED5B4006BCB34 /* GHAPIClient.m */; };
 		7980C97F160ED5E4006BCB34 /* GHJSONFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C97E160ED5E4006BCB34 /* GHJSONFormatter.m */; };
-		7980C99B160EFAAB006BCB34 /* GHDrinkupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C99A160EFAAB006BCB34 /* GHDrinkupTableViewCell.m */; };
 		7980C9AF160F04B6006BCB34 /* Bar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C9AE160F04B6006BCB34 /* Bar.m */; };
 		7980C9B2160F04B6006BCB34 /* Drinkup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C9B1160F04B6006BCB34 /* Drinkup.m */; };
 		7996E34D16189EEE00701DCE /* GHDrinkupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7996E34C16189EEE00701DCE /* GHDrinkupCell.m */; };
@@ -52,6 +61,13 @@
 /* Begin PBXFileReference section */
 		54D674350D744F419269310E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		57FADD98C0954534B5E40D51 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		7900877716198169000F24E1 /* GHMeetup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GHMeetup.xib; sourceTree = "<group>"; };
+		7900877A16198224000F24E1 /* toolbar_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar_button.png; sourceTree = "<group>"; };
+		7900877B16198224000F24E1 /* toolbar_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar_button@2x.png"; sourceTree = "<group>"; };
+		7900877C16198224000F24E1 /* toolbar_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar_shadow.png; sourceTree = "<group>"; };
+		7900877D16198224000F24E1 /* toolbar_shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar_shadow@2x.png"; sourceTree = "<group>"; };
+		7900877E16198224000F24E1 /* toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar.png; sourceTree = "<group>"; };
+		7900877F16198224000F24E1 /* toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar@2x.png"; sourceTree = "<group>"; };
 		792A02981607A90C00129016 /* Github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Github.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		792A029C1607A90C00129016 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		792A029E1607A90C00129016 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -79,13 +95,14 @@
 		796C2CD61607D68100F238F2 /* GHIncrementalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHIncrementalStore.m; sourceTree = "<group>"; };
 		797B1706161954DB00C69C4E /* backbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backbutton.png; sourceTree = "<group>"; };
 		797B1707161954DB00C69C4E /* backbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backbutton@2x.png"; sourceTree = "<group>"; };
+		797B170B161966D800C69C4E /* beertocat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beertocat.png; sourceTree = "<group>"; };
+		797B170D16197A7800C69C4E /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		797B170E16197A7800C69C4E /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		7980C97A160ED5B4006BCB34 /* GHAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHAPIClient.h; sourceTree = "<group>"; };
 		7980C97B160ED5B4006BCB34 /* GHAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHAPIClient.m; sourceTree = "<group>"; };
 		7980C97D160ED5E4006BCB34 /* GHJSONFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHJSONFormatter.h; sourceTree = "<group>"; };
 		7980C97E160ED5E4006BCB34 /* GHJSONFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHJSONFormatter.m; sourceTree = "<group>"; };
 		7980C980160EDAF6006BCB34 /* Drinkups 1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Drinkups 1.xcdatamodel"; sourceTree = "<group>"; };
-		7980C999160EFAAB006BCB34 /* GHDrinkupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHDrinkupTableViewCell.h; sourceTree = "<group>"; };
-		7980C99A160EFAAB006BCB34 /* GHDrinkupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHDrinkupTableViewCell.m; sourceTree = "<group>"; };
 		7980C9AB160F049A006BCB34 /* Drinkups 1a.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Drinkups 1a.xcdatamodel"; sourceTree = "<group>"; };
 		7980C9AD160F04B6006BCB34 /* Bar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar.h; sourceTree = "<group>"; };
 		7980C9AE160F04B6006BCB34 /* Bar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar.m; sourceTree = "<group>"; };
@@ -224,13 +241,12 @@
 			isa = PBXGroup;
 			children = (
 				792A02D21607AA7100129016 /* Images */,
+				7900877716198169000F24E1 /* GHMeetup.xib */,
 				7996E34B16189EEE00701DCE /* GHDrinkupCell.h */,
 				7996E34C16189EEE00701DCE /* GHDrinkupCell.m */,
 				79A50A401618D1530083641D /* GHDrinkupCell.xib */,
 				7996E3521618AB1400701DCE /* GHLayout.h */,
 				7996E3531618AB1400701DCE /* GHLayout.m */,
-				7980C999160EFAAB006BCB34 /* GHDrinkupTableViewCell.h */,
-				7980C99A160EFAAB006BCB34 /* GHDrinkupTableViewCell.m */,
 			);
 			name = Views;
 			path = Github/Views;
@@ -244,7 +260,10 @@
 				792A02D51607AA7100129016 /* Default@2x.png */,
 				79D064771618E51700C1AC97 /* Icon.png */,
 				79D064781618E51700C1AC97 /* Icon@2x.png */,
+				797B170D16197A7800C69C4E /* arrow.png */,
+				797B170E16197A7800C69C4E /* arrow@2x.png */,
 				79D0648A1618F2BD00C1AC97 /* beers.png */,
+				797B170B161966D800C69C4E /* beertocat.png */,
 				797B1706161954DB00C69C4E /* backbutton.png */,
 				797B1707161954DB00C69C4E /* backbutton@2x.png */,
 				79D064841618F01500C1AC97 /* frame.png */,
@@ -253,6 +272,12 @@
 				79D0647D1618E6EB00C1AC97 /* nav_shadow@2x.png */,
 				79D0647E1618E6EB00C1AC97 /* nav.png */,
 				79D0647F1618E6EB00C1AC97 /* nav@2x.png */,
+				7900877A16198224000F24E1 /* toolbar_button.png */,
+				7900877B16198224000F24E1 /* toolbar_button@2x.png */,
+				7900877C16198224000F24E1 /* toolbar_shadow.png */,
+				7900877D16198224000F24E1 /* toolbar_shadow@2x.png */,
+				7900877E16198224000F24E1 /* toolbar.png */,
+				7900877F16198224000F24E1 /* toolbar@2x.png */,
 			);
 			name = Images;
 			path = Github/Images;
@@ -350,6 +375,16 @@
 				79D0648B1618F2BD00C1AC97 /* beers.png in Resources */,
 				797B1708161954DB00C69C4E /* backbutton.png in Resources */,
 				797B1709161954DB00C69C4E /* backbutton@2x.png in Resources */,
+				797B170C161966D800C69C4E /* beertocat.png in Resources */,
+				797B170F16197A7800C69C4E /* arrow.png in Resources */,
+				797B171016197A7800C69C4E /* arrow@2x.png in Resources */,
+				7900877816198169000F24E1 /* GHMeetup.xib in Resources */,
+				7900878016198224000F24E1 /* toolbar_button.png in Resources */,
+				7900878116198224000F24E1 /* toolbar_button@2x.png in Resources */,
+				7900878216198224000F24E1 /* toolbar_shadow.png in Resources */,
+				7900878316198224000F24E1 /* toolbar_shadow@2x.png in Resources */,
+				7900878416198224000F24E1 /* toolbar.png in Resources */,
+				7900878516198224000F24E1 /* toolbar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +421,6 @@
 				79422DE9160E814100BA702F /* Drinkups.xcdatamodeld in Sources */,
 				7980C97C160ED5B4006BCB34 /* GHAPIClient.m in Sources */,
 				7980C97F160ED5E4006BCB34 /* GHJSONFormatter.m in Sources */,
-				7980C99B160EFAAB006BCB34 /* GHDrinkupTableViewCell.m in Sources */,
 				7980C9AF160F04B6006BCB34 /* Bar.m in Sources */,
 				7980C9B2160F04B6006BCB34 /* Drinkup.m in Sources */,
 				7996E34D16189EEE00701DCE /* GHDrinkupCell.m in Sources */,
