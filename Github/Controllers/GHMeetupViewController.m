@@ -29,9 +29,6 @@ static const float kToolbarFixedWidthSpacing = 4.0f;
 }
 
 - (void)addToolbarButtons {
-    UIBarButtonItem *fixed = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-                                                                           target:self action:nil];
-    fixed.width = kToolbarFixedWidthSpacing;
     UIBarButtonItem *tweet = [[UIBarButtonItem alloc] initWithTitle:@"Tweet"
                                                               style:UIBarButtonItemStyleBordered
                                                              target:self
@@ -40,7 +37,7 @@ static const float kToolbarFixedWidthSpacing = 4.0f;
                                                                  style:UIBarButtonItemStyleBordered
                                                                 target:self
                                                                 action:@selector(createReminder:)];
-    self.toolbar.items = @[fixed, reminder, tweet];
+    self.toolbar.items = @[reminder, tweet];
 }
 
 #pragma mark - Actions
