@@ -7,6 +7,7 @@
 //
 
 #import "GHMeetupViewController.h"
+#import <Social/Social.h>
 
 static const float kToolbarFixedWidthSpacing = 4.0f;
 
@@ -47,7 +48,23 @@ static const float kToolbarFixedWidthSpacing = 4.0f;
 }
 
 - (void)createTweet:(id)sender {
-    
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+        __block id viewController = self;
+        SLComposeViewController *tweetVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [tweetVC setCompletionHandler:^(SLComposeViewControllerResult result) {
+            if (result == SLComposeViewControllerResultDone) {
+                // Otherwise the screen freezes?
+                [viewController dismissViewControllerAnimated:YES completion:^{
+                    NSLog(@"Tweet, tweet.");
+                }];
+            } else {
+                [viewController dismissViewControllerAnimated:YES completion:^{
+                    NSLog(@"Dismissed.");
+                }];
+            }
+        }];
+        [self presentViewController:tweetVC animated:YES completion:nil];
+    }
 }
 
 @end
