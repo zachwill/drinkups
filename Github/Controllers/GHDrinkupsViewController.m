@@ -15,12 +15,13 @@
 @interface GHDrinkupsViewController () <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic) float lastScrollPosition;
 
 @end
 
+
 static const float kScrollViewThrottleOffset = 15.0f;
+
 
 @implementation GHDrinkupsViewController
 
@@ -35,6 +36,8 @@ static const float kScrollViewThrottleOffset = 15.0f;
     [self customBackButton];
 }
 
+# pragma mark - User Interface
+
 - (void)createPullToRefresh {
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refetchData) forControlEvents:UIControlEventValueChanged];
@@ -43,7 +46,15 @@ static const float kScrollViewThrottleOffset = 15.0f;
     [self.collectionView addSubview:self.refreshControl];
 }
 
-#pragma mark - Data Source
+// Used on the next navigation controller.
+- (void)customBackButton {
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back"
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+}
+
+#pragma mark - NSFetchedResultsController
 
 - (NSFetchedResultsController *)fetchedResultsController {
     if (_fetchedResultsController != nil) {
@@ -68,12 +79,15 @@ static const float kScrollViewThrottleOffset = 15.0f;
 
 - (void)refetchData {
     [self.fetchedResultsController performSelectorOnMainThread:@selector(performFetch:)
-                                                withObject:nil waitUntilDone:YES
+                                                    withObject:nil
+                                                 waitUntilDone:YES
                                                      modes:@[NSRunLoopCommonModes]];
     if ([self.refreshControl isRefreshing]) {
         [self.refreshControl endRefreshing];
     }
 }
+
+#pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return self.fetchedResultsController.sections.count;
@@ -90,20 +104,12 @@ static const float kScrollViewThrottleOffset = 15.0f;
     return cell;
 }
 
-#pragma mark - UICollectionView Delegate
+#pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     Drinkup *drinkup = [self.fetchedResultsController objectAtIndexPath:indexPath];
     GHMeetupViewController *meetupVC = [[GHMeetupViewController alloc] initWithDrinkup:drinkup];
     [self.navigationController pushViewController:meetupVC animated:YES];
-}
-
-// Used on the next navigation controller.
-- (void)customBackButton {
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back"
-                                                                   style:UIBarButtonItemStylePlain
-                                                                  target:nil action:nil];
-    self.navigationItem.backBarButtonItem = backButton;
 }
 
 @end
