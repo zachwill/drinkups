@@ -8,6 +8,7 @@
 
 #import "GHMeetupViewController.h"
 #import <Social/Social.h>
+#import <EventKit/EventKit.h>
 #import "Bar.h"
 
 @interface GHMeetupViewController ()
@@ -60,7 +61,34 @@ static const float kToolbarFixedWidthSpacing = 4.0f;
 }
 
 - (void)createReminder:(id)sender {
-    
+    [[EKEventStore alloc] requestAccessToEntityType:EKEntityTypeReminder completion:^(BOOL granted, NSError *error) {
+        EKEventStore *eventStore = [[EKEventStore alloc] init];
+        EKReminder *reminder = [EKReminder reminderWithEventStore:eventStore];
+        NSString *bar = self.drinkup.bar.name;
+        reminder.title = [NSString stringWithFormat:@"Github Drinkup at %@", bar];
+        reminder.location = bar;
+        reminder.calendar = [eventStore defaultCalendarForNewReminders];
+
+        NSDateComponents *components = [self reminderComponents];
+        reminder.startDateComponents = components;
+        NSDate *dateToRemind = [[NSCalendar currentCalendar] dateFromComponents:components];
+        [reminder addAlarm:[EKAlarm alarmWithAbsoluteDate:dateToRemind]];
+
+        // TODO: Check and see if reminder already exists.
+        NSError *reminderError;
+        [eventStore saveReminder:reminder commit:YES error:&reminderError];
+        if (reminderError) {
+            NSLog(@"Error saving reminder: %@", reminderError);
+        }
+    }];
+}
+
+- (NSDateComponents *)reminderComponents {
+    unsigned options = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:options fromDate:self.drinkup.date];
+    // Default hour set to noon.
+    components.hour = 12;
+    return components;
 }
 
 - (void)createTweet:(id)sender {
@@ -71,7 +99,6 @@ static const float kToolbarFixedWidthSpacing = 4.0f;
         [tweetVC setInitialText:[NSString stringWithFormat:@"%@ drinkup", self.drinkup.bar.name]];
         [tweetVC setCompletionHandler:^(SLComposeViewControllerResult result) {
             if (result == SLComposeViewControllerResultDone) {
-                // Otherwise the screen freezes?
                 [viewController dismissViewControllerAnimated:YES completion:^{
                     NSLog(@"Tweet, tweet.");
                 }];

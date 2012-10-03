@@ -46,6 +46,7 @@
 		7996E3541618AB1400701DCE /* GHLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7996E3531618AB1400701DCE /* GHLayout.m */; };
 		7996E3561618B97400701DCE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7996E3551618B97400701DCE /* QuartzCore.framework */; };
 		7997E6E6161CC8CF00A332BD /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7997E6E5161CC8CF00A332BD /* Social.framework */; };
+		7997E6E9161D032600A332BD /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7997E6E8161D032600A332BD /* EventKit.framework */; };
 		79A50A411618D1530083641D /* GHDrinkupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79A50A401618D1530083641D /* GHDrinkupCell.xib */; };
 		79D064791618E51700C1AC97 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 79D064771618E51700C1AC97 /* Icon.png */; };
 		79D0647A1618E51700C1AC97 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79D064781618E51700C1AC97 /* Icon@2x.png */; };
@@ -117,6 +118,7 @@
 		7996E3531618AB1400701DCE /* GHLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHLayout.m; sourceTree = "<group>"; };
 		7996E3551618B97400701DCE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7997E6E5161CC8CF00A332BD /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		7997E6E8161D032600A332BD /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		79A50A401618D1530083641D /* GHDrinkupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GHDrinkupCell.xib; sourceTree = "<group>"; };
 		79D064771618E51700C1AC97 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = SOURCE_ROOT; };
 		79D064781618E51700C1AC97 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -136,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7997E6E9161D032600A332BD /* EventKit.framework in Frameworks */,
 				7997E6E6161CC8CF00A332BD /* Social.framework in Frameworks */,
 				7996E3561618B97400701DCE /* QuartzCore.framework in Frameworks */,
 				796C2CD01607D39800F238F2 /* CoreData.framework in Frameworks */,
@@ -178,6 +181,7 @@
 		792A029B1607A90C00129016 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7997E6E8161D032600A332BD /* EventKit.framework */,
 				7997E6E5161CC8CF00A332BD /* Social.framework */,
 				7996E3551618B97400701DCE /* QuartzCore.framework */,
 				796C2CD31607D3B200F238F2 /* CoreLocation.framework */,
