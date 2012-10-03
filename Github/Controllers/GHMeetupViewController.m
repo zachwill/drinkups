@@ -8,8 +8,17 @@
 
 #import "GHMeetupViewController.h"
 #import <Social/Social.h>
+#import "Bar.h"
+
+@interface GHMeetupViewController ()
+
+@property (strong, nonatomic) NSNumber *canSendTweets;
+
+@end
+
 
 static const float kToolbarFixedWidthSpacing = 4.0f;
+
 
 @implementation GHMeetupViewController
 
@@ -25,9 +34,11 @@ static const float kToolbarFixedWidthSpacing = 4.0f;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self addToolbarButtons];
     self.view.backgroundColor = [UIColor colorWithHex:@"eee"];
+    [self addToolbarButtons];
 }
+
+#pragma mark - UIToolbar Buttons and Actions
 
 - (void)addToolbarButtons {
     UIBarButtonItem *tweet = [[UIBarButtonItem alloc] initWithTitle:@"Tweet"
@@ -39,18 +50,25 @@ static const float kToolbarFixedWidthSpacing = 4.0f;
                                                                 target:self
                                                                 action:@selector(createReminder:)];
     self.toolbar.items = @[reminder, tweet];
+    [self checkAbilityToTweet];
 }
 
-#pragma mark - Actions
+- (void)checkAbilityToTweet {
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+        self.canSendTweets = @YES;
+    }
+}
 
 - (void)createReminder:(id)sender {
     
 }
 
 - (void)createTweet:(id)sender {
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+    if (self.canSendTweets) {
         __block id viewController = self;
         SLComposeViewController *tweetVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [tweetVC addURL:[NSURL URLWithString:self.drinkup.blog]];
+        [tweetVC setInitialText:[NSString stringWithFormat:@"%@ drinkup", self.drinkup.bar.name]];
         [tweetVC setCompletionHandler:^(SLComposeViewControllerResult result) {
             if (result == SLComposeViewControllerResultDone) {
                 // Otherwise the screen freezes?
