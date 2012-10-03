@@ -32,6 +32,7 @@ static const float kScrollViewThrottleOffset = 15.0f;
     self.collectionView.backgroundColor = [UIColor lightGrayColor];
     [self refetchData];
     [self createPullToRefresh];
+    [self customBackButton];
 }
 
 - (void)createPullToRefresh {
@@ -94,12 +95,12 @@ static const float kScrollViewThrottleOffset = 15.0f;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     Drinkup *drinkup = [self.fetchedResultsController objectAtIndexPath:indexPath];
     GHMeetupViewController *meetupVC = [[GHMeetupViewController alloc] initWithDrinkup:drinkup];
-    [self customBackButton];
     [self.navigationController pushViewController:meetupVC animated:YES];
 }
 
+// Used on the next navigation controller.
 - (void)customBackButton {
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Home"
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back"
                                                                    style:UIBarButtonItemStylePlain
                                                                   target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
