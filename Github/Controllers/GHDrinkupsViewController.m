@@ -21,6 +21,7 @@
 
 
 static const float kScrollViewThrottleOffset = 15.0f;
+static NSString * const kCellReuseIdentifier = @"Drinkup";
 
 
 @implementation GHDrinkupsViewController
@@ -29,7 +30,7 @@ static const float kScrollViewThrottleOffset = 15.0f;
 {
     [super viewDidLoad];
     [self.collectionView registerNib:[UINib nibWithNibName:@"GHDrinkupCell" bundle:nil]
-          forCellWithReuseIdentifier:@"Drinkup"];
+          forCellWithReuseIdentifier:kCellReuseIdentifier];
     self.collectionView.backgroundColor = [UIColor lightGrayColor];
     [self refetchData];
     [self createPullToRefresh];
@@ -68,7 +69,7 @@ static const float kScrollViewThrottleOffset = 15.0f;
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                                     managedObjectContext:context
                                                                       sectionNameKeyPath:nil
-                                                                               cacheName:@"drinkups"];
+                                                                               cacheName:@"Drinkup"];
     _fetchedResultsController.delegate = self;
     return _fetchedResultsController;
 }
@@ -98,8 +99,8 @@ static const float kScrollViewThrottleOffset = 15.0f;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identifier = @"Drinkup";
-    GHDrinkupCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    GHDrinkupCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kCellReuseIdentifier
+                                                                         forIndexPath:indexPath];
     cell.drinkup = [self.fetchedResultsController objectAtIndexPath:indexPath];
     return cell;
 }
