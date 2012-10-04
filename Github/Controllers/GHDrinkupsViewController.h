@@ -10,6 +10,6 @@
 
 @interface GHDrinkupsViewController : UICollectionViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) UIRefreshControl *refreshControl;
 
 @end

@@ -7,8 +7,9 @@
 //
 
 #import "GHMeetupViewController.h"
-#import <Social/Social.h>
 #import <EventKit/EventKit.h>
+#import <QuartzCore/QuartzCore.h>
+#import <Social/Social.h>
 #import "Bar.h"
 
 @interface GHMeetupViewController ()
@@ -18,7 +19,8 @@
 @end
 
 
-static const float kToolbarFixedWidthSpacing = 4.0f;
+static const float kMapViewOffset = -100.0f;
+static const float kScrollViewOffset = 280.0f;
 
 
 @implementation GHMeetupViewController
@@ -36,7 +38,77 @@ static const float kToolbarFixedWidthSpacing = 4.0f;
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithHex:@"eee"];
+    self.scrollView.delegate  = self;
+    [self.view insertSubview:self.mapView belowSubview:self.scrollView];
     [self addToolbarButtons];
+    [self createParallaxViewOffset];
+    [self centerMapToLatitude:self.drinkup.bar.latitude
+                    longitude:self.drinkup.bar.longitude];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.scrollView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.scrollView.layer.shadowRadius = 2.0f;
+    self.scrollView.layer.shadowOpacity = 0.15f;
+}
+
+#pragma mark - UIScrollView
+
+- (void)createParallaxViewOffset {
+    // Adjust the scrollView content size.
+    float combinedChromeHeight = 88.0f;
+    float minimumScrollViewOffset = 0.5f;
+    float scrollViewHeight = self.view.frame.size.height - combinedChromeHeight + minimumScrollViewOffset;
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, scrollViewHeight);
+    self.scrollView.showsVerticalScrollIndicator = NO;
+    
+    // Add an offset to the scrollView's subview;
+    UIView *purpleView = [[UIView alloc] initWithFrame:self.view.frame];
+    purpleView.backgroundColor = [UIColor purpleColor];
+    CGRect frame = self.view.frame;
+    frame.origin.y = kScrollViewOffset;
+    purpleView.frame = frame;
+    [self.scrollView addSubview:purpleView];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat scrollOffset = scrollView.contentOffset.y;
+    CGRect frame = self.mapView.frame;
+    
+    // Center the mapView while scrolling down.
+    if (scrollOffset < 0) {
+        frame.origin.y = floorf(kMapViewOffset - (scrollOffset / 3));
+        self.mapView.frame = frame;
+    }
+}
+
+#pragma mark - MKMapView
+
+- (MKMapView *)mapView {
+    if (_mapView != nil) {
+        return _mapView;
+    }
+    
+    CGRect frame = CGRectMake(0, kMapViewOffset, self.view.frame.size.width, self.view.frame.size.height);
+    _mapView = [[MKMapView alloc] initWithFrame:frame];
+    return _mapView;
+}
+
+- (void)centerMapToLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude {
+    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([latitude doubleValue],
+                                                              [longitude doubleValue]);
+    MKMapPoint point  = MKMapPointForCoordinate(coord);
+    MKMapRect mapRect = MKMapRectMake(point.x, point.y, 5000, 5000);
+    self.mapView.region = MKCoordinateRegionForMapRect(mapRect);
+    self.mapView.centerCoordinate = coord;
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                 action:nil];
+    [self.mapView addGestureRecognizer:tapGesture];
+    MKPlacemark *annotation = [[MKPlacemark alloc] initWithCoordinate:coord addressDictionary:nil];
+    [self.mapView addAnnotation:annotation];
 }
 
 #pragma mark - UIToolbar Buttons and Actions
@@ -93,17 +165,17 @@ static const float kToolbarFixedWidthSpacing = 4.0f;
 
 - (void)createTweet:(id)sender {
     if (self.canSendTweets) {
-        __block id viewController = self;
+        __weak id weakSelf = self;
         SLComposeViewController *tweetVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
         [tweetVC addURL:[NSURL URLWithString:self.drinkup.blog]];
         [tweetVC setInitialText:[NSString stringWithFormat:@"%@ drinkup", self.drinkup.bar.name]];
         [tweetVC setCompletionHandler:^(SLComposeViewControllerResult result) {
             if (result == SLComposeViewControllerResultDone) {
-                [viewController dismissViewControllerAnimated:YES completion:^{
+                [weakSelf dismissViewControllerAnimated:YES completion:^{
                     NSLog(@"Tweet, tweet.");
                 }];
             } else {
-                [viewController dismissViewControllerAnimated:YES completion:^{
+                [weakSelf dismissViewControllerAnimated:YES completion:^{
                     NSLog(@"Dismissed.");
                 }];
             }

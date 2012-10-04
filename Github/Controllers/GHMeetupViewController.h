@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 #import "Drinkup.h"
 
-@interface GHMeetupViewController : UIViewController
+@interface GHMeetupViewController : UIViewController <UIScrollViewDelegate>
 
 @property (strong, nonatomic) Drinkup *drinkup;
-@property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (strong, nonatomic) MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (weak, nonatomic) IBOutlet UIView *offsetView;
 
 - (id)initWithDrinkup:(Drinkup *)drinkup;
 
