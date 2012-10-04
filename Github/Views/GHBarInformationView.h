@@ -12,6 +12,10 @@
 @interface GHBarInformationView : UIView
 
 @property (strong, nonatomic) Drinkup *drinkup;
+@property (weak, nonatomic) IBOutlet UILabel *address;
+@property (weak, nonatomic) IBOutlet UILabel *date;
+@property (weak, nonatomic) IBOutlet UILabel *bar;
+@property (weak, nonatomic) IBOutlet UILabel *time;
 
 - (id)initWithDrinkup:(Drinkup *)drinkup;
 

@@ -13,8 +13,9 @@
 #import "Bar.h"
 #import "GHBarInformationView.h"
 
-@interface GHMeetupViewController () <UIGestureRecognizerDelegate>
+@interface GHMeetupViewController ()
 
+@property (strong, nonatomic) GHBarInformationView *barView;
 @property (strong, nonatomic) NSNumber *canSendTweets;
 
 @end
@@ -72,9 +73,8 @@ static const float kScrollViewOffset = 280.0f;
     // Add an offset to the scrollView's subview;
     CGRect frame = self.view.frame;
     frame.origin.y = kScrollViewOffset;
-    GHBarInformationView *barView = [[GHBarInformationView alloc] initWithDrinkup:self.drinkup];
-    barView.frame = frame;
-    [self.scrollView addSubview:barView];
+    self.barView.frame = frame;
+    [self.scrollView addSubview:self.barView];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -110,21 +110,30 @@ static const float kScrollViewOffset = 280.0f;
     MKMapRect mapRect = MKMapRectMake(point.x, point.y, 5000, 5000);
     self.mapView.region = MKCoordinateRegionForMapRect(mapRect);
     self.mapView.centerCoordinate = coord;
-    
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(switchToMaps:)];
-    tapGesture.delegate = self;
-    [self.mapView addGestureRecognizer:tapGesture];
     MKPlacemark *annotation = [[MKPlacemark alloc] initWithCoordinate:coord addressDictionary:nil];
     [self.mapView addAnnotation:annotation];
 }
 
+// Called by listening to NSNotificationCenter
 - (void)switchToMaps:(id)sender {
-    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(37.775631, -122.413826);
+    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([self.drinkup.bar.latitude doubleValue],
+                                                              [self.drinkup.bar.longitude doubleValue]);
     MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coord addressDictionary:nil];
     MKMapItem *map = [[MKMapItem alloc] initWithPlacemark:placemark];
-    map.name = @"Zach's Bar";
-    map.url = [NSURL URLWithString:@"http://github.com/blog"];
+    map.name = self.drinkup.bar.name;
+    map.url = [NSURL URLWithString:self.drinkup.blog];
     [map openInMapsWithLaunchOptions:nil];
+}
+
+#pragma mark - GHBarInformationView
+
+- (GHBarInformationView *)barView {
+    if (_barView != nil) {
+        return _barView;
+    }
+    
+    _barView = [[GHBarInformationView alloc] initWithDrinkup:self.drinkup];
+    return _barView;
 }
 
 #pragma mark - UIToolbar Buttons and Actions

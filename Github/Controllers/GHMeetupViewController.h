@@ -16,7 +16,6 @@
 @property (strong, nonatomic) MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
-@property (weak, nonatomic) IBOutlet UIView *offsetView;
 
 - (id)initWithDrinkup:(Drinkup *)drinkup;
 

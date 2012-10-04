@@ -316,12 +316,12 @@
 		7980C979160ED5B4006BCB34 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				7997E6F9161D465C00A332BD /* GHNotifications.h */,
-				7997E6FC161D494900A332BD /* GHNotifications.m */,
 				7980C97A160ED5B4006BCB34 /* GHAPIClient.h */,
 				7980C97B160ED5B4006BCB34 /* GHAPIClient.m */,
 				7980C97D160ED5E4006BCB34 /* GHJSONFormatter.h */,
 				7980C97E160ED5E4006BCB34 /* GHJSONFormatter.m */,
+				7997E6F9161D465C00A332BD /* GHNotifications.h */,
+				7997E6FC161D494900A332BD /* GHNotifications.m */,
 			);
 			name = Classes;
 			path = Github/Classes;
