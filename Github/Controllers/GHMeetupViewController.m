@@ -15,8 +15,8 @@
 
 @interface GHMeetupViewController ()
 
-@property (strong, nonatomic) GHBarInformationView *barView;
-@property (strong, nonatomic) NSNumber *canSendTweets;
+@property (nonatomic, strong) GHBarInformationView *barView;
+@property (nonatomic, assign) BOOL canSendTweets;
 
 @end
 
@@ -153,7 +153,7 @@ static const float kScrollViewOffset = 280.0f;
 
 - (void)checkAbilityToTweet {
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
-        self.canSendTweets = @YES;
+        self.canSendTweets = YES;
     }
 }
 
@@ -190,10 +190,11 @@ static const float kScrollViewOffset = 280.0f;
 
 - (void)createTweet:(id)sender {
     if (self.canSendTweets) {
-        __weak id weakSelf = self;
         SLComposeViewController *tweetVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
         [tweetVC addURL:[NSURL URLWithString:self.drinkup.blog]];
         [tweetVC setInitialText:[NSString stringWithFormat:@"%@ drinkup", self.drinkup.bar.name]];
+        
+        __weak id weakSelf = self;
         [tweetVC setCompletionHandler:^(SLComposeViewControllerResult result) {
             if (result == SLComposeViewControllerResultDone) {
                 [weakSelf dismissViewControllerAnimated:YES completion:^{
@@ -205,6 +206,7 @@ static const float kScrollViewOffset = 280.0f;
                 }];
             }
         }];
+        
         [self presentViewController:tweetVC animated:YES completion:nil];
     }
 }

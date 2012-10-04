@@ -14,7 +14,7 @@
 
 @interface GHDrinkupsViewController () <NSFetchedResultsControllerDelegate>
 
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic) float lastScrollPosition;
 
 @end

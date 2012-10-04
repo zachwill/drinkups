@@ -11,8 +11,8 @@
 
 @interface GHDrinkupCell : UICollectionViewCell
 
-@property (strong, nonatomic) Drinkup *drinkup;
-@property (strong, nonatomic) IBOutlet UILabel *name;
-@property (strong, nonatomic) IBOutlet UILabel *city;
+@property (nonatomic, strong) Drinkup *drinkup;
+@property (nonatomic, strong) IBOutlet UILabel *name;
+@property (nonatomic, strong) IBOutlet UILabel *city;
 
 @end

@@ -9,5 +9,7 @@
 #import "AFIncrementalStore.h"
 
 @interface GHIncrementalStore : AFIncrementalStore
+
 + (void)initialize;
+
 @end

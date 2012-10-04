@@ -15,9 +15,9 @@
     self = [super init];
     if (self) {
         self = [[NSBundle mainBundle] loadNibNamed:@"GHBarInformationView" owner:self options:nil][0];
-        self.drinkup = drinkup;
-        self.address.text = drinkup.bar.address;
-        self.bar.text = drinkup.bar.name;
+        _drinkup = drinkup;
+        self.address.text = _drinkup.bar.address;
+        self.bar.text = _drinkup.bar.name;
     }
     return self;
 }

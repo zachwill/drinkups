@@ -12,10 +12,10 @@
 
 @interface GHMeetupViewController : UIViewController <UIScrollViewDelegate>
 
-@property (strong, nonatomic) Drinkup *drinkup;
-@property (strong, nonatomic) MKMapView *mapView;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (nonatomic, strong) Drinkup *drinkup;
+@property (nonatomic, strong) MKMapView *mapView;
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, weak) IBOutlet UIToolbar *toolbar;
 
 - (id)initWithDrinkup:(Drinkup *)drinkup;
 

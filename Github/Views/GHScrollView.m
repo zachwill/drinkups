@@ -14,9 +14,10 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
     NSString *touchClass = NSStringFromClass(touch.view.class);
-    if ([touchClass isEqualToString:@"GHScrollView"]) {
+    if ([touchClass isEqualToString:[[self class] description]]) {
         // Then the area above the scrollView was actually touched.
-        [[NSNotificationCenter defaultCenter] postNotificationName:GHScrollViewTouchNotification object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:GHScrollViewTouchNotification
+                                                            object:nil];
     }
 }
 
