@@ -11,8 +11,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import <Social/Social.h>
 #import "Bar.h"
+#import "GHBarInformationView.h"
 
-@interface GHMeetupViewController ()
+@interface GHMeetupViewController () <UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) NSNumber *canSendTweets;
 
@@ -44,12 +45,18 @@ static const float kScrollViewOffset = 280.0f;
     [self createParallaxViewOffset];
     [self centerMapToLatitude:self.drinkup.bar.latitude
                     longitude:self.drinkup.bar.longitude];
+    [self registerForNotifications];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     self.scrollView.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.scrollView.layer.shadowRadius = 2.0f;
+    self.scrollView.layer.shadowRadius = 1.0f;
     self.scrollView.layer.shadowOpacity = 0.15f;
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super viewDidDisappear:animated];
 }
 
 #pragma mark - UIScrollView
@@ -63,12 +70,11 @@ static const float kScrollViewOffset = 280.0f;
     self.scrollView.showsVerticalScrollIndicator = NO;
     
     // Add an offset to the scrollView's subview;
-    UIView *purpleView = [[UIView alloc] initWithFrame:self.view.frame];
-    purpleView.backgroundColor = [UIColor purpleColor];
     CGRect frame = self.view.frame;
     frame.origin.y = kScrollViewOffset;
-    purpleView.frame = frame;
-    [self.scrollView addSubview:purpleView];
+    GHBarInformationView *barView = [[GHBarInformationView alloc] initWithDrinkup:self.drinkup];
+    barView.frame = frame;
+    [self.scrollView addSubview:barView];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -93,6 +99,7 @@ static const float kScrollViewOffset = 280.0f;
     
     CGRect frame = CGRectMake(0, kMapViewOffset, self.view.frame.size.width, self.view.frame.size.height);
     _mapView = [[MKMapView alloc] initWithFrame:frame];
+    _mapView.userInteractionEnabled = YES;
     return _mapView;
 }
 
@@ -104,11 +111,20 @@ static const float kScrollViewOffset = 280.0f;
     self.mapView.region = MKCoordinateRegionForMapRect(mapRect);
     self.mapView.centerCoordinate = coord;
     
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                 action:nil];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(switchToMaps:)];
+    tapGesture.delegate = self;
     [self.mapView addGestureRecognizer:tapGesture];
     MKPlacemark *annotation = [[MKPlacemark alloc] initWithCoordinate:coord addressDictionary:nil];
     [self.mapView addAnnotation:annotation];
+}
+
+- (void)switchToMaps:(id)sender {
+    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(37.775631, -122.413826);
+    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coord addressDictionary:nil];
+    MKMapItem *map = [[MKMapItem alloc] initWithPlacemark:placemark];
+    map.name = @"Zach's Bar";
+    map.url = [NSURL URLWithString:@"http://github.com/blog"];
+    [map openInMapsWithLaunchOptions:nil];
 }
 
 #pragma mark - UIToolbar Buttons and Actions
@@ -182,6 +198,15 @@ static const float kScrollViewOffset = 280.0f;
         }];
         [self presentViewController:tweetVC animated:YES completion:nil];
     }
+}
+
+#pragma mark - NSNotificationCenter
+
+- (void)registerForNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(switchToMaps:)
+                                                 name:GHScrollViewTouchNotification
+                                               object:nil];
 }
 
 @end

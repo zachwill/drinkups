@@ -13,4 +13,5 @@
     #import <Foundation/Foundation.h>
     #import "AFNetworking.h"
     #import "UIColor+Hex.h"
+    #import "GHNotifications.h"
 #endif
