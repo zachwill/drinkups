@@ -50,14 +50,15 @@ static const float kScrollViewOffset = 280.0f;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.scrollView.layer.shadowColor = [UIColor blackColor].CGColor;
     self.scrollView.layer.shadowRadius = 1.0f;
     self.scrollView.layer.shadowOpacity = 0.15f;
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [super viewDidDisappear:animated];
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:GHScrollViewTouchNotification object:nil];
 }
 
 #pragma mark - UIScrollView
