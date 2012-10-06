@@ -23,6 +23,7 @@
 - (void)setDrinkup:(Drinkup *)drinkup {
     self.name.text = drinkup.bar.name;
     self.city.text = drinkup.bar.city;
+    self.barPicture.image = [UIImage imageNamed:@"beertocat"];
 }
 
 - (void)setSelected:(BOOL)selected {
