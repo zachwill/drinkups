@@ -9,7 +9,6 @@
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="photo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="twitter" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="drinkups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Drinkup" inverseName="bar" inverseEntity="Drinkup" syncable="YES"/>
     </entity>
@@ -20,7 +19,7 @@
         <relationship name="bar" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Bar" inverseName="drinkups" inverseEntity="Bar" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bar" positionX="-74" positionY="192" width="128" height="210"/>
+        <element name="Bar" positionX="-74" positionY="192" width="128" height="195"/>
         <element name="Drinkup" positionX="160" positionY="192" width="128" height="105"/>
     </elements>
 </model>

@@ -8,6 +8,7 @@
 
 #import "GHDrinkupCell.h"
 #import "Bar.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation GHDrinkupCell
 
@@ -23,7 +24,8 @@
 - (void)setDrinkup:(Drinkup *)drinkup {
     self.name.text = drinkup.bar.name;
     self.city.text = drinkup.bar.city;
-    self.barPicture.image = [UIImage imageNamed:@"beertocat"];
+    [self.barPicture setImageWithURL:[NSURL URLWithString:drinkup.bar.photo]
+                    placeholderImage:[UIImage imageNamed:@"beertocat"]];
 }
 
 - (void)setSelected:(BOOL)selected {

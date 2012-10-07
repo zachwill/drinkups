@@ -117,6 +117,7 @@
 		7980C9B0160F04B6006BCB34 /* Drinkup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drinkup.h; sourceTree = "<group>"; };
 		7980C9B1160F04B6006BCB34 /* Drinkup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drinkup.m; sourceTree = "<group>"; };
 		798C70D716210A7500F446FF /* Drinkups 1b.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Drinkups 1b.xcdatamodel"; sourceTree = "<group>"; };
+		798C70E31621294A00F446FF /* Drinkups 1c.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Drinkups 1c.xcdatamodel"; sourceTree = "<group>"; };
 		7996E34B16189EEE00701DCE /* GHDrinkupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHDrinkupCell.h; sourceTree = "<group>"; };
 		7996E34C16189EEE00701DCE /* GHDrinkupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHDrinkupCell.m; sourceTree = "<group>"; };
 		7996E34F1618AA5F00701DCE /* GHDrinkupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHDrinkupsViewController.h; sourceTree = "<group>"; };
@@ -583,6 +584,7 @@
 		79422DE7160E814100BA702F /* Drinkups.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				798C70E31621294A00F446FF /* Drinkups 1c.xcdatamodel */,
 				798C70D716210A7500F446FF /* Drinkups 1b.xcdatamodel */,
 				7980C9AB160F049A006BCB34 /* Drinkups 1a.xcdatamodel */,
 				7980C980160EDAF6006BCB34 /* Drinkups 1.xcdatamodel */,

@@ -22,6 +22,7 @@
 @property (nonatomic, retain) NSString * foursquare;
 @property (nonatomic, retain) NSString * twitter;
 @property (nonatomic, retain) NSString * phone;
+@property (nonatomic, retain) NSString * photo;
 @property (nonatomic, retain) NSSet *drinkups;
 @end
 

@@ -21,6 +21,7 @@
 @dynamic foursquare;
 @dynamic twitter;
 @dynamic phone;
+@dynamic photo;
 @dynamic drinkups;
 
 @end
