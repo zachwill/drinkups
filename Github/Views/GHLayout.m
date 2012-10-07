@@ -19,7 +19,7 @@ static const float kItemSizeHeight = 155.0f;
         self.itemSize = CGSizeMake(kItemSizeWidth, kItemSizeHeight);
         self.minimumInteritemSpacing = 0;
         self.minimumLineSpacing = 4;
-        self.sectionInset = UIEdgeInsetsMake(10, 6, 0, 6);
+        self.sectionInset = UIEdgeInsetsMake(10, 6, 10, 6);
     }
     return self;
 }

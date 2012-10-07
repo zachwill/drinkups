@@ -21,6 +21,7 @@
 
 static const float kScrollViewThrottleOffset = 15.0f;
 static NSString * const kCellReuseIdentifier = @"Drinkup";
+static NSString * const kBackgroundColor = @"c4c8b9";
 
 
 @implementation GHDrinkupsViewController
@@ -30,7 +31,7 @@ static NSString * const kCellReuseIdentifier = @"Drinkup";
     [super viewDidLoad];
     [self.collectionView registerNib:[UINib nibWithNibName:@"GHDrinkupCell" bundle:nil]
           forCellWithReuseIdentifier:kCellReuseIdentifier];
-    self.collectionView.backgroundColor = [UIColor lightGrayColor];
+    self.collectionView.backgroundColor = [UIColor colorWithHex:kBackgroundColor];
     [self refetchData];
     [self createPullToRefresh];
     [self customBackButton];
