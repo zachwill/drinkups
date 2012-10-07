@@ -21,7 +21,7 @@
 
 static const float kScrollViewThrottleOffset = 15.0f;
 static NSString * const kCellReuseIdentifier = @"Drinkup";
-static NSString * const kBackgroundColor = @"c4c8b9";
+static NSString * const kBackgroundColor = @"c5c8be";
 
 
 @implementation GHDrinkupsViewController
@@ -42,7 +42,7 @@ static NSString * const kBackgroundColor = @"c4c8b9";
 - (void)createPullToRefresh {
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refetchData) forControlEvents:UIControlEventValueChanged];
-    refreshControl.tintColor = [UIColor colorWithHex:@"666"];
+    refreshControl.tintColor = [UIColor colorWithHex:@"a1a59f"];
     self.refreshControl = refreshControl;
     [self.collectionView addSubview:self.refreshControl];
 }
