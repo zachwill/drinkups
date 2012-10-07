@@ -41,6 +41,8 @@
 		7980C97F160ED5E4006BCB34 /* GHJSONFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C97E160ED5E4006BCB34 /* GHJSONFormatter.m */; };
 		7980C9AF160F04B6006BCB34 /* Bar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C9AE160F04B6006BCB34 /* Bar.m */; };
 		7980C9B2160F04B6006BCB34 /* Drinkup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7980C9B1160F04B6006BCB34 /* Drinkup.m */; };
+		798C70E91621435000F446FF /* parallax_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 798C70E71621435000F446FF /* parallax_bg.png */; };
+		798C70EA1621435000F446FF /* parallax_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 798C70E81621435000F446FF /* parallax_bg@2x.png */; };
 		7996E34D16189EEE00701DCE /* GHDrinkupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7996E34C16189EEE00701DCE /* GHDrinkupCell.m */; };
 		7996E3511618AA5F00701DCE /* GHDrinkupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7996E3501618AA5F00701DCE /* GHDrinkupsViewController.m */; };
 		7996E3541618AB1400701DCE /* GHLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7996E3531618AB1400701DCE /* GHLayout.m */; };
@@ -118,6 +120,8 @@
 		7980C9B1160F04B6006BCB34 /* Drinkup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drinkup.m; sourceTree = "<group>"; };
 		798C70D716210A7500F446FF /* Drinkups 1b.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Drinkups 1b.xcdatamodel"; sourceTree = "<group>"; };
 		798C70E31621294A00F446FF /* Drinkups 1c.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Drinkups 1c.xcdatamodel"; sourceTree = "<group>"; };
+		798C70E71621435000F446FF /* parallax_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = parallax_bg.png; sourceTree = "<group>"; };
+		798C70E81621435000F446FF /* parallax_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "parallax_bg@2x.png"; sourceTree = "<group>"; };
 		7996E34B16189EEE00701DCE /* GHDrinkupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHDrinkupCell.h; sourceTree = "<group>"; };
 		7996E34C16189EEE00701DCE /* GHDrinkupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHDrinkupCell.m; sourceTree = "<group>"; };
 		7996E34F1618AA5F00701DCE /* GHDrinkupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHDrinkupsViewController.h; sourceTree = "<group>"; };
@@ -304,6 +308,8 @@
 				79D0647D1618E6EB00C1AC97 /* nav_shadow@2x.png */,
 				79D0647E1618E6EB00C1AC97 /* nav.png */,
 				79D0647F1618E6EB00C1AC97 /* nav@2x.png */,
+				798C70E71621435000F446FF /* parallax_bg.png */,
+				798C70E81621435000F446FF /* parallax_bg@2x.png */,
 				7900877A16198224000F24E1 /* toolbar_button.png */,
 				7900877B16198224000F24E1 /* toolbar_button@2x.png */,
 				7900877C16198224000F24E1 /* toolbar_shadow.png */,
@@ -422,6 +428,8 @@
 				7997E6F2161D3D4B00A332BD /* address_bar.png in Resources */,
 				7997E6F3161D3D4B00A332BD /* address_bar@2x.png in Resources */,
 				7997E6F8161D40DE00A332BD /* GHBarInformationView.xib in Resources */,
+				798C70E91621435000F446FF /* parallax_bg.png in Resources */,
+				798C70EA1621435000F446FF /* parallax_bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
