@@ -134,6 +134,25 @@ static const float kScrollViewOffset = 280.0f;
     }
     
     _barView = [[GHBarInformationView alloc] initWithDrinkup:self.drinkup];
+    
+    // Set the date label.
+    static NSDateFormatter *dateFormatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"eeee, d MMM yy";
+    });
+    _barView.date.text = [dateFormatter stringFromDate:self.drinkup.date];
+    
+    // Set the time label.
+    static NSDateFormatter *timeFormatter = nil;
+    static dispatch_once_t anotherToken;
+    dispatch_once(&anotherToken, ^{
+        timeFormatter = [[NSDateFormatter alloc] init];
+        timeFormatter.dateFormat = @"h:mm a";
+    });
+    _barView.time.text = [timeFormatter stringFromDate:self.drinkup.date];
+    
     return _barView;
 }
 
