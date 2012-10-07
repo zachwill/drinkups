@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "Drinkup.h"
 
-@interface GHMeetupViewController : UIViewController <UIScrollViewDelegate>
+@interface GHVenueViewController : UIViewController <UIScrollViewDelegate>
 
 @property (nonatomic, strong) Drinkup *drinkup;
 @property (nonatomic, strong) MKMapView *mapView;

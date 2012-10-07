@@ -2,7 +2,7 @@
 //  Bar.m
 //  Github
 //
-//  Created by Zach Williams on 9/23/12.
+//  Created by Zach Williams on 10/6/12.
 //  Copyright (c) 2012 Zach Williams. All rights reserved.
 //
 
@@ -18,6 +18,9 @@
 @dynamic latitude;
 @dynamic longitude;
 @dynamic name;
+@dynamic foursquare;
+@dynamic twitter;
+@dynamic phone;
 @dynamic drinkups;
 
 @end

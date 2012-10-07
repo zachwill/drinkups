@@ -2,7 +2,7 @@
 //  Bar.h
 //  Github
 //
-//  Created by Zach Williams on 9/23/12.
+//  Created by Zach Williams on 10/6/12.
 //  Copyright (c) 2012 Zach Williams. All rights reserved.
 //
 
@@ -19,6 +19,9 @@
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * foursquare;
+@property (nonatomic, retain) NSString * twitter;
+@property (nonatomic, retain) NSString * phone;
 @property (nonatomic, retain) NSSet *drinkups;
 @end
 

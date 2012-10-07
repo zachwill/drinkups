@@ -6,14 +6,14 @@
 //  Copyright (c) 2012 Zach Williams. All rights reserved.
 //
 
-#import "GHMeetupViewController.h"
+#import "GHVenueViewController.h"
 #import <EventKit/EventKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import <Social/Social.h>
 #import "Bar.h"
 #import "GHBarInformationView.h"
 
-@interface GHMeetupViewController ()
+@interface GHVenueViewController ()
 
 @property (nonatomic, strong) GHBarInformationView *barView;
 @property (nonatomic, assign) BOOL canSendTweets;
@@ -25,7 +25,7 @@ static const float kMapViewOffset = -100.0f;
 static const float kScrollViewOffset = 280.0f;
 
 
-@implementation GHMeetupViewController
+@implementation GHVenueViewController
 
 - (id)initWithDrinkup:(Drinkup *)drinkup {
     self = [super initWithNibName:@"GHMeetup" bundle:nil];
@@ -192,8 +192,18 @@ static const float kScrollViewOffset = 280.0f;
 - (void)createTweet:(id)sender {
     if (self.canSendTweets) {
         SLComposeViewController *tweetVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        
+        // Create the initial tweet.
+        NSString *tweet = nil;
+        if ([self.drinkup.bar.twitter isEqualToString:@""]) {
+            tweet = [NSString stringWithFormat:@"Github drinkup at %@", self.drinkup.bar.name];
+        } else {
+            tweet = [NSString stringWithFormat:@"Github drinkup at @%@", self.drinkup.bar.twitter];
+        }
+        [tweetVC setInitialText:tweet];
+        
+        // Add the URL from Github's blog post.
         [tweetVC addURL:[NSURL URLWithString:self.drinkup.blog]];
-        [tweetVC setInitialText:[NSString stringWithFormat:@"%@ drinkup", self.drinkup.bar.name]];
         
         __weak id weakSelf = self;
         [tweetVC setCompletionHandler:^(SLComposeViewControllerResult result) {
@@ -208,6 +218,7 @@ static const float kScrollViewOffset = 280.0f;
             }
         }];
         
+        // Finally, present the tweet.
         [self presentViewController:tweetVC animated:YES completion:nil];
     }
 }

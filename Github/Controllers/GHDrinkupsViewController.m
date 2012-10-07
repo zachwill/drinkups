@@ -10,7 +10,7 @@
 #import "GHDataModel.h"
 #import "GHDrinkupCell.h"
 #import "Drinkup.h"
-#import "GHMeetupViewController.h"
+#import "GHVenueViewController.h"
 
 @interface GHDrinkupsViewController () <NSFetchedResultsControllerDelegate>
 
@@ -108,7 +108,7 @@ static NSString * const kCellReuseIdentifier = @"Drinkup";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     Drinkup *drinkup = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    GHMeetupViewController *meetupVC = [[GHMeetupViewController alloc] initWithDrinkup:drinkup];
+    GHVenueViewController *meetupVC = [[GHVenueViewController alloc] initWithDrinkup:drinkup];
     [self.navigationController pushViewController:meetupVC animated:YES];
 }
 
