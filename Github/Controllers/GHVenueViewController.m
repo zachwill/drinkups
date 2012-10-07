@@ -53,7 +53,7 @@ static const float kScrollViewOffset = 300.0f;
     [super viewWillAppear:animated];
     self.scrollView.layer.shadowColor = [UIColor blackColor].CGColor;
     self.scrollView.layer.shadowRadius = 1.0f;
-    self.scrollView.layer.shadowOpacity = 0.25f;
+    self.scrollView.layer.shadowOpacity = 0.15f;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
