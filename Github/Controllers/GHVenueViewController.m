@@ -40,7 +40,6 @@ static const float kScrollViewOffset = 300.0f;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithHex:@"eee"];
     self.scrollView.delegate  = self;
     [self.view insertSubview:self.mapView belowSubview:self.scrollView];
     [self addToolbarButtons];
