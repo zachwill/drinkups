@@ -8,6 +8,7 @@
 
 #import "GHDrinkupCell.h"
 #import "Bar.h"
+#import "Drinkup.h"
 #import "UIImageView+AFNetworking.h"
 
 @implementation GHDrinkupCell
@@ -16,7 +17,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor colorWithHex:@"eee"];
+        // Initialization code.
     }
     return self;
 }

@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "Drinkup.h"
+
+@class Drinkup;
 
 @interface GHVenueViewController : UIViewController <UIScrollViewDelegate>
 

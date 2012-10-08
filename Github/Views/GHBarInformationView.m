@@ -8,6 +8,7 @@
 
 #import "GHBarInformationView.h"
 #import "Bar.h"
+#import "Drinkup.h"
 
 @implementation GHBarInformationView
 

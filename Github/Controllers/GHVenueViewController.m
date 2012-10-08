@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <Social/Social.h>
 #import "Bar.h"
+#import "Drinkup.h"
 #import "GHBarInformationView.h"
 
 @interface GHVenueViewController ()

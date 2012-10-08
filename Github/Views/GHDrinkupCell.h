@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Drinkup.h"
+
+@class Drinkup;
 
 @interface GHDrinkupCell : UICollectionViewCell
 
