@@ -26,7 +26,7 @@
     self.name.text = drinkup.bar.name;
     self.city.text = drinkup.bar.city;
     [self.barPicture setImageWithURL:[NSURL URLWithString:drinkup.bar.photo]
-                    placeholderImage:[UIImage imageNamed:@"beertocat"]];
+                    placeholderImage:[UIImage imageNamed:@"placeholdercat"]];
 }
 
 - (void)setSelected:(BOOL)selected {
