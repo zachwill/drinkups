@@ -13,15 +13,6 @@
 
 @implementation GHDrinkupCell
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code.
-    }
-    return self;
-}
-
 - (void)setDrinkup:(Drinkup *)drinkup {
     self.name.text = drinkup.bar.name;
     self.city.text = drinkup.bar.city;
