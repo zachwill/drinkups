@@ -19,6 +19,8 @@
 		79090AB8162378D800B78F76 /* hiddencat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79090AB6162378D800B78F76 /* hiddencat@2x.png */; };
 		79090ABC1623830800B78F76 /* placeholdercat.png in Resources */ = {isa = PBXBuildFile; fileRef = 79090ABA1623830800B78F76 /* placeholdercat.png */; };
 		79090ABD1623830800B78F76 /* placeholdercat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79090ABB1623830800B78F76 /* placeholdercat@2x.png */; };
+		7923362D1625118700319107 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 7923362B1625118700319107 /* menu.png */; };
+		7923362E1625118700319107 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7923362C1625118700319107 /* menu@2x.png */; };
 		792A029D1607A90C00129016 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792A029C1607A90C00129016 /* UIKit.framework */; };
 		792A029F1607A90C00129016 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792A029E1607A90C00129016 /* Foundation.framework */; };
 		792A02A11607A90C00129016 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792A02A01607A90C00129016 /* CoreGraphics.framework */; };
@@ -86,6 +88,8 @@
 		79090AB6162378D800B78F76 /* hiddencat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hiddencat@2x.png"; sourceTree = "<group>"; };
 		79090ABA1623830800B78F76 /* placeholdercat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholdercat.png; sourceTree = "<group>"; };
 		79090ABB1623830800B78F76 /* placeholdercat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholdercat@2x.png"; sourceTree = "<group>"; };
+		7923362B1625118700319107 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		7923362C1625118700319107 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 		792A02981607A90C00129016 /* Github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Github.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		792A029C1607A90C00129016 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		792A029E1607A90C00129016 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -314,6 +318,8 @@
 				79D064851618F01500C1AC97 /* frame@2x.png */,
 				79090AB5162378D800B78F76 /* hiddencat.png */,
 				79090AB6162378D800B78F76 /* hiddencat@2x.png */,
+				7923362B1625118700319107 /* menu.png */,
+				7923362C1625118700319107 /* menu@2x.png */,
 				79D0647C1618E6EB00C1AC97 /* nav_shadow.png */,
 				79D0647D1618E6EB00C1AC97 /* nav_shadow@2x.png */,
 				79D0647E1618E6EB00C1AC97 /* nav.png */,
@@ -446,6 +452,8 @@
 				79090AB8162378D800B78F76 /* hiddencat@2x.png in Resources */,
 				79090ABC1623830800B78F76 /* placeholdercat.png in Resources */,
 				79090ABD1623830800B78F76 /* placeholdercat@2x.png in Resources */,
+				7923362D1625118700319107 /* menu.png in Resources */,
+				7923362E1625118700319107 /* menu@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

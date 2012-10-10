@@ -13,6 +13,7 @@
 #import "Bar.h"
 #import "Drinkup.h"
 #import "GHBarInformationView.h"
+#import "BlockActionSheet.h"
 
 @interface GHVenueViewController ()
 
@@ -90,7 +91,7 @@ static NSNumber *kScrollViewOffset = nil;
     float scrollViewHeight = self.view.frame.size.height - combinedChromeHeight + minimumScrollViewOffset;
     
     if ([self isPhone5] == NO) {
-        // Off by another 88 on iPhone 4.
+        // Off by another 88 points on iPhone 4.
         scrollViewHeight -= combinedChromeHeight;
     }
     
@@ -193,7 +194,15 @@ static NSNumber *kScrollViewOffset = nil;
                                                                  style:UIBarButtonItemStyleBordered
                                                                 target:self
                                                                 action:@selector(createReminder:)];
-    self.toolbar.items = @[reminder, tweet];
+    UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                              target:nil
+                                                                              action:nil];
+    UIBarButtonItem *menu = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"]
+                                               landscapeImagePhone:nil
+                                                             style:UIBarButtonItemStyleBordered
+                                                            target:self
+                                                            action:@selector(showAlertMenu:)];
+    self.toolbar.items = @[reminder, tweet, flexible, menu];
     [self checkAbilityToTweet];
 }
 
@@ -266,6 +275,26 @@ static NSNumber *kScrollViewOffset = nil;
         // Finally, present the tweet.
         [self presentViewController:tweetVC animated:YES completion:nil];
     }
+}
+
+- (void)showAlertMenu:(id)sender {
+    BlockActionSheet *sheet = [BlockActionSheet sheetWithTitle:nil];
+    if ([self.drinkup.bar.phone isEqualToString:@""] == NO) {
+        [sheet addButtonWithTitle:@"Call Bar" block:^{
+            NSCharacterSet *decimalSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+            NSString *phone = [[self.drinkup.bar.phone componentsSeparatedByCharactersInSet:decimalSet] componentsJoinedByString:@""];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phone]];
+        }];
+    }
+    [sheet addButtonWithTitle:@"Foursquare" block:^{
+        NSURL *foursquare = [NSURL URLWithString:[NSString stringWithFormat:@"foursquare://venues/%@", self.drinkup.bar.foursquare]];
+        [[UIApplication sharedApplication] openURL:foursquare];
+    }];
+    [sheet addButtonWithTitle:@"Github Blog" block:^{
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.drinkup.blog]];
+    }];
+    [sheet setCancelButtonWithTitle:@"Cancel" block:nil];
+    [sheet showInView:self.view];
 }
 
 #pragma mark - NSNotificationCenter
