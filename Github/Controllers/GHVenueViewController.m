@@ -75,16 +75,11 @@ static NSNumber *kScrollViewOffset = nil;
 - (BOOL)isPhone5 {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
-            
             CGFloat height = [[UIScreen mainScreen] bounds].size.height * [[UIScreen mainScreen] scale];
             return height == 1136;
-            
-        } else {
-            return NO;
         }
-    } else {
-        return NO;
     }
+    return NO;
 }
 
 #pragma mark - UIScrollView
