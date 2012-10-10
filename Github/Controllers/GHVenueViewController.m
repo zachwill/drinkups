@@ -230,6 +230,16 @@ static NSNumber *kScrollViewOffset = nil;
         [eventStore saveReminder:reminder commit:YES error:&reminderError];
         if (reminderError) {
             NSLog(@"Error saving reminder: %@", reminderError);
+        } else {
+            // Show an alert on the main queue.
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reminder Saved"
+                                                                message:@"A drinkup reminder was set for you."
+                                                               delegate:self
+                                                      cancelButtonTitle:@"Okay"
+                                                      otherButtonTitles: nil];
+                [alert show];
+            });
         }
     }];
 }
@@ -294,6 +304,13 @@ static NSNumber *kScrollViewOffset = nil;
             NSCharacterSet *decimalSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
             NSString *phone = [[self.drinkup.bar.phone componentsSeparatedByCharactersInSet:decimalSet] componentsJoinedByString:@""];
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", phone]]];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Call Failed"
+                                                            message:@"Sorry, that bar's number is unavailable."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Cancel"
+                                                  otherButtonTitles: nil];
+            [alert show];
         }
     } else if (buttonIndex == 1) {
         // Foursquare
