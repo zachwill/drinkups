@@ -13,9 +13,8 @@
 #import "Bar.h"
 #import "Drinkup.h"
 #import "GHBarInformationView.h"
-#import "BlockActionSheet.h"
 
-@interface GHVenueViewController ()
+@interface GHVenueViewController () <UIActionSheetDelegate>
 
 @property (nonatomic, strong) GHBarInformationView *barView;
 @property (nonatomic, assign) BOOL canSendTweets;
@@ -201,7 +200,7 @@ static NSNumber *kScrollViewOffset = nil;
                                                landscapeImagePhone:nil
                                                              style:UIBarButtonItemStyleBordered
                                                             target:self
-                                                            action:@selector(showAlertMenu:)];
+                                                            action:@selector(showActionSheet:)];
     self.toolbar.items = @[reminder, tweet, flexible, menu];
     [self checkAbilityToTweet];
 }
@@ -277,24 +276,33 @@ static NSNumber *kScrollViewOffset = nil;
     }
 }
 
-- (void)showAlertMenu:(id)sender {
-    BlockActionSheet *sheet = [BlockActionSheet sheetWithTitle:nil];
-    if ([self.drinkup.bar.phone isEqualToString:@""] == NO) {
-        [sheet addButtonWithTitle:@"Call Bar" block:^{
+#pragma mark - UIActionSheet
+
+- (void)showActionSheet:(id)sender {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Call Bar", @"Foursquare", @"Github Blog", nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        // Phone Call
+        if ([self.drinkup.bar.phone isEqualToString:@""] == NO) {
             NSCharacterSet *decimalSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
             NSString *phone = [[self.drinkup.bar.phone componentsSeparatedByCharactersInSet:decimalSet] componentsJoinedByString:@""];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phone]];
-        }];
-    }
-    [sheet addButtonWithTitle:@"Foursquare" block:^{
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", phone]]];
+        }
+    } else if (buttonIndex == 1) {
+        // Foursquare
         NSURL *foursquare = [NSURL URLWithString:[NSString stringWithFormat:@"foursquare://venues/%@", self.drinkup.bar.foursquare]];
         [[UIApplication sharedApplication] openURL:foursquare];
-    }];
-    [sheet addButtonWithTitle:@"Github Blog" block:^{
+    } else if (buttonIndex == 2) {
+        // Github Blog
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.drinkup.blog]];
-    }];
-    [sheet setCancelButtonWithTitle:@"Cancel" block:nil];
-    [sheet showInView:self.view];
+    }
 }
 
 #pragma mark - NSNotificationCenter

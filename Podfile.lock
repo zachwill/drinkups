@@ -3,13 +3,11 @@ PODS:
 - AFIncrementalStore (0.1.0):
   - AFNetworking (>= 0.9.0)
 - AFNetworking (1.0RC2)
-- BlockAlertsAnd-ActionSheets (1.0.0)
 - ECSlidingViewController (0.9.0)
 
 DEPENDENCIES:
 - AFIncrementalStore (from `https://github.com/AFNetworking/AFIncrementalStore.git')
 - AFNetworking (~> 1.0RC2)
-- BlockAlertsAnd-ActionSheets
 - ECSlidingViewController
 
 EXTERNAL SOURCES:
@@ -19,7 +17,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFIncrementalStore: 6529b0e963b066a2cad236a06ce5b902f536ef23
   AFNetworking: e7e40cf197f0cc6dea43ce448cc2a442c3c51137
-  BlockAlertsAnd-ActionSheets: cb6379caff86c068616d112b8bfb862b0ec932a6
   ECSlidingViewController: 87676976e3bf717e058f032eb161890d5e6350ca
 
 COCOAPODS: 0.14.0
