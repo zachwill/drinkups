@@ -1,5 +1,5 @@
 //
-//  GHMeetupViewController.m
+//  GHVenueViewController.m
 //  Github
 //
 //  Created by Zach Williams on 9/30/12.
@@ -236,7 +236,7 @@ static float kScrollViewOffset;
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reminder Saved"
                                                                 message:@"A drinkup reminder was set for you."
                                                                delegate:self
-                                                      cancelButtonTitle:@"Okay"
+                                                      cancelButtonTitle:@"OK"
                                                       otherButtonTitles: nil];
                 [alert show];
             });
@@ -293,7 +293,7 @@ static float kScrollViewOffset;
                                                     cancelButtonTitle:@"Cancel"
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:@"Call Bar", @"Foursquare", @"Github Blog", nil];
-    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     [actionSheet showInView:self.view];
 }
 

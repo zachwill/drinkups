@@ -1,5 +1,5 @@
 //
-//  GHMeetupViewController.h
+//  GHVenueViewController.h
 //  Github
 //
 //  Created by Zach Williams on 9/30/12.
