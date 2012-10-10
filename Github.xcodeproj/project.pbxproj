@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4B211A0AA1504312BDF6A92F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D674350D744F419269310E /* libPods.a */; };
-		7900877816198169000F24E1 /* GHMeetup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7900877716198169000F24E1 /* GHMeetup.xib */; };
+		7900877816198169000F24E1 /* GHVenue.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7900877716198169000F24E1 /* GHVenue.xib */; };
 		7900878016198224000F24E1 /* toolbar_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7900877A16198224000F24E1 /* toolbar_button.png */; };
 		7900878116198224000F24E1 /* toolbar_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7900877B16198224000F24E1 /* toolbar_button@2x.png */; };
 		7900878216198224000F24E1 /* toolbar_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7900877C16198224000F24E1 /* toolbar_shadow.png */; };
@@ -75,7 +75,7 @@
 /* Begin PBXFileReference section */
 		54D674350D744F419269310E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		57FADD98C0954534B5E40D51 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		7900877716198169000F24E1 /* GHMeetup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GHMeetup.xib; sourceTree = "<group>"; };
+		7900877716198169000F24E1 /* GHVenue.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GHVenue.xib; sourceTree = "<group>"; };
 		7900877A16198224000F24E1 /* toolbar_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar_button.png; sourceTree = "<group>"; };
 		7900877B16198224000F24E1 /* toolbar_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar_button@2x.png"; sourceTree = "<group>"; };
 		7900877C16198224000F24E1 /* toolbar_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar_shadow.png; sourceTree = "<group>"; };
@@ -283,7 +283,7 @@
 				79A50A401618D1530083641D /* GHDrinkupCell.xib */,
 				7996E3521618AB1400701DCE /* GHLayout.h */,
 				7996E3531618AB1400701DCE /* GHLayout.m */,
-				7900877716198169000F24E1 /* GHMeetup.xib */,
+				7900877716198169000F24E1 /* GHVenue.xib */,
 				7997E6ED161D3AD900A332BD /* GHScrollView.h */,
 				7997E6EE161D3AD900A332BD /* GHScrollView.m */,
 				7997E6F4161D40BC00A332BD /* GHBarInformationView.h */,
@@ -430,7 +430,7 @@
 				797B170C161966D800C69C4E /* beertocat.png in Resources */,
 				797B170F16197A7800C69C4E /* arrow.png in Resources */,
 				797B171016197A7800C69C4E /* arrow@2x.png in Resources */,
-				7900877816198169000F24E1 /* GHMeetup.xib in Resources */,
+				7900877816198169000F24E1 /* GHVenue.xib in Resources */,
 				7900878016198224000F24E1 /* toolbar_button.png in Resources */,
 				7900878116198224000F24E1 /* toolbar_button@2x.png in Resources */,
 				7900878216198224000F24E1 /* toolbar_shadow.png in Resources */,

@@ -22,14 +22,14 @@
 @end
 
 
-static const float kMapViewOffset = -100.0f;
-static const float kScrollViewOffset = 300.0f;
+static NSNumber *kMapViewOffset = nil;
+static NSNumber *kScrollViewOffset = nil;
 
 
 @implementation GHVenueViewController
 
 - (id)initWithDrinkup:(Drinkup *)drinkup {
-    self = [super initWithNibName:@"GHMeetup" bundle:nil];
+    self = [super initWithNibName:@"GHVenue" bundle:nil];
     if (!self) {
         return nil;
     }
@@ -41,6 +41,15 @@ static const float kScrollViewOffset = 300.0f;
 {
     [super viewDidLoad];
     self.scrollView.delegate  = self;
+
+    if ([self isPhone5]) {
+        kMapViewOffset = [NSNumber numberWithFloat:-100];
+        kScrollViewOffset = [NSNumber numberWithFloat:300];
+    } else {
+        kMapViewOffset = [NSNumber numberWithFloat:-120];
+        kScrollViewOffset = [NSNumber numberWithFloat:220];
+    }
+
     [self.view insertSubview:self.mapView belowSubview:self.scrollView];
     [self addToolbarButtons];
     [self createParallaxViewOffset];
@@ -61,6 +70,23 @@ static const float kScrollViewOffset = 300.0f;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:GHScrollViewTouchNotification object:nil];
 }
 
+#pragma mark - iPhone5
+
+- (BOOL)isPhone5 {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
+            
+            CGFloat height = [[UIScreen mainScreen] bounds].size.height * [[UIScreen mainScreen] scale];
+            return height == 1136;
+            
+        } else {
+            return NO;
+        }
+    } else {
+        return NO;
+    }
+}
+
 #pragma mark - UIScrollView
 
 - (void)createParallaxViewOffset {
@@ -68,12 +94,18 @@ static const float kScrollViewOffset = 300.0f;
     float combinedChromeHeight = 88.0f;
     float minimumScrollViewOffset = 0.5f;
     float scrollViewHeight = self.view.frame.size.height - combinedChromeHeight + minimumScrollViewOffset;
+    
+    if ([self isPhone5] == NO) {
+        // Off by another 88 on iPhone 4.
+        scrollViewHeight -= combinedChromeHeight;
+    }
+    
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, scrollViewHeight);
     self.scrollView.showsVerticalScrollIndicator = NO;
     
     // Add an offset to the scrollView's subview;
     CGRect frame = self.view.frame;
-    frame.origin.y = kScrollViewOffset;
+    frame.origin.y = [kScrollViewOffset floatValue];
     self.barView.frame = frame;
     [self.scrollView addSubview:self.barView];
 }
@@ -86,7 +118,7 @@ static const float kScrollViewOffset = 300.0f;
     
     // Center the mapView while scrolling down.
     if (scrollOffset < 0) {
-        frame.origin.y = floorf(kMapViewOffset - (scrollOffset / 3));
+        frame.origin.y = floorf([kMapViewOffset floatValue] - (scrollOffset / 3));
         self.mapView.frame = frame;
     }
 }
@@ -98,7 +130,7 @@ static const float kScrollViewOffset = 300.0f;
         return _mapView;
     }
     
-    CGRect frame = CGRectMake(0, kMapViewOffset, self.view.frame.size.width, self.view.frame.size.height);
+    CGRect frame = CGRectMake(0, [kMapViewOffset floatValue], self.view.frame.size.width, self.view.frame.size.height);
     _mapView = [[MKMapView alloc] initWithFrame:frame];
     _mapView.userInteractionEnabled = YES;
     return _mapView;
