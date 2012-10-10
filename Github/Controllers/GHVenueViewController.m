@@ -22,8 +22,8 @@
 @end
 
 
-static NSNumber *kMapViewOffset = nil;
-static NSNumber *kScrollViewOffset = nil;
+static float kMapViewOffset;
+static float kScrollViewOffset;
 
 
 @implementation GHVenueViewController
@@ -43,11 +43,11 @@ static NSNumber *kScrollViewOffset = nil;
     self.scrollView.delegate  = self;
 
     if ([self isPhone5]) {
-        kMapViewOffset = [NSNumber numberWithFloat:-100.0f];
-        kScrollViewOffset = [NSNumber numberWithFloat:300.0f];
+        kMapViewOffset    = -100.0f;
+        kScrollViewOffset = 300.0f;
     } else {
-        kMapViewOffset = [NSNumber numberWithFloat:-120.0f];
-        kScrollViewOffset = [NSNumber numberWithFloat:220.0f];
+        kMapViewOffset    = -120.0f;
+        kScrollViewOffset = 220.0f;
     }
 
     [self.view insertSubview:self.mapView belowSubview:self.scrollView];
@@ -90,7 +90,7 @@ static NSNumber *kScrollViewOffset = nil;
     float scrollViewHeight = self.view.frame.size.height - combinedChromeHeight + minimumScrollViewOffset;
     
     if ([self isPhone5] == NO) {
-        // Off by another 88 points on iPhone 4.
+        // Off by another 88 points on iPhone 4?
         scrollViewHeight -= combinedChromeHeight;
     }
     
@@ -99,7 +99,7 @@ static NSNumber *kScrollViewOffset = nil;
     
     // Add an offset to the scrollView's subview;
     CGRect frame = self.view.frame;
-    frame.origin.y = [kScrollViewOffset floatValue];
+    frame.origin.y = kScrollViewOffset;
     self.barView.frame = frame;
     [self.scrollView addSubview:self.barView];
 }
@@ -112,7 +112,7 @@ static NSNumber *kScrollViewOffset = nil;
     
     // Center the mapView while scrolling down.
     if (scrollOffset < 0) {
-        frame.origin.y = floorf([kMapViewOffset floatValue] - (scrollOffset / 3));
+        frame.origin.y = floorf(kMapViewOffset - (scrollOffset / 3));
         self.mapView.frame = frame;
     }
 }
@@ -124,7 +124,7 @@ static NSNumber *kScrollViewOffset = nil;
         return _mapView;
     }
     
-    CGRect frame = CGRectMake(0, [kMapViewOffset floatValue], self.view.frame.size.width, self.view.frame.size.height);
+    CGRect frame = CGRectMake(0, kMapViewOffset, self.view.frame.size.width, self.view.frame.size.height);
     _mapView = [[MKMapView alloc] initWithFrame:frame];
     _mapView.userInteractionEnabled = YES;
     return _mapView;
