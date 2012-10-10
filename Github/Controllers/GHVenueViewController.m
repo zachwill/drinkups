@@ -43,18 +43,17 @@ static NSNumber *kScrollViewOffset = nil;
     self.scrollView.delegate  = self;
 
     if ([self isPhone5]) {
-        kMapViewOffset = [NSNumber numberWithFloat:-100];
-        kScrollViewOffset = [NSNumber numberWithFloat:300];
+        kMapViewOffset = [NSNumber numberWithFloat:-100.0f];
+        kScrollViewOffset = [NSNumber numberWithFloat:300.0f];
     } else {
-        kMapViewOffset = [NSNumber numberWithFloat:-120];
-        kScrollViewOffset = [NSNumber numberWithFloat:220];
+        kMapViewOffset = [NSNumber numberWithFloat:-120.0f];
+        kScrollViewOffset = [NSNumber numberWithFloat:220.0f];
     }
 
     [self.view insertSubview:self.mapView belowSubview:self.scrollView];
     [self addToolbarButtons];
     [self createParallaxViewOffset];
-    [self centerMapToLatitude:self.drinkup.bar.latitude
-                    longitude:self.drinkup.bar.longitude];
+    [self centerMapToLatitude:self.drinkup.bar.latitude longitude:self.drinkup.bar.longitude];
     [self registerForNotifications];
 }
 
@@ -67,7 +66,7 @@ static NSNumber *kScrollViewOffset = nil;
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:GHScrollViewTouchNotification object:nil];
+    [self unregisterForNotifications];
 }
 
 #pragma mark - iPhone5
@@ -276,6 +275,12 @@ static NSNumber *kScrollViewOffset = nil;
                                              selector:@selector(switchToMaps:)
                                                  name:GHScrollViewTouchNotification
                                                object:nil];
+}
+
+- (void)unregisterForNotifications {
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:GHScrollViewTouchNotification
+                                                  object:nil];
 }
 
 @end
