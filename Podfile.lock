@@ -4,11 +4,13 @@ PODS:
   - AFNetworking (>= 0.9.0)
 - AFNetworking (1.0RC2)
 - ECSlidingViewController (0.9.0)
+- Reachability (3.0.0)
 
 DEPENDENCIES:
 - AFIncrementalStore (from `https://github.com/AFNetworking/AFIncrementalStore.git')
 - AFNetworking (~> 1.0RC2)
 - ECSlidingViewController
+- Reachability (~> 3.0)
 
 EXTERNAL SOURCES:
   AFIncrementalStore:
@@ -18,5 +20,6 @@ SPEC CHECKSUMS:
   AFIncrementalStore: 6529b0e963b066a2cad236a06ce5b902f536ef23
   AFNetworking: e7e40cf197f0cc6dea43ce448cc2a442c3c51137
   ECSlidingViewController: 87676976e3bf717e058f032eb161890d5e6350ca
+  Reachability: 500bd76bf6cd8ff2c6fb715fc5f44ef6e4c024f2
 
 COCOAPODS: 0.14.0

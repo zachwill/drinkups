@@ -11,6 +11,7 @@
 #import "GHDrinkupCell.h"
 #import "Drinkup.h"
 #import "GHVenueViewController.h"
+#import "Reachability.h"
 
 @interface GHDrinkupsViewController () <NSFetchedResultsControllerDelegate>
 
@@ -35,6 +36,7 @@ static NSString * const kBackgroundColor = @"c5c8be";
     [self refetchData];
     [self createPullToRefresh];
     [self customBackButton];
+    [self checkNetworkReachability];
 }
 
 # pragma mark - User Interface
@@ -111,6 +113,22 @@ static NSString * const kBackgroundColor = @"c5c8be";
     Drinkup *drinkup = [self.fetchedResultsController objectAtIndexPath:indexPath];
     GHVenueViewController *meetupVC = [[GHVenueViewController alloc] initWithDrinkup:drinkup];
     [self.navigationController pushViewController:meetupVC animated:YES];
+}
+
+#pragma mark - Reachability
+
+- (void)checkNetworkReachability {
+    Reachability *reach = [Reachability reachabilityWithHostname:@"drinkups.herokuapp.com"];
+    reach.unreachableBlock = ^(Reachability *reach){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[[UIAlertView alloc] initWithTitle:@"Connection Failed"
+                                       message:@"Sorry, internet connection failed."
+                                      delegate:self
+                             cancelButtonTitle:@"OK"
+                             otherButtonTitles: nil] show];
+        });
+    };
+    [reach startNotifier];
 }
 
 @end
