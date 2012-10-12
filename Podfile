@@ -7,3 +7,6 @@ pod "Reachability", "~> 3.0"
 
 # UI
 pod "ECSlidingViewController"
+
+# Analytics
+pod "FlurrySDK"

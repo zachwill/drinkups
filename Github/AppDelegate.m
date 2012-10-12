@@ -10,6 +10,7 @@
 #import "GHDataModel.h"
 #import "GHDrinkupsViewController.h"
 #import "GHLayout.h"
+#import "Flurry.h"
 
 @implementation AppDelegate
 
@@ -19,15 +20,21 @@
     [[GHDataModel sharedModel] createSharedURLCache];
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     
+    // Create initial UIViewController
     GHLayout *layout = [[GHLayout alloc] init];
     GHDrinkupsViewController *drinkupsVC = [[GHDrinkupsViewController alloc] initWithCollectionViewLayout:layout];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:drinkupsVC];
 
+    // Make UINavigationController the root controller
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     
+    // General styling through UIAppearance
     [self styleSheet];
+    
+    // Flurry Analytics
+    [Flurry startSession:@"VZDN4VPXWD4W4BBFB8WF"];
     
     return YES;
 }
