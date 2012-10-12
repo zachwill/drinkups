@@ -118,7 +118,7 @@ static NSString * const kBackgroundColor = @"c5c8be";
 #pragma mark - Reachability
 
 - (void)checkNetworkReachability {
-    Reachability *reach = [Reachability reachabilityWithHostname:@"drinkups.herokuapp.com"];
+    Reachability *reach = [Reachability reachabilityForInternetConnection];
     reach.unreachableBlock = ^(Reachability *reach){
         dispatch_async(dispatch_get_main_queue(), ^{
             [[[UIAlertView alloc] initWithTitle:@"Connection Failed"
