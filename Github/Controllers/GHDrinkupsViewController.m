@@ -19,7 +19,6 @@
 
 @end
 
-
 static const float kScrollViewThrottleOffset = 15.0f;
 static NSString * const kCellReuseIdentifier = @"Drinkup";
 

@@ -14,7 +14,7 @@
 #import "Drinkup.h"
 #import "GHBarInformationView.h"
 
-@interface GHVenueViewController () <UIActionSheetDelegate>
+@interface GHVenueViewController ()
 
 @property (nonatomic, strong) GHBarInformationView *barView;
 @property (nonatomic, assign) BOOL canSendTweets;
