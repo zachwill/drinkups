@@ -1,14 +1,22 @@
 //
-//  UIColor+Hex.m
-//  Drinkups
+//  UIColor+Drinkups.m
+//  Github
 //
-//  Created by Zach Williams on 8/2/12.
+//  Created by Zach Williams on 10/13/12.
 //  Copyright (c) 2012 Zach Williams. All rights reserved.
 //
 
-#import "UIColor+Hex.h"
+#import "UIColor+Drinkups.h"
 
-@implementation UIColor (Hex)
+@implementation UIColor (Drinkups)
+
++ (UIColor *)gh_backgroundColor {
+    return [UIColor colorWithRed:0.773 green:0.784 blue:0.745 alpha:1.000];
+}
+
++ (UIColor *)gh_refreshTintColor {
+    return [UIColor colorWithRed:0.631 green:0.647 blue:0.624 alpha:1.000];
+}
 
 + (UIColor *)colorWithHex:(NSString *)hex {
     NSString *cString = [[hex stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];  

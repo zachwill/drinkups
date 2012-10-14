@@ -12,6 +12,6 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import "AFNetworking.h"
-    #import "UIColor+Hex.h"
+    #import "UIColor+Drinkups.h"
     #import "GHNotifications.h"
 #endif

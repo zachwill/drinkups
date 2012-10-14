@@ -30,8 +30,8 @@
 		792A02D61607AA7100129016 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792A02D31607AA7100129016 /* Default-568h@2x.png */; };
 		792A02D71607AA7100129016 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 792A02D41607AA7100129016 /* Default.png */; };
 		792A02D81607AA7100129016 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792A02D51607AA7100129016 /* Default@2x.png */; };
-		792A02DE1607AABA00129016 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 792A02DC1607AABA00129016 /* UIColor+Hex.m */; };
 		79422DE9160E814100BA702F /* Drinkups.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79422DE7160E814100BA702F /* Drinkups.xcdatamodeld */; };
+		79616842162A594A00A25EDB /* UIColor+Drinkups.m in Sources */ = {isa = PBXBuildFile; fileRef = 79616841162A594A00A25EDB /* UIColor+Drinkups.m */; };
 		796C2CC31607D0EA00F238F2 /* GHDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 796C2CC21607D0EA00F238F2 /* GHDataModel.m */; };
 		796C2CD01607D39800F238F2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796C2CCF1607D39800F238F2 /* CoreData.framework */; };
 		796C2CD21607D3A700F238F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796C2CD11607D3A700F238F2 /* MapKit.framework */; };
@@ -102,9 +102,9 @@
 		792A02D31607AA7100129016 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		792A02D41607AA7100129016 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		792A02D51607AA7100129016 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		792A02DB1607AABA00129016 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
-		792A02DC1607AABA00129016 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		79422DE8160E814100BA702F /* Drinkups.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Drinkups.xcdatamodel; sourceTree = "<group>"; };
+		79616840162A594A00A25EDB /* UIColor+Drinkups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Drinkups.h"; sourceTree = "<group>"; };
+		79616841162A594A00A25EDB /* UIColor+Drinkups.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Drinkups.m"; sourceTree = "<group>"; };
 		796C2CC11607D0EA00F238F2 /* GHDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHDataModel.h; sourceTree = "<group>"; };
 		796C2CC21607D0EA00F238F2 /* GHDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHDataModel.m; sourceTree = "<group>"; };
 		796C2CCF1607D39800F238F2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -240,8 +240,8 @@
 		792A02CB1607AA3300129016 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				792A02DB1607AABA00129016 /* UIColor+Hex.h */,
-				792A02DC1607AABA00129016 /* UIColor+Hex.m */,
+				79616840162A594A00A25EDB /* UIColor+Drinkups.h */,
+				79616841162A594A00A25EDB /* UIColor+Drinkups.m */,
 			);
 			name = Categories;
 			path = ../Categories;
@@ -479,7 +479,6 @@
 			files = (
 				792A02A91607A90C00129016 /* main.m in Sources */,
 				792A02AD1607A90C00129016 /* AppDelegate.m in Sources */,
-				792A02DE1607AABA00129016 /* UIColor+Hex.m in Sources */,
 				796C2CC31607D0EA00F238F2 /* GHDataModel.m in Sources */,
 				796C2CD71607D68100F238F2 /* GHIncrementalStore.m in Sources */,
 				79422DE9160E814100BA702F /* Drinkups.xcdatamodeld in Sources */,
@@ -494,6 +493,7 @@
 				7997E6EF161D3AD900A332BD /* GHScrollView.m in Sources */,
 				7997E6F6161D40BC00A332BD /* GHBarInformationView.m in Sources */,
 				7997E6FD161D494900A332BD /* GHNotifications.m in Sources */,
+				79616842162A594A00A25EDB /* UIColor+Drinkups.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
