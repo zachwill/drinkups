@@ -21,9 +21,14 @@
 
 @end
 
-
 static float kMapViewOffset;
 static float kScrollViewOffset;
+
+typedef enum {
+    kPhoneCallChoice = 0,
+    kFoursquareChoice,
+    kGithubBlogChoice
+} UIActivitySheetChoice;
 
 
 @implementation GHVenueViewController
@@ -298,26 +303,23 @@ static float kScrollViewOffset;
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-        // Phone Call
+    UIActivitySheetChoice choice = buttonIndex;
+    if (choice == kPhoneCallChoice) {
         if ([self.drinkup.bar.phone isEqualToString:@""] == NO) {
             NSCharacterSet *decimalSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
             NSString *phone = [[self.drinkup.bar.phone componentsSeparatedByCharactersInSet:decimalSet] componentsJoinedByString:@""];
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", phone]]];
         } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Call Failed"
-                                                            message:@"Sorry, that bar's number is unavailable."
-                                                           delegate:self
-                                                  cancelButtonTitle:@"Cancel"
-                                                  otherButtonTitles: nil];
-            [alert show];
+            [[[UIAlertView alloc] initWithTitle:@"Call Failed"
+                                        message:@"Sorry, that bar's number is unavailable."
+                                       delegate:self
+                              cancelButtonTitle:@"Cancel"
+                              otherButtonTitles:nil] show];
         }
-    } else if (buttonIndex == 1) {
-        // Foursquare
+    } else if (choice == kFoursquareChoice) {
         NSURL *foursquare = [NSURL URLWithString:[NSString stringWithFormat:@"foursquare://venues/%@", self.drinkup.bar.foursquare]];
         [[UIApplication sharedApplication] openURL:foursquare];
-    } else if (buttonIndex == 2) {
-        // Github Blog
+    } else if (choice == kGithubBlogChoice) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.drinkup.blog]];
     }
 }

@@ -52,7 +52,8 @@ static NSString * const kCellReuseIdentifier = @"Drinkup";
 - (void)customBackButton {
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back"
                                                                    style:UIBarButtonItemStylePlain
-                                                                  target:nil action:nil];
+                                                                  target:nil
+                                                                  action:nil];
     self.navigationItem.backBarButtonItem = backButton;
 }
 
