@@ -10,7 +10,9 @@
 #import "GHJSONFormatter.h"
 
 @interface GHAPIClient ()
+
 @property (strong, nonatomic) GHJSONFormatter *jsonFormatter;
+
 @end
 
 static NSString * const kAPIBaseURL = @"http://drinkups.herokuapp.com/api/v1/";

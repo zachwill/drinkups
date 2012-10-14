@@ -10,5 +10,7 @@
 #import "AFIncrementalStore.h"
 
 @interface GHAPIClient : AFRESTClient <AFIncrementalStoreHTTPClient>
+
 + (GHAPIClient *)sharedClient;
+
 @end
