@@ -1,25 +1,27 @@
 
 PODS:
+- A2DynamicDelegate (2.0.2):
+  - libffi
 - AFIncrementalStore (0.1.0):
   - AFNetworking (>= 0.9.0)
-- AFNetworking (1.0RC2)
-- ECSlidingViewController (0.9.0)
+- AFNetworking (1.0)
+- BlocksKit (1.5.2):
+  - A2DynamicDelegate
 - Reachability (3.0.0)
+- libffi (3.0.11)
 
 DEPENDENCIES:
-- AFIncrementalStore (from `https://github.com/AFNetworking/AFIncrementalStore.git')
-- AFNetworking (~> 1.0RC2)
-- ECSlidingViewController
+- AFIncrementalStore
+- AFNetworking (~> 1.0)
+- BlocksKit
 - Reachability (~> 3.0)
 
-EXTERNAL SOURCES:
-  AFIncrementalStore:
-    :git: https://github.com/AFNetworking/AFIncrementalStore.git
-
 SPEC CHECKSUMS:
-  AFIncrementalStore: 6529b0e963b066a2cad236a06ce5b902f536ef23
-  AFNetworking: e7e40cf197f0cc6dea43ce448cc2a442c3c51137
-  ECSlidingViewController: 87676976e3bf717e058f032eb161890d5e6350ca
+  A2DynamicDelegate: 013b345f1aca891ded67a95c1512fad677c260a9
+  AFIncrementalStore: 81fa61bd06180839c8a3c934bf25b006dd16fd5f
+  AFNetworking: 8ebc0d45f8753337f280a427c6b9b707e2eecc94
+  BlocksKit: 12fbe889d9f8cc66adf5c9bd4cb0606071f214f2
   Reachability: 500bd76bf6cd8ff2c6fb715fc5f44ef6e4c024f2
+  libffi: 8a1d9ba43c0c84b546b42c6f742714e73aa07ae1
 
-COCOAPODS: 0.14.0
+COCOAPODS: 0.15.1

@@ -121,10 +121,10 @@ static NSString * const kCellReuseIdentifier = @"Drinkup";
     reach.unreachableBlock = ^(Reachability *reach){
         dispatch_async(dispatch_get_main_queue(), ^{
             [[[UIAlertView alloc] initWithTitle:@"Connection Failed"
-                                       message:@"Sorry, internet connection failed."
-                                      delegate:self
-                             cancelButtonTitle:@"OK"
-                             otherButtonTitles: nil] show];
+                                        message:@"Sorry, internet connection failed."
+                                       delegate:self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles: nil] show];
         });
     };
     [reach startNotifier];

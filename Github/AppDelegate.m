@@ -10,6 +10,7 @@
 #import "GHDataModel.h"
 #import "GHDrinkupsViewController.h"
 #import "GHLayout.h"
+#import "AFNetworking.h"
 #import "Flurry.h"
 
 @implementation AppDelegate

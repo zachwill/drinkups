@@ -10,6 +10,7 @@
 #import <EventKit/EventKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import <Social/Social.h>
+#import "BlocksKit.h"
 #import "Bar.h"
 #import "Drinkup.h"
 #import "GHBarInformationView.h"
@@ -23,12 +24,6 @@
 
 static float kMapViewOffset;
 static float kScrollViewOffset;
-
-typedef enum {
-    kPhoneCallChoice = 0,
-    kFoursquareChoice,
-    kGithubBlogChoice
-} UIActivitySheetChoice;
 
 
 @implementation GHVenueViewController
@@ -294,34 +289,32 @@ typedef enum {
 #pragma mark - UIActionSheet
 
 - (void)showActionSheet:(id)sender {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self
-                                                    cancelButtonTitle:@"Cancel"
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"Call Bar", @"Foursquare", @"Github Blog", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
-    [actionSheet showInView:self.view];
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    UIActivitySheetChoice choice = (UIActivitySheetChoice)buttonIndex;
-    if (choice == kPhoneCallChoice) {
-        if ([self.drinkup.bar.phone isEqualToString:@""] == NO) {
+    __weak id weakSelf = self;
+    __weak Drinkup *drinkup = self.drinkup;
+    [actionSheet addButtonWithTitle:@"Call Bar" handler:^{
+        if ([drinkup.bar.phone isEqualToString:@""] == NO) {
             NSCharacterSet *decimalSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
-            NSString *phone = [[self.drinkup.bar.phone componentsSeparatedByCharactersInSet:decimalSet] componentsJoinedByString:@""];
+            NSString *phone = [[drinkup.bar.phone componentsSeparatedByCharactersInSet:decimalSet] componentsJoinedByString:@""];
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", phone]]];
         } else {
             [[[UIAlertView alloc] initWithTitle:@"Call Failed"
                                         message:@"Sorry, that bar's number is unavailable."
-                                       delegate:self
+                                       delegate:weakSelf
                               cancelButtonTitle:@"Cancel"
                               otherButtonTitles:nil] show];
         }
-    } else if (choice == kFoursquareChoice) {
-        NSURL *foursquare = [NSURL URLWithString:[NSString stringWithFormat:@"foursquare://venues/%@", self.drinkup.bar.foursquare]];
+    }];
+    [actionSheet addButtonWithTitle:@"Foursquare" handler:^{
+        NSURL *foursquare = [NSURL URLWithString:[NSString stringWithFormat:@"foursquare://venues/%@", drinkup.bar.foursquare]];
         [[UIApplication sharedApplication] openURL:foursquare];
-    } else if (choice == kGithubBlogChoice) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.drinkup.blog]];
-    }
+    }];
+    [actionSheet addButtonWithTitle:@"Github Blog" handler:^{
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:drinkup.blog]];
+    }];
+    [actionSheet setCancelButtonWithTitle:@"Cancel" handler:nil];
+    [actionSheet showInView:self.view];
 }
 
 #pragma mark - NSNotificationCenter
