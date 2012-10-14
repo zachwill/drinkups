@@ -13,21 +13,21 @@
 @implementation GHIncrementalStore
 
 + (void)initialize {
-	[NSPersistentStoreCoordinator registerStoreClass:self forStoreType:[self type]];
+    [NSPersistentStoreCoordinator registerStoreClass:self forStoreType:[self type]];
 }
 
 + (NSString *)type {
-	return NSStringFromClass(self);
+    return NSStringFromClass(self);
 }
 
 - (NSManagedObjectModel *)model {
-	NSURL *dataModelURL = [[NSBundle mainBundle] URLForResource:[[GHDataModel sharedModel] modelName]
-												  withExtension:@"xcdatamodeld"];
-	return [[NSManagedObjectModel alloc] initWithContentsOfURL:dataModelURL];
+    NSURL *dataModelURL = [[NSBundle mainBundle] URLForResource:[[GHDataModel sharedModel] modelName]
+                                                  withExtension:@"xcdatamodeld"];
+    return [[NSManagedObjectModel alloc] initWithContentsOfURL:dataModelURL];
 }
 
 - (id<AFIncrementalStoreHTTPClient>)HTTPClient {
-	return [GHAPIClient sharedClient];
+    return [GHAPIClient sharedClient];
 }
 
 @end

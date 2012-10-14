@@ -18,8 +18,8 @@
 {
     // Override point for customization after application launch.
     [[GHDataModel sharedModel] createSharedURLCache];
-	[[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
-
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    
     // Create initial UIViewController
     GHLayout *layout = [[GHLayout alloc] init];
     GHDrinkupsViewController *drinkupsVC = [[GHDrinkupsViewController alloc] initWithCollectionViewLayout:layout];
@@ -29,10 +29,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
-
+    
     // General styling through UIAppearance
     [self applyStyleSheet];
-
+    
     // Flurry Analytics
     [Flurry startSession:@"VZDN4VPXWD4W4BBFB8WF"];
     
@@ -58,7 +58,7 @@
                                             forState:UIControlStateNormal
                                           barMetrics:UIBarMetricsDefault];
 }
-
+							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -67,7 +67,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
