@@ -303,7 +303,7 @@ typedef enum {
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    UIActivitySheetChoice choice = buttonIndex;
+    UIActivitySheetChoice choice = (UIActivitySheetChoice)buttonIndex;
     if (choice == kPhoneCallChoice) {
         if ([self.drinkup.bar.phone isEqualToString:@""] == NO) {
             NSCharacterSet *decimalSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
