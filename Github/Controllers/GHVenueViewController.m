@@ -291,8 +291,10 @@ static float kScrollViewOffset;
 - (void)showActionSheet:(id)sender {
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+
     __weak id weakSelf = self;
     __weak Drinkup *drinkup = self.drinkup;
+
     [actionSheet addButtonWithTitle:@"Call Bar" handler:^{
         if ([drinkup.bar.phone isEqualToString:@""] == NO) {
             NSCharacterSet *decimalSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
@@ -306,13 +308,16 @@ static float kScrollViewOffset;
                               otherButtonTitles:nil] show];
         }
     }];
+
     [actionSheet addButtonWithTitle:@"Foursquare" handler:^{
         NSURL *foursquare = [NSURL URLWithString:[NSString stringWithFormat:@"foursquare://venues/%@", drinkup.bar.foursquare]];
         [[UIApplication sharedApplication] openURL:foursquare];
     }];
+
     [actionSheet addButtonWithTitle:@"Github Blog" handler:^{
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:drinkup.blog]];
     }];
+
     [actionSheet setCancelButtonWithTitle:@"Cancel" handler:nil];
     [actionSheet showInView:self.view];
 }
