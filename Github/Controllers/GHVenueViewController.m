@@ -64,8 +64,8 @@ static float kScrollViewOffset;
     self.scrollView.layer.shadowOpacity = 0.15f;
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
+- (void)viewDidUnload {
+    [super viewDidUnload];
     [self unregisterForNotifications];
 }
 

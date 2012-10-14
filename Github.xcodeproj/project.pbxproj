@@ -30,7 +30,6 @@
 		792A02D61607AA7100129016 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792A02D31607AA7100129016 /* Default-568h@2x.png */; };
 		792A02D71607AA7100129016 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 792A02D41607AA7100129016 /* Default.png */; };
 		792A02D81607AA7100129016 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792A02D51607AA7100129016 /* Default@2x.png */; };
-		792A02DD1607AABA00129016 /* ECSlidingViewController+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 792A02DA1607AABA00129016 /* ECSlidingViewController+Create.m */; };
 		792A02DE1607AABA00129016 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 792A02DC1607AABA00129016 /* UIColor+Hex.m */; };
 		79422DE9160E814100BA702F /* Drinkups.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79422DE7160E814100BA702F /* Drinkups.xcdatamodeld */; };
 		796C2CC31607D0EA00F238F2 /* GHDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 796C2CC21607D0EA00F238F2 /* GHDataModel.m */; };
@@ -103,8 +102,6 @@
 		792A02D31607AA7100129016 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		792A02D41607AA7100129016 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		792A02D51607AA7100129016 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		792A02D91607AABA00129016 /* ECSlidingViewController+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ECSlidingViewController+Create.h"; sourceTree = "<group>"; };
-		792A02DA1607AABA00129016 /* ECSlidingViewController+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ECSlidingViewController+Create.m"; sourceTree = "<group>"; };
 		792A02DB1607AABA00129016 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		792A02DC1607AABA00129016 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		79422DE8160E814100BA702F /* Drinkups.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Drinkups.xcdatamodel; sourceTree = "<group>"; };
@@ -231,7 +228,6 @@
 		792A02A31607A90C00129016 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				792A02CB1607AA3300129016 /* Categories */,
 				792A02A41607A90C00129016 /* Github-Info.plist */,
 				792A02A51607A90C00129016 /* InfoPlist.strings */,
 				792A02A81607A90C00129016 /* main.m */,
@@ -244,12 +240,11 @@
 		792A02CB1607AA3300129016 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				792A02D91607AABA00129016 /* ECSlidingViewController+Create.h */,
-				792A02DA1607AABA00129016 /* ECSlidingViewController+Create.m */,
 				792A02DB1607AABA00129016 /* UIColor+Hex.h */,
 				792A02DC1607AABA00129016 /* UIColor+Hex.m */,
 			);
-			path = Categories;
+			name = Categories;
+			path = ../Categories;
 			sourceTree = "<group>";
 		};
 		792A02CC1607AA3300129016 /* Controllers */ = {
@@ -342,6 +337,7 @@
 		7980C979160ED5B4006BCB34 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				792A02CB1607AA3300129016 /* Categories */,
 				7980C97A160ED5B4006BCB34 /* GHAPIClient.h */,
 				7980C97B160ED5B4006BCB34 /* GHAPIClient.m */,
 				7980C97D160ED5E4006BCB34 /* GHJSONFormatter.h */,
@@ -483,7 +479,6 @@
 			files = (
 				792A02A91607A90C00129016 /* main.m in Sources */,
 				792A02AD1607A90C00129016 /* AppDelegate.m in Sources */,
-				792A02DD1607AABA00129016 /* ECSlidingViewController+Create.m in Sources */,
 				792A02DE1607AABA00129016 /* UIColor+Hex.m in Sources */,
 				796C2CC31607D0EA00F238F2 /* GHDataModel.m in Sources */,
 				796C2CD71607D68100F238F2 /* GHIncrementalStore.m in Sources */,
