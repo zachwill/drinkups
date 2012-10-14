@@ -14,14 +14,14 @@ static const float kItemSizeHeight = 155.0f;
 @implementation GHLayout
 
 - (id)init {
-    self = [super init];
-    if (self) {
-        self.itemSize = CGSizeMake(kItemSizeWidth, kItemSizeHeight);
-        self.minimumInteritemSpacing = 0;
-        self.minimumLineSpacing = 4;
-        self.sectionInset = UIEdgeInsetsMake(10, 6, 10, 6);
-    }
-    return self;
+	self = [super init];
+	if (self) {
+		self.itemSize = CGSizeMake(kItemSizeWidth, kItemSizeHeight);
+		self.minimumLineSpacing = 4;
+		self.minimumInteritemSpacing = 0;
+		self.sectionInset = UIEdgeInsetsMake(10, 6, 10, 6);
+	}
+	return self;
 }
 
 @end

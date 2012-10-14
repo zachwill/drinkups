@@ -13,14 +13,14 @@
 @implementation GHBarInformationView
 
 - (id)initWithDrinkup:(Drinkup *)drinkup {
-    self = [super init];
-    if (self) {
-        self = [[NSBundle mainBundle] loadNibNamed:@"GHBarInformationView" owner:self options:nil][0];
-        _drinkup = drinkup;
-        self.address.text = _drinkup.bar.address;
-        self.bar.text = _drinkup.bar.name;
-    }
-    return self;
+	self = [super init];
+	if (self) {
+		self = [[NSBundle mainBundle] loadNibNamed:@"GHBarInformationView" owner:self options:nil][0];
+		_drinkup = drinkup;
+		self.address.text = _drinkup.bar.address;
+		self.bar.text = _drinkup.bar.name;
+	}
+	return self;
 }
 
 @end

@@ -12,13 +12,13 @@
 
 // Because dealing with UIScrollView and UIGestures is still difficult.
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-    NSString *touchClass = NSStringFromClass(touch.view.class);
-    if ([touchClass isEqualToString:[[self class] description]]) {
-        // Then the area above the scrollView was actually touched.
-        [[NSNotificationCenter defaultCenter] postNotificationName:GHScrollViewTouchNotification
-                                                            object:nil];
-    }
+	UITouch *touch = [touches anyObject];
+	NSString *touchClass = NSStringFromClass(touch.view.class);
+	if ([touchClass isEqualToString:[[self class] description]]) {
+		// Then the area above the scrollView was actually touched.
+		[[NSNotificationCenter defaultCenter] postNotificationName:GHScrollViewTouchNotification
+															object:nil];
+	}
 }
 
 @end

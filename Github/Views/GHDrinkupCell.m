@@ -14,14 +14,14 @@
 @implementation GHDrinkupCell
 
 - (void)setDrinkup:(Drinkup *)drinkup {
-    self.name.text = drinkup.bar.name;
-    self.city.text = drinkup.bar.city;
-    [self.barPicture setImageWithURL:[NSURL URLWithString:drinkup.bar.photo]
-                    placeholderImage:[UIImage imageNamed:@"placeholdercat"]];
+	self.name.text = drinkup.bar.name;
+	self.city.text = drinkup.bar.city;
+	[self.barPicture setImageWithURL:[NSURL URLWithString:drinkup.bar.photo]
+					placeholderImage:[UIImage imageNamed:@"placeholdercat"]];
 }
 
 - (void)setSelected:(BOOL)selected {
-    [super setSelected:selected];
+	[super setSelected:selected];
 }
 
 @end
