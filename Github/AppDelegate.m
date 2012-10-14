@@ -31,7 +31,7 @@
     [self.window makeKeyAndVisible];
     
     // General styling through UIAppearance
-    [self styleSheet];
+    [self applyStyleSheet];
     
     // Flurry Analytics
     [Flurry startSession:@"VZDN4VPXWD4W4BBFB8WF"];
@@ -40,7 +40,7 @@
 }
 
 // A global appearance stylesheet.
-- (void)styleSheet {
+- (void)applyStyleSheet {
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav"]
                                        forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setShadowImage:[UIImage imageNamed:@"nav_shadow"]];
