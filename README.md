@@ -1,4 +1,4 @@
-drinkups
-========
+[trydrinkups.com](http://trydrinkups.com)
+=================
 
-An iOS application for Github Drinkups.
+A simple static site for the Drinkups app.
