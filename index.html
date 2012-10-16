@@ -26,8 +26,14 @@
   <!-- Your content goes here... -->
   <div class="container">
     <div class="row">
+
+      <!-- iPhone -->
       <div class="span7">
-        <img src="/img/drinkups_black_iphone.png" alt="Drinkups" class="center" />
+        <div class="iphone">
+          <div class="light"></div>
+          <div class="home"></div>
+          <div class="next"></div>
+        </div>
       </div>
 
       <div class="span5 text">
@@ -46,8 +52,7 @@
         <p>Cotton candy tiramisu carrot cake biscuit soufflé wafer. Ice cream
         dragée macaroon. Cupcake cotton candy chocolate bar soufflé. Biscuit
         jelly-o macaroon oat cake pie. Wypas donut cookie danish muffin.
-        Caramels cookie chocolate cake sugar plum muffin liquorice. Pudding
-        liquorice marshmallow caramels soufflé croissant sesame snaps.</p>
+        Caramels cookie chocolate cake sugar plum muffin liquorice.</p>
 
         <img src="/img/icon.png" alt="iOS app icon" class="center icon" />
 
@@ -56,6 +61,23 @@
     </div>
   </div>
 
+  <!-- Zepto.js -->
+  <script src="/js/zepto.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    setInterval(function (e) {
+        var home = $('.home');
+
+        if (home.hasClass('hidden')) {
+          home.animate({
+            opacity: 100
+          }, 300).removeClass('hidden')
+        } else {
+          home.animate({
+            opacity: 0
+          }, 300).addClass('hidden')
+        }
+    }, 3000);
+  </script>
 
   <!-- Google Analytics -->
   <script>
