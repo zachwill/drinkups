@@ -226,15 +226,14 @@ static float kScrollViewOffset;
                                           cancelButtonTitle:@"Cancel"
                                           otherButtonTitles:nil];
     
-    __weak id weakSelf = self;
     [alert addButtonWithTitle:@"OK" handler:^{
-        [weakSelf createReminder:nil];
+        [self createReminder];
     }];
     
     [alert show];
 }
 
-- (void)createReminder:(id)sender {
+- (void)createReminder {
     [[EKEventStore alloc] requestAccessToEntityType:EKEntityTypeReminder completion:^(BOOL granted, NSError *error) {
         EKEventStore *eventStore = [[EKEventStore alloc] init];
         EKReminder *reminder = [EKReminder reminderWithEventStore:eventStore];
