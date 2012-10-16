@@ -13,9 +13,11 @@
 #import "GHVenueViewController.h"
 #import "Reachability.h"
 
-@interface GHDrinkupsViewController () <NSFetchedResultsControllerDelegate>
+@interface GHDrinkupsViewController () <NSFetchedResultsControllerDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSIndexPath *swipedIndexPath;
+@property (nonatomic, strong) UIView *swipeView;
 
 @end
 
@@ -32,9 +34,16 @@ static NSString * const kCellReuseIdentifier = @"Drinkup";
           forCellWithReuseIdentifier:kCellReuseIdentifier];
     self.collectionView.backgroundColor = [UIColor gh_backgroundColor];
     [self refetchData];
+    
+    // UI
     [self createPullToRefresh];
     [self customBackButton];
     [self checkNetworkReachability];
+    
+    // Swipe recognizer
+    UISwipeGestureRecognizer *gesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
+    gesture.direction = UISwipeGestureRecognizerDirectionLeft | UISwipeGestureRecognizerDirectionRight;
+    [self.collectionView addGestureRecognizer:gesture];
 }
 
 # pragma mark - User Interface
@@ -112,6 +121,49 @@ static NSString * const kCellReuseIdentifier = @"Drinkup";
     Drinkup *drinkup = [self.fetchedResultsController objectAtIndexPath:indexPath];
     GHVenueViewController *meetupVC = [[GHVenueViewController alloc] initWithDrinkup:drinkup];
     [self.navigationController pushViewController:meetupVC animated:YES];
+}
+
+#pragma mark - UIGestureRecognizer
+
+- (void)didSwipe:(UISwipeGestureRecognizer *)gesture {
+    // Only interested in gestures that have ended.
+    if (gesture.state != UIGestureRecognizerStateEnded) {
+        return;
+    }
+    
+    CGPoint swipeLocation = [gesture locationInView:self.collectionView];
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:swipeLocation];
+    GHDrinkupCell *cell = (GHDrinkupCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    
+    if (CGRectIsEmpty(self.swipeView.frame) || CGRectEqualToRect(self.swipeView.frame, cell.frame) == NO) {
+        self.swipeView.frame = cell.frame;
+    }
+    
+    if ([self.swipedIndexPath isEqual:indexPath]) {
+        self.swipedIndexPath = nil;
+        [UIView transitionFromView:self.swipeView toView:cell duration:.2 options:UIViewAnimationOptionTransitionCrossDissolve completion:nil];
+    } else if (self.swipedIndexPath == nil) {
+        // No cell has been swiped previously.
+        self.swipedIndexPath = indexPath;
+        [UIView transitionFromView:cell toView:self.swipeView duration:.2 options:UIViewAnimationOptionTransitionCrossDissolve completion:nil];
+    } else {
+        // Another cell was previously swiped.
+        GHDrinkupCell *oldCell = (GHDrinkupCell *)[self.collectionView cellForItemAtIndexPath:self.swipedIndexPath];
+        [UIView transitionFromView:self.swipeView toView:oldCell duration:.2 options:UIViewAnimationOptionTransitionCrossDissolve completion:nil];
+        self.swipedIndexPath = indexPath;
+        [UIView transitionFromView:cell toView:self.swipeView duration:.2 options:UIViewAnimationOptionTransitionCrossDissolve completion:nil];
+    }
+    
+}
+
+- (UIView *)swipeView {
+    if (_swipeView) {
+        return _swipeView;
+    }
+    
+    _swipeView = [[UIView alloc] init];
+    _swipeView.backgroundColor = [UIColor redColor];
+    return _swipeView;
 }
 
 #pragma mark - Reachability
