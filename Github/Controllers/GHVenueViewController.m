@@ -237,12 +237,18 @@ static float kScrollViewOffset;
     [[EKEventStore alloc] requestAccessToEntityType:EKEntityTypeReminder completion:^(BOOL granted, NSError *error) {
         EKEventStore *eventStore = [[EKEventStore alloc] init];
         EKReminder *reminder = [EKReminder reminderWithEventStore:eventStore];
-        NSString *bar = self.drinkup.bar.name;
-        reminder.title = [NSString stringWithFormat:@"Github Drinkup at %@", bar];
-        reminder.location = bar;
+        NSString *barName = self.drinkup.bar.name;
+        reminder.title = [NSString stringWithFormat:@"Github Drinkup at %@", barName];
+        reminder.location = barName;
         reminder.calendar = [eventStore defaultCalendarForNewReminders];
 
-        NSDateComponents *components = [self reminderComponents];
+        // Date components setup.
+        unsigned options = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+        NSDateComponents *components = [[NSCalendar currentCalendar] components:options fromDate:self.drinkup.date];
+        // Default hour set to noon.
+        components.hour = 12;
+        
+        // Add alarm with correct date.
         reminder.startDateComponents = components;
         NSDate *dateToRemind = [[NSCalendar currentCalendar] dateFromComponents:components];
         [reminder addAlarm:[EKAlarm alarmWithAbsoluteDate:dateToRemind]];
@@ -256,14 +262,6 @@ static float kScrollViewOffset;
             NSLog(@"Reminder created successfully");
         }
     }];
-}
-
-- (NSDateComponents *)reminderComponents {
-    unsigned options = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:options fromDate:self.drinkup.date];
-    // Default hour set to noon.
-    components.hour = 12;
-    return components;
 }
 
 - (void)createTweet:(id)sender {
