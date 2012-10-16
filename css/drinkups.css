@@ -1,3 +1,8 @@
+body:after {
+  content: url(/img/home_screen.png) url(/img/black_iphone.png);
+  display: none;
+}
+
 .center {
   display: block;
   margin: 0 auto;
