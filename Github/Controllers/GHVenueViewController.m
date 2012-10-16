@@ -50,11 +50,19 @@ static float kScrollViewOffset;
         kScrollViewOffset = 220.0f;
     }
 
+    // UI
     [self.view insertSubview:self.mapView belowSubview:self.scrollView];
     [self addToolbarButtons];
     [self createParallaxViewOffset];
     [self centerMapToLatitude:self.drinkup.bar.latitude longitude:self.drinkup.bar.longitude];
+    
+    // Notifications
     [self registerForNotifications];
+    
+    // Swipe Gesture Recognizer
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
+    swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipeGesture];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -320,6 +328,12 @@ static float kScrollViewOffset;
 
     [actionSheet setCancelButtonWithTitle:@"Cancel" handler:nil];
     [actionSheet showInView:self.view];
+}
+
+#pragma mark - UIGestureRecognizer
+
+- (void)didSwipe:(UISwipeGestureRecognizer *)gesture {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - NSNotificationCenter
