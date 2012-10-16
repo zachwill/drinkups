@@ -200,7 +200,7 @@ static float kScrollViewOffset;
     UIBarButtonItem *reminder = [[UIBarButtonItem alloc] initWithTitle:@"Reminder"
                                                                  style:UIBarButtonItemStyleBordered
                                                                 target:self
-                                                                action:@selector(createReminder:)];
+                                                                action:@selector(showReminderAlert:)];
     UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                                                               target:nil
                                                                               action:nil];
@@ -217,6 +217,21 @@ static float kScrollViewOffset;
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
         self.canSendTweets = YES;
     }
+}
+
+- (void)showReminderAlert:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Create Reminder"
+                                                    message:@"Create a reminder for this drinkup?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:nil];
+    
+    __weak id weakSelf = self;
+    [alert addButtonWithTitle:@"OK" handler:^{
+        [weakSelf createReminder:nil];
+    }];
+    
+    [alert show];
 }
 
 - (void)createReminder:(id)sender {
@@ -239,15 +254,7 @@ static float kScrollViewOffset;
         if (reminderError) {
             NSLog(@"Error saving reminder: %@", reminderError);
         } else {
-            // Show an alert on the main queue.
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reminder Saved"
-                                                                message:@"A drinkup reminder was set for you."
-                                                               delegate:self
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles: nil];
-                [alert show];
-            });
+            NSLog(@"Reminder created successfully");
         }
     }];
 }
@@ -284,7 +291,7 @@ static float kScrollViewOffset;
                 }];
             } else {
                 [weakSelf dismissViewControllerAnimated:YES completion:^{
-                    NSLog(@"Dismissed.");
+                    NSLog(@"Tweet dismissed.");
                 }];
             }
         }];
