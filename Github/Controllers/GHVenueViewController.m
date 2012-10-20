@@ -72,9 +72,9 @@ static float kScrollViewOffset;
     self.scrollView.layer.shadowOpacity = 0.15f;
 }
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    [self unregisterForNotifications];
+- (void)dealloc {
+    // Unregister from notifications
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - iPhone5
@@ -348,11 +348,4 @@ static float kScrollViewOffset;
                                                  name:GHScrollViewTouchNotification
                                                object:nil];
 }
-
-- (void)unregisterForNotifications {
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:GHScrollViewTouchNotification
-                                                  object:nil];
-}
-
 @end
