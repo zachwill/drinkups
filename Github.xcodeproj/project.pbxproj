@@ -31,6 +31,7 @@
 		792A02D71607AA7100129016 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 792A02D41607AA7100129016 /* Default.png */; };
 		792A02D81607AA7100129016 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792A02D51607AA7100129016 /* Default@2x.png */; };
 		79422DE9160E814100BA702F /* Drinkups.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79422DE7160E814100BA702F /* Drinkups.xcdatamodeld */; };
+		79520806163DDC6C00A97E1F /* Bar+Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 79520805163DDC6C00A97E1F /* Bar+Annotation.m */; };
 		79616842162A594A00A25EDB /* UIColor+Drinkups.m in Sources */ = {isa = PBXBuildFile; fileRef = 79616841162A594A00A25EDB /* UIColor+Drinkups.m */; };
 		796C2CC31607D0EA00F238F2 /* GHDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 796C2CC21607D0EA00F238F2 /* GHDataModel.m */; };
 		796C2CD01607D39800F238F2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796C2CCF1607D39800F238F2 /* CoreData.framework */; };
@@ -103,6 +104,8 @@
 		792A02D41607AA7100129016 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		792A02D51607AA7100129016 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		79422DE8160E814100BA702F /* Drinkups.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Drinkups.xcdatamodel; sourceTree = "<group>"; };
+		79520804163DDC6C00A97E1F /* Bar+Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bar+Annotation.h"; sourceTree = "<group>"; };
+		79520805163DDC6C00A97E1F /* Bar+Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Bar+Annotation.m"; sourceTree = "<group>"; };
 		79616840162A594A00A25EDB /* UIColor+Drinkups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Drinkups.h"; sourceTree = "<group>"; };
 		79616841162A594A00A25EDB /* UIColor+Drinkups.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Drinkups.m"; sourceTree = "<group>"; };
 		796C2CC11607D0EA00F238F2 /* GHDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHDataModel.h; sourceTree = "<group>"; };
@@ -354,6 +357,8 @@
 			children = (
 				7980C9AD160F04B6006BCB34 /* Bar.h */,
 				7980C9AE160F04B6006BCB34 /* Bar.m */,
+				79520804163DDC6C00A97E1F /* Bar+Annotation.h */,
+				79520805163DDC6C00A97E1F /* Bar+Annotation.m */,
 				7980C9B0160F04B6006BCB34 /* Drinkup.h */,
 				7980C9B1160F04B6006BCB34 /* Drinkup.m */,
 			);
@@ -494,6 +499,7 @@
 				7997E6F6161D40BC00A332BD /* GHBarInformationView.m in Sources */,
 				7997E6FD161D494900A332BD /* GHNotifications.m in Sources */,
 				79616842162A594A00A25EDB /* UIColor+Drinkups.m in Sources */,
+				79520806163DDC6C00A97E1F /* Bar+Annotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

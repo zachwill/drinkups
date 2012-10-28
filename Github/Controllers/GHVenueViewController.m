@@ -11,8 +11,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import <Social/Social.h>
 #import "BlocksKit.h"
-#import "Bar.h"
 #import "Drinkup.h"
+#import "Bar+Annotation.h"
 #import "GHBarInformationView.h"
 
 @interface GHVenueViewController ()
@@ -43,10 +43,10 @@ static float kScrollViewOffset;
     self.scrollView.delegate  = self;
 
     if ([self isPhone5]) {
-        kMapViewOffset    = -100.0f;
+        kMapViewOffset    = -110.0f;
         kScrollViewOffset = 300.0f;
     } else {
-        kMapViewOffset    = -120.0f;
+        kMapViewOffset    = -140.0f;
         kScrollViewOffset = 220.0f;
     }
 
@@ -139,25 +139,30 @@ static float kScrollViewOffset;
 }
 
 - (void)centerMapToLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude {
-    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([latitude doubleValue],
-                                                              [longitude doubleValue]);
-    MKMapPoint point  = MKMapPointForCoordinate(coord);
+    MKMapPoint point  = MKMapPointForCoordinate(self.drinkup.bar.coordinate);
     MKMapRect mapRect = MKMapRectMake(point.x, point.y, 5000, 5000);
     self.mapView.region = MKCoordinateRegionForMapRect(mapRect);
-    self.mapView.centerCoordinate = coord;
-    MKPlacemark *annotation = [[MKPlacemark alloc] initWithCoordinate:coord addressDictionary:nil];
-    [self.mapView addAnnotation:annotation];
+    self.mapView.centerCoordinate = self.drinkup.bar.coordinate;
+    [self.mapView addAnnotation:self.drinkup.bar];
 }
 
 // Called by listening to NSNotificationCenter
 - (void)switchToMaps:(id)sender {
-    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([self.drinkup.bar.latitude doubleValue],
-                                                              [self.drinkup.bar.longitude doubleValue]);
-    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coord addressDictionary:nil];
-    MKMapItem *map = [[MKMapItem alloc] initWithPlacemark:placemark];
-    map.name = self.drinkup.bar.name;
-    map.url = [NSURL URLWithString:self.drinkup.blog];
-    [map openInMapsWithLaunchOptions:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Switch To Maps"
+                                                    message:@"Switch to the Maps application?"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:nil];
+    [alert addButtonWithTitle:@"OK" handler:^{
+        CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([self.drinkup.bar.latitude doubleValue],
+                                                                  [self.drinkup.bar.longitude doubleValue]);
+        MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coord addressDictionary:nil];
+        MKMapItem *map = [[MKMapItem alloc] initWithPlacemark:placemark];
+        map.name = self.drinkup.bar.name;
+        map.url = [NSURL URLWithString:self.drinkup.blog];
+        [map openInMapsWithLaunchOptions:nil];
+    }];
+    [alert show];
 }
 
 #pragma mark - GHBarInformationView

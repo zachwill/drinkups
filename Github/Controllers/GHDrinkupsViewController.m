@@ -11,7 +11,6 @@
 #import "GHDrinkupCell.h"
 #import "Drinkup.h"
 #import "GHVenueViewController.h"
-#import "Reachability.h"
 
 @interface GHDrinkupsViewController () <NSFetchedResultsControllerDelegate>
 
@@ -34,7 +33,6 @@ static NSString * const kCellReuseIdentifier = @"Drinkup";
     [self refetchData];
     [self createPullToRefresh];
     [self customBackButton];
-    [self checkNetworkReachability];
 }
 
 # pragma mark - User Interface
@@ -114,20 +112,5 @@ static NSString * const kCellReuseIdentifier = @"Drinkup";
     [self.navigationController pushViewController:meetupVC animated:YES];
 }
 
-#pragma mark - Reachability
-
-- (void)checkNetworkReachability {
-    Reachability *reach = [Reachability reachabilityForInternetConnection];
-    reach.unreachableBlock = ^(Reachability *reach){
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[[UIAlertView alloc] initWithTitle:@"Connection Failed"
-                                        message:@"Sorry, internet connection failed."
-                                       delegate:self
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles: nil] show];
-        });
-    };
-    [reach startNotifier];
-}
 
 @end

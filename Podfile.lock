@@ -11,17 +11,23 @@ PODS:
 - libffi (3.0.11)
 
 DEPENDENCIES:
-- AFIncrementalStore
+- AFIncrementalStore (from `https://github.com/AFNetworking/AFIncrementalStore.git')
 - AFNetworking (~> 1.0)
 - BlocksKit
-- Reachability (~> 3.0)
+- Reachability (from `https://github.com/tonymillion/Reachability.git')
+
+EXTERNAL SOURCES:
+  AFIncrementalStore:
+    :git: https://github.com/AFNetworking/AFIncrementalStore.git
+  Reachability:
+    :git: https://github.com/tonymillion/Reachability.git
 
 SPEC CHECKSUMS:
   A2DynamicDelegate: 013b345f1aca891ded67a95c1512fad677c260a9
-  AFIncrementalStore: 81fa61bd06180839c8a3c934bf25b006dd16fd5f
-  AFNetworking: 8ebc0d45f8753337f280a427c6b9b707e2eecc94
+  AFIncrementalStore: 6529b0e963b066a2cad236a06ce5b902f536ef23
+  AFNetworking: 758a1cb1ab5a0d22795ba1c44abb9cad395bc126
   BlocksKit: 12fbe889d9f8cc66adf5c9bd4cb0606071f214f2
-  Reachability: 500bd76bf6cd8ff2c6fb715fc5f44ef6e4c024f2
+  Reachability: f5ae7c17d68794bb44a72f6f895264df2e6eca34
   libffi: 8a1d9ba43c0c84b546b42c6f742714e73aa07ae1
 
 COCOAPODS: 0.15.1

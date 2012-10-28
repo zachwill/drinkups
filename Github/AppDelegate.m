@@ -11,7 +11,7 @@
 #import "GHDrinkupsViewController.h"
 #import "GHLayout.h"
 #import "AFNetworking.h"
-#import "Flurry.h"
+#import "Reachability.h"
 
 @implementation AppDelegate
 
@@ -33,10 +33,12 @@
     
     // General styling through UIAppearance
     [self applyStyleSheet];
-    
-    // Flurry Analytics
-    [Flurry startSession:@"VZDN4VPXWD4W4BBFB8WF"];
-    
+
+    // Network Reachability
+    [self checkNetworkReachability];
+
+    // TODO: Flurry analytics
+
     return YES;
 }
 
@@ -60,6 +62,22 @@
                                           barMetrics:UIBarMetricsDefault];
 }
 							
+#pragma mark - Reachability
+
+- (void)checkNetworkReachability {
+    Reachability *heroku = [Reachability reachabilityWithHostname:@"http://drinkups.herokuapp.com"];
+    heroku.unreachableBlock = ^(Reachability *reachable){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[[UIAlertView alloc] initWithTitle:@"Connection Failed"
+                                message:@"Sorry, internet connection failed."
+                               delegate:self
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles: nil] show];
+        });
+    };
+    [heroku startNotifier];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
