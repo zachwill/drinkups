@@ -70,11 +70,6 @@ static float kScrollViewOffset;
     self.scrollView.layer.shadowOpacity = 0.15f;
 }
 
-- (void)dealloc {
-    // Unregister from notifications
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 #pragma mark - iPhone 5
 
 - (BOOL)isPhone5 {
@@ -147,7 +142,7 @@ static float kScrollViewOffset;
 - (void)showMapAlert:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Switch To Maps"
                                                     message:@"Switch to the Maps application?"
-                                                   delegate:self
+                                                   delegate:nil
                                           cancelButtonTitle:@"Cancel"
                                           otherButtonTitles:nil];
     [alert addButtonWithTitle:@"OK" handler:^{
