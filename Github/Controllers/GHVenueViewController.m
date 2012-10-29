@@ -247,13 +247,13 @@ static float kScrollViewOffset;
         SLComposeViewController *tweetVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
         
         // Create the initial tweet.
-        NSString *tweet = nil;
+        NSString *location;
         if ([self.drinkup.bar.twitter isEqualToString:@""]) {
-            tweet = [NSString stringWithFormat:@"Github drinkup at %@", self.drinkup.bar.name];
+            location = self.drinkup.bar.name;
         } else {
-            tweet = [NSString stringWithFormat:@"Github drinkup at @%@", self.drinkup.bar.twitter];
+            location = [NSString stringWithFormat:@"@%@", self.drinkup.bar.twitter];
         }
-        [tweetVC setInitialText:tweet];
+        [tweetVC setInitialText:[NSString stringWithFormat:@"Github drinkup at %@", location]];
         
         // Add the URL from Github's blog post.
         [tweetVC addURL:[NSURL URLWithString:self.drinkup.blog]];
@@ -325,7 +325,7 @@ static float kScrollViewOffset;
     // Tap Gesture
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapMapView:)];
     tapGesture.delegate = self;
-    [self.view addGestureRecognizer:tapGesture];
+    [self.scrollView addGestureRecognizer:tapGesture];
 }
 
 - (void)didSwipeBackward:(UISwipeGestureRecognizer *)swipe {
@@ -341,8 +341,8 @@ static float kScrollViewOffset;
     double latdelta = originalRegion.span.latitudeDelta / pinch.scale;
     double lngdelta = originalRegion.span.longitudeDelta / pinch.scale;
 
-    latdelta = MAX(MIN(latdelta, 12), 0.002);
-    lngdelta = MAX(MIN(lngdelta, 12), 0.002);
+    latdelta = MAX(MIN(latdelta, 8), 0.002);
+    lngdelta = MAX(MIN(lngdelta, 8), 0.002);
     MKCoordinateSpan span = MKCoordinateSpanMake(latdelta, lngdelta);
 
     [self.mapView setRegion:MKCoordinateRegionMake(originalRegion.center, span) animated:YES];
