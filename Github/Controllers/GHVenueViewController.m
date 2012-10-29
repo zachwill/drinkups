@@ -59,13 +59,8 @@ static float kScrollViewOffset;
     [self centerMapToBarLocation];
     [self.mapView addAnnotation:self.drinkup.bar];
     
-    // Notifications
-    [self registerForNotifications];
-    
-    // Swipe Gesture Recognizer
-    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
-    swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
-    [self.view addGestureRecognizer:swipeGesture];
+    // UIGestureRecognizer
+    [self addGestures];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -80,7 +75,7 @@ static float kScrollViewOffset;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-#pragma mark - iPhone5
+#pragma mark - iPhone 5
 
 - (BOOL)isPhone5 {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
@@ -152,7 +147,7 @@ static float kScrollViewOffset;
 - (void)showMapAlert:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Switch To Maps"
                                                     message:@"Switch to the Maps application?"
-                                                   delegate:nil
+                                                   delegate:self
                                           cancelButtonTitle:@"Cancel"
                                           otherButtonTitles:nil];
     [alert addButtonWithTitle:@"OK" handler:^{
@@ -337,16 +332,42 @@ static float kScrollViewOffset;
 
 #pragma mark - UIGestureRecognizer
 
-- (void)didSwipe:(UISwipeGestureRecognizer *)gesture {
-    [self.navigationController popViewControllerAnimated:YES];
+- (void)addGestures {
+    
+    // Swipe Gesture Recognizer
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipeGesture];
+    
+    // Pinch Gesture Recognizer
+    UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
+        static MKCoordinateRegion originalRegion;
+        if (state == UIGestureRecognizerStateBegan) {
+            originalRegion = self.mapView.region;
+        }    
+
+        UIPinchGestureRecognizer *pinch = (UIPinchGestureRecognizer *)sender;
+        double latdelta = originalRegion.span.latitudeDelta / pinch.scale;
+        double lngdelta = originalRegion.span.longitudeDelta / pinch.scale;
+
+        latdelta = MAX(MIN(latdelta, 12), 0.002);
+        lngdelta = MAX(MIN(lngdelta, 12), 0.002);
+        MKCoordinateSpan span = MKCoordinateSpanMake(latdelta, lngdelta);
+
+        [self.mapView setRegion:MKCoordinateRegionMake(originalRegion.center, span) animated:YES];
+    }];
+    [self.view addGestureRecognizer:pinchGesture];
+    
+    // Tap Gesture
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
+        if ([sender locationInView:self.scrollView].y < kScrollViewOffset) {
+            // Ask the user to open the Maps application.
+            [self showMapAlert:sender];
+        }
+    }];
+    [self.scrollView addGestureRecognizer:tapGesture];
 }
 
-#pragma mark - NSNotificationCenter
-
-- (void)registerForNotifications {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(showMapAlert:)
-                                                 name:GHScrollViewTouchNotification
-                                               object:nil];
-}
 @end

@@ -11,7 +11,7 @@
 
 @class Drinkup;
 
-@interface GHVenueViewController : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate>
+@interface GHVenueViewController : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) Drinkup *drinkup;
 @property (nonatomic, strong) MKMapView *mapView;
