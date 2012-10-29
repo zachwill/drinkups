@@ -57,7 +57,7 @@ static float kScrollViewOffset;
 
     // Add bar to map
     [self centerMapToBarLocation];
-    [self.mapView addAnnotation:self.drinkup.bar];
+    [self.mapView addAnnotation:(id<MKAnnotation>)self.drinkup.bar];
     
     // UIGestureRecognizer
     [self addGestures];
@@ -136,23 +136,6 @@ static float kScrollViewOffset;
     MKMapRect mapRect = MKMapRectMake(point.x, point.y, 5000, 5000);
     self.mapView.region = MKCoordinateRegionForMapRect(mapRect);
     self.mapView.centerCoordinate = self.drinkup.bar.coordinate;
-}
-
-// Called by listening to NSNotificationCenter
-- (void)showMapAlert:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Switch To Maps"
-                                                    message:@"Switch to the Maps application?"
-                                                   delegate:self
-                                          cancelButtonTitle:@"Cancel"
-                                          otherButtonTitles:nil];
-    [alert addButtonWithTitle:@"OK" handler:^{
-        MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:self.drinkup.bar.coordinate addressDictionary:nil];
-        MKMapItem *map = [[MKMapItem alloc] initWithPlacemark:placemark];
-        map.name = self.drinkup.bar.name;
-        map.url = [NSURL URLWithString:self.drinkup.blog];
-        [map openInMapsWithLaunchOptions:nil];
-    }];
-    [alert show];
 }
 
 #pragma mark - GHBarInformationView
@@ -328,43 +311,57 @@ static float kScrollViewOffset;
 #pragma mark - UIGestureRecognizer
 
 - (void)addGestures {
-    
     // Swipe Gesture Recognizer
-    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }];
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipeBackward:)];
     swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:swipeGesture];
     
     // Pinch Gesture Recognizer
-    UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
-        static MKCoordinateRegion originalRegion;
-        if (state == UIGestureRecognizerStateBegan) {
-            originalRegion = self.mapView.region;
-        }    
-
-        UIPinchGestureRecognizer *pinch = (UIPinchGestureRecognizer *)sender;
-        double latdelta = originalRegion.span.latitudeDelta / pinch.scale;
-        double lngdelta = originalRegion.span.longitudeDelta / pinch.scale;
-
-        latdelta = MAX(MIN(latdelta, 12), 0.002);
-        lngdelta = MAX(MIN(lngdelta, 12), 0.002);
-        MKCoordinateSpan span = MKCoordinateSpanMake(latdelta, lngdelta);
-
-        [self.mapView setRegion:MKCoordinateRegionMake(originalRegion.center, span) animated:YES];
-    }];
+    UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(didPinchMapView:)];
     [self.view addGestureRecognizer:pinchGesture];
     
     // Tap Gesture
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
-        if ([sender locationInView:self.scrollView].y < kScrollViewOffset) {
-            // Ask the user to open the Maps application.
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self showMapAlert:sender];
-            });
-        }
-    }];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapMapView:)];
     [self.scrollView addGestureRecognizer:tapGesture];
+}
+
+- (void)didSwipeBackward:(UISwipeGestureRecognizer *)swipe {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)didPinchMapView:(UIPinchGestureRecognizer *)pinch {
+    static MKCoordinateRegion originalRegion;
+    if (pinch.state == UIGestureRecognizerStateBegan) {
+        originalRegion = self.mapView.region;
+    }    
+
+    double latdelta = originalRegion.span.latitudeDelta / pinch.scale;
+    double lngdelta = originalRegion.span.longitudeDelta / pinch.scale;
+
+    latdelta = MAX(MIN(latdelta, 12), 0.002);
+    lngdelta = MAX(MIN(lngdelta, 12), 0.002);
+    MKCoordinateSpan span = MKCoordinateSpanMake(latdelta, lngdelta);
+
+    [self.mapView setRegion:MKCoordinateRegionMake(originalRegion.center, span) animated:YES];
+}
+
+- (void)didTapMapView:(UITapGestureRecognizer *)tap {
+    if ([tap locationInView:self.scrollView].y < kScrollViewOffset) {
+        // Ask the user to open the Maps application.
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Switch To Maps"
+                                            message:@"Switch to the Maps application?"
+                                           delegate:self
+                                  cancelButtonTitle:@"Cancel"
+                                  otherButtonTitles:nil];
+        [alert addButtonWithTitle:@"OK" handler:^{
+            MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:self.drinkup.bar.coordinate addressDictionary:nil];
+            MKMapItem *map = [[MKMapItem alloc] initWithPlacemark:placemark];
+            map.name = self.drinkup.bar.name;
+            map.url = [NSURL URLWithString:self.drinkup.blog];
+            [map openInMapsWithLaunchOptions:nil];
+        }];
+        [alert show];
+    }
 }
 
 @end

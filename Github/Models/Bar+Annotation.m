@@ -11,7 +11,8 @@
 @implementation Bar (Annotation)
 
 - (CLLocationCoordinate2D)coordinate {
-    return CLLocationCoordinate2DMake(self.latitude.doubleValue, self.longitude.doubleValue);
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(self.latitude.doubleValue, self.longitude.doubleValue);
+    return coordinate;
 }
 
 - (NSString *)title {

@@ -55,7 +55,6 @@
 		7996E3561618B97400701DCE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7996E3551618B97400701DCE /* QuartzCore.framework */; };
 		7997E6E6161CC8CF00A332BD /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7997E6E5161CC8CF00A332BD /* Social.framework */; };
 		7997E6E9161D032600A332BD /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7997E6E8161D032600A332BD /* EventKit.framework */; };
-		7997E6EF161D3AD900A332BD /* GHScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7997E6EE161D3AD900A332BD /* GHScrollView.m */; };
 		7997E6F2161D3D4B00A332BD /* address_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7997E6F0161D3D4B00A332BD /* address_bar.png */; };
 		7997E6F3161D3D4B00A332BD /* address_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7997E6F1161D3D4B00A332BD /* address_bar@2x.png */; };
 		7997E6F6161D40BC00A332BD /* GHBarInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7997E6F5161D40BC00A332BD /* GHBarInformationView.m */; };
@@ -143,8 +142,6 @@
 		7996E3551618B97400701DCE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7997E6E5161CC8CF00A332BD /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		7997E6E8161D032600A332BD /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
-		7997E6ED161D3AD900A332BD /* GHScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHScrollView.h; sourceTree = "<group>"; };
-		7997E6EE161D3AD900A332BD /* GHScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHScrollView.m; sourceTree = "<group>"; };
 		7997E6F0161D3D4B00A332BD /* address_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = address_bar.png; sourceTree = "<group>"; };
 		7997E6F1161D3D4B00A332BD /* address_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "address_bar@2x.png"; sourceTree = "<group>"; };
 		7997E6F4161D40BC00A332BD /* GHBarInformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHBarInformationView.h; sourceTree = "<group>"; };
@@ -285,8 +282,6 @@
 				79A50A401618D1530083641D /* GHDrinkupCell.xib */,
 				7996E3521618AB1400701DCE /* GHLayout.h */,
 				7996E3531618AB1400701DCE /* GHLayout.m */,
-				7997E6ED161D3AD900A332BD /* GHScrollView.h */,
-				7997E6EE161D3AD900A332BD /* GHScrollView.m */,
 				7900877716198169000F24E1 /* GHVenue.xib */,
 				7997E6F4161D40BC00A332BD /* GHBarInformationView.h */,
 				7997E6F5161D40BC00A332BD /* GHBarInformationView.m */,
@@ -495,7 +490,6 @@
 				7996E3511618AA5F00701DCE /* GHDrinkupsViewController.m in Sources */,
 				7996E3541618AB1400701DCE /* GHLayout.m in Sources */,
 				79D0648E1618FF8D00C1AC97 /* GHVenueViewController.m in Sources */,
-				7997E6EF161D3AD900A332BD /* GHScrollView.m in Sources */,
 				7997E6F6161D40BC00A332BD /* GHBarInformationView.m in Sources */,
 				7997E6FD161D494900A332BD /* GHNotifications.m in Sources */,
 				79616842162A594A00A25EDB /* UIColor+Drinkups.m in Sources */,
