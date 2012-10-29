@@ -142,7 +142,7 @@ static float kScrollViewOffset;
 - (void)showMapAlert:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Switch To Maps"
                                                     message:@"Switch to the Maps application?"
-                                                   delegate:nil
+                                                   delegate:self
                                           cancelButtonTitle:@"Cancel"
                                           otherButtonTitles:nil];
     [alert addButtonWithTitle:@"OK" handler:^{
@@ -359,7 +359,9 @@ static float kScrollViewOffset;
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
         if ([sender locationInView:self.scrollView].y < kScrollViewOffset) {
             // Ask the user to open the Maps application.
-            [self showMapAlert:sender];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self showMapAlert:sender];
+            });
         }
     }];
     [self.scrollView addGestureRecognizer:tapGesture];
