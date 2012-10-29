@@ -54,7 +54,10 @@ static float kScrollViewOffset;
     [self.view insertSubview:self.mapView belowSubview:self.scrollView];
     [self addToolbarButtons];
     [self createParallaxViewOffset];
-    [self centerMapToLatitude:self.drinkup.bar.latitude longitude:self.drinkup.bar.longitude];
+
+    // Add bar to map
+    [self centerMapToBarLocation];
+    [self.mapView addAnnotation:self.drinkup.bar];
     
     // Notifications
     [self registerForNotifications];
@@ -138,25 +141,22 @@ static float kScrollViewOffset;
     return _mapView;
 }
 
-- (void)centerMapToLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude {
+- (void)centerMapToBarLocation {
     MKMapPoint point  = MKMapPointForCoordinate(self.drinkup.bar.coordinate);
     MKMapRect mapRect = MKMapRectMake(point.x, point.y, 5000, 5000);
     self.mapView.region = MKCoordinateRegionForMapRect(mapRect);
     self.mapView.centerCoordinate = self.drinkup.bar.coordinate;
-    [self.mapView addAnnotation:self.drinkup.bar];
 }
 
 // Called by listening to NSNotificationCenter
-- (void)switchToMaps:(id)sender {
+- (void)showMapAlert:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Switch To Maps"
                                                     message:@"Switch to the Maps application?"
                                                    delegate:nil
                                           cancelButtonTitle:@"Cancel"
                                           otherButtonTitles:nil];
     [alert addButtonWithTitle:@"OK" handler:^{
-        CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([self.drinkup.bar.latitude doubleValue],
-                                                                  [self.drinkup.bar.longitude doubleValue]);
-        MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coord addressDictionary:nil];
+        MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:self.drinkup.bar.coordinate addressDictionary:nil];
         MKMapItem *map = [[MKMapItem alloc] initWithPlacemark:placemark];
         map.name = self.drinkup.bar.name;
         map.url = [NSURL URLWithString:self.drinkup.blog];
@@ -288,14 +288,10 @@ static float kScrollViewOffset;
         __weak id weakSelf = self;
         [tweetVC setCompletionHandler:^(SLComposeViewControllerResult result) {
             if (result == SLComposeViewControllerResultDone) {
-                [weakSelf dismissViewControllerAnimated:YES completion:^{
-                    NSLog(@"Tweet, tweet.");
-                }];
-            } else {
-                [weakSelf dismissViewControllerAnimated:YES completion:^{
-                    NSLog(@"Tweet dismissed.");
-                }];
+                // Could be used for Flurry purposes.
+                NSLog(@"Tweet sent");
             }
+                [weakSelf dismissViewControllerAnimated:YES completion:nil];
         }];
         
         // Finally, present the tweet.
@@ -349,7 +345,7 @@ static float kScrollViewOffset;
 
 - (void)registerForNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(switchToMaps:)
+                                             selector:@selector(showMapAlert:)
                                                  name:GHScrollViewTouchNotification
                                                object:nil];
 }
