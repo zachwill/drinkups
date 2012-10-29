@@ -57,7 +57,7 @@ static float kScrollViewOffset;
 
     // Add bar to map
     [self centerMapToBarLocation];
-    [self.mapView addAnnotation:(id<MKAnnotation>)self.drinkup.bar];
+    [self.mapView addAnnotation:self.drinkup.bar];
     
     // UIGestureRecognizer
     [self addGestures];
@@ -313,16 +313,19 @@ static float kScrollViewOffset;
 - (void)addGestures {
     // Swipe Gesture Recognizer
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipeBackward:)];
+    swipeGesture.delegate  = self;
     swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:swipeGesture];
     
     // Pinch Gesture Recognizer
     UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(didPinchMapView:)];
+    pinchGesture.delegate = self;
     [self.view addGestureRecognizer:pinchGesture];
     
     // Tap Gesture
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapMapView:)];
-    [self.scrollView addGestureRecognizer:tapGesture];
+    tapGesture.delegate = self;
+    [self.view addGestureRecognizer:tapGesture];
 }
 
 - (void)didSwipeBackward:(UISwipeGestureRecognizer *)swipe {
