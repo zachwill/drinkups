@@ -32,8 +32,7 @@ static NSString * const kCellReuseIdentifier = @"Drinkup";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"GHDrinkupCell" bundle:nil]
-          forCellWithReuseIdentifier:kCellReuseIdentifier];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"GHDrinkupCell" bundle:nil] forCellWithReuseIdentifier:kCellReuseIdentifier];
     self.collectionView.backgroundColor = [UIColor gh_backgroundColor];
     [self refetchData];
     [self createPullToRefresh];

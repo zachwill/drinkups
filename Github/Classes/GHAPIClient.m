@@ -46,9 +46,9 @@ static NSString * const kAPIBaseURL = @"http://drinkups.herokuapp.com/api/v1/";
 
 #pragma mark - AFIncrementalStore
 
-// Return the "objects" array from Tastypie API
 - (id)representationOrArrayOfRepresentationsFromResponseObject:(id)responseObject {
     responseObject = [super representationOrArrayOfRepresentationsFromResponseObject:responseObject];
+    // Use the "objects" array from Tastypie's API
     NSArray *tastyPieObjects = [responseObject objectForKey:@"objects"];
     if ([responseObject isKindOfClass:[NSDictionary class]] && tastyPieObjects) {
         return tastyPieObjects;
@@ -87,11 +87,11 @@ static NSString * const kAPIBaseURL = @"http://drinkups.herokuapp.com/api/v1/";
     return mutableProperties;
 }
 
-// Use TastyPie's "resource_uri" field
 - (NSString *)resourceIdentifierForRepresentation:(NSDictionary *)representation
                                          ofEntity:(NSEntityDescription *)entity
                                      fromResponse:(NSHTTPURLResponse *)response
 {
+    // Use TastyPie's "resource_uri" field
     return representation[@"resource_uri"];
 }
 
