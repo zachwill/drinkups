@@ -45,7 +45,7 @@ static float kScrollViewOffset;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.scrollView.delegate  = self;
+    self.scrollView.delegate = self;
 
     if ([self isPhone5]) {
         kMapViewOffset    = -110.0f;
