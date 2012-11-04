@@ -12,15 +12,20 @@
 #import "Drinkup.h"
 #import "GHVenueViewController.h"
 
+// ***************************************************************************
+
 @interface GHDrinkupsViewController () <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
+// ***************************************************************************
+
 static const float kScrollViewThrottleOffset = 15.0f;
 static NSString * const kCellReuseIdentifier = @"Drinkup";
 
+// ***************************************************************************
 
 @implementation GHDrinkupsViewController
 

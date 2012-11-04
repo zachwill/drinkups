@@ -9,6 +9,8 @@
 #import "GHDataModel.h"
 #import "GHIncrementalStore.h"
 
+// ***************************************************************************
+
 @interface GHDataModel ()
 
 @property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
@@ -20,6 +22,7 @@
 
 @end
 
+// ***************************************************************************
 
 @implementation GHDataModel
 

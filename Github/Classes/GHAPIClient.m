@@ -9,14 +9,19 @@
 #import "GHAPIClient.h"
 #import "GHJSONFormatter.h"
 
+// ***************************************************************************
+
 @interface GHAPIClient ()
 
 @property (strong, nonatomic) GHJSONFormatter *jsonFormatter;
 
 @end
 
+// ***************************************************************************
+
 static NSString * const kAPIBaseURL = @"http://drinkups.herokuapp.com/api/v1/";
 
+// ***************************************************************************
 
 @implementation GHAPIClient
 
@@ -103,7 +108,7 @@ static NSString * const kAPIBaseURL = @"http://drinkups.herokuapp.com/api/v1/";
     return NO;
 }
 
-#pragma mark - Private Properties
+#pragma mark - Private
 
 - (GHJSONFormatter *)jsonFormatter {
     if (_jsonFormatter == nil) {

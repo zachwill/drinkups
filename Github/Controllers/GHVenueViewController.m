@@ -15,6 +15,8 @@
 #import "Bar+Annotation.h"
 #import "GHBarInformationView.h"
 
+// ***************************************************************************
+
 @interface GHVenueViewController ()
 
 @property (nonatomic, strong) GHBarInformationView *barView;
@@ -22,9 +24,12 @@
 
 @end
 
+// ***************************************************************************
+
 static float kMapViewOffset;
 static float kScrollViewOffset;
 
+// ***************************************************************************
 
 @implementation GHVenueViewController
 
