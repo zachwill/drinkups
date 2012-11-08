@@ -46,6 +46,7 @@ static float kScrollViewOffset;
 {
     [super viewDidLoad];
     self.scrollView.delegate = self;
+    self.scrollView.alwaysBounceVertical = YES;
 
     if ([self isPhone5]) {
         kMapViewOffset    = -110.0f;
@@ -92,8 +93,7 @@ static float kScrollViewOffset;
 - (void)createParallaxViewOffset {
     // Adjust the scrollView content size.
     float combinedChromeHeight = 88.0f;
-    float minimumScrollViewOffset = 0.5f;
-    float scrollViewHeight = self.view.frame.size.height - combinedChromeHeight + minimumScrollViewOffset;
+    float scrollViewHeight = self.view.frame.size.height - combinedChromeHeight;
     
     if ([self isPhone5] == NO) {
         // Off by another 88 points on iPhone 4?

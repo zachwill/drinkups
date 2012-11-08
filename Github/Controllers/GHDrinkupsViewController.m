@@ -34,9 +34,9 @@ static NSString * const kCellReuseIdentifier = @"Drinkup";
     [super viewDidLoad];
     [self.collectionView registerNib:[UINib nibWithNibName:@"GHDrinkupCell" bundle:nil] forCellWithReuseIdentifier:kCellReuseIdentifier];
     self.collectionView.backgroundColor = [UIColor gh_backgroundColor];
+    self.collectionView.alwaysBounceVertical = YES;
     [self refetchData];
     [self createPullToRefresh];
-    self.collectionView.alwaysBounceVertical = YES;
     [self customBackButton];
 }
 
