@@ -36,6 +36,7 @@ static NSString * const kCellReuseIdentifier = @"Drinkup";
     self.collectionView.backgroundColor = [UIColor gh_backgroundColor];
     [self refetchData];
     [self createPullToRefresh];
+    self.collectionView.alwaysBounceVertical = YES;
     [self customBackButton];
 }
 
