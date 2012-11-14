@@ -29,6 +29,8 @@ static NSString * const kCellReuseIdentifier = @"Drinkup";
 
 @implementation GHDrinkupsViewController
 
+#pragma mark - UIViewController
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -52,7 +54,7 @@ static NSString * const kCellReuseIdentifier = @"Drinkup";
 
 // Used on the next navigation controller.
 - (void)customBackButton {
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back"
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrow.png"]
                                                                    style:UIBarButtonItemStylePlain
                                                                   target:nil
                                                                   action:nil];

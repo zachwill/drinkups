@@ -33,6 +33,8 @@ static float kScrollViewOffset;
 
 @implementation GHVenueViewController
 
+#pragma mark - UIViewController
+
 - (id)initWithDrinkup:(Drinkup *)drinkup {
     self = [super initWithNibName:@"GHVenue" bundle:nil];
     if (!self) {
