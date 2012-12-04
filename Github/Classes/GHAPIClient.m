@@ -7,19 +7,23 @@
 //
 
 #import "GHAPIClient.h"
-#import "GHJSONFormatter.h"
-
-// ***************************************************************************
-
-@interface GHAPIClient ()
-
-@property (strong, nonatomic) GHJSONFormatter *jsonFormatter;
-
-@end
 
 // ***************************************************************************
 
 static NSString * const kAPIBaseURL = @"http://drinkups.herokuapp.com/api/v1/";
+
+static NSNumber * const GHJSONCoordinateFormatter(NSString *coordinate) {
+    NSNumberFormatter *coordinateFormatter = [[NSNumberFormatter alloc] init];
+    [coordinateFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    return [coordinateFormatter numberFromString:coordinate];
+}
+
+static NSDate * const GHJSONDateFormatter(NSString *date) {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+    dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZZZZ";
+    return [dateFormatter dateFromString:date];
+}
 
 // ***************************************************************************
 
@@ -37,8 +41,10 @@ static NSString * const kAPIBaseURL = @"http://drinkups.herokuapp.com/api/v1/";
 
 - (id)initWithBaseURL:(NSURL *)url {
     self = [super initWithBaseURL:url];
-    if (!self)
+    if (!self) {
         return nil;
+    }
+    
     [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
     [self setDefaultHeader:@"Accept" value:@"application/json"];
     return self;
@@ -74,12 +80,12 @@ static NSString * const kAPIBaseURL = @"http://drinkups.herokuapp.com/api/v1/";
                                                                         ofEntity:entity
                                                                     fromResponse:response] mutableCopy];
     if ([entity.name isEqualToString:@"Drinkup"]) {
-        NSDate *date = [self.jsonFormatter formatDate:representation[@"date"]];
+        NSDate *date = GHJSONDateFormatter(representation[@"date"]);
         mutableProperties[@"date"] = date;
         mutableProperties[@"drinkup_id"] = representation[@"id"];
     } else if ([entity.name isEqualToString:@"Bar"]) {
-        NSNumber *latitude  = [self.jsonFormatter formatCoordinate:representation[@"latitude"]];
-        NSNumber *longitude = [self.jsonFormatter formatCoordinate:representation[@"longitude"]];
+        NSNumber *latitude  = GHJSONCoordinateFormatter(representation[@"latitude"]);
+        NSNumber *longitude = GHJSONCoordinateFormatter(representation[@"longitude"]);
         mutableProperties[@"latitude"]  = latitude;
         mutableProperties[@"longitude"] = longitude;
         mutableProperties[@"bar_id"] = representation[@"id"];
@@ -106,15 +112,6 @@ static NSString * const kAPIBaseURL = @"http://drinkups.herokuapp.com/api/v1/";
                         inManagedObjectContext:(NSManagedObjectContext *)context
 {
     return NO;
-}
-
-#pragma mark - Private
-
-- (GHJSONFormatter *)jsonFormatter {
-    if (_jsonFormatter == nil) {
-        _jsonFormatter = [[GHJSONFormatter alloc] init];
-    }
-    return _jsonFormatter;
 }
 
 @end
