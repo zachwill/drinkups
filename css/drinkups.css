@@ -1,5 +1,5 @@
 body:after {
-  content: url(/img/home_screen.png) url(/img/black_iphone.png);
+  content: url(../img/home_screen.png) url(../img/black_iphone.png);
   display: none;
 }
 
@@ -9,14 +9,14 @@ body:after {
 }
 
 .iphone {
-  background: url(/img/black_iphone.png) no-repeat center center;
+  background: url(../img/black_iphone.png) no-repeat center center;
   height: 1000px;
   position: relative;
   width: 458px;
 }
 
 .light {
-  background: url(/img/light.png) no-repeat center center;
+  background: url(../img/light.png) no-repeat center center;
   height: 1000px;
   position: absolute;
   top: 0;
@@ -25,7 +25,7 @@ body:after {
 }
 
 .home {
-  background: url(/img/home_screen.png) no-repeat center center;
+  background: url(../img/home_screen.png) no-repeat center center;
   height: 1000px;
   position: absolute;
   top: 0;
@@ -34,7 +34,7 @@ body:after {
 }
 
 .next {
-  background: url(/img/next_screen.png) no-repeat center center;
+  background: url(../img/next_screen.png) no-repeat center center;
   height: 1000px;
   position: absolute;
   top: 0;
